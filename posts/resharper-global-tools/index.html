@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <meta content="#ffffff" name="theme-color" />
+  <meta content="#da532c" name="msapplication-TileColor" />
+
+  
+  <link href='&#x2F;icons&#x2F;site.webmanifest' rel="manifest" />
+  
+  
+  
+  <link href='&#x2F;icons&#x2F;favicon-16x16.png' rel="icon" sizes="16x16" type="image/png" />
+  
+  
+  <link href='&#x2F;icons&#x2F;favicon-32x32.png' rel="icon" sizes="32x32" type="image/png" />
+  
+  
+  <link href='&#x2F;icons&#x2F;apple-icon.png' rel="apple-touch-icon" sizes="180x180" />
+  
+
+  <link href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/themes/folio/galleria.folio.min.css"
+    rel="stylesheet" />
+  <link href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css" rel="stylesheet" />
+  <link href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;site.css' rel="stylesheet" />
+
+  
+  
+
+  <title>
+     burningdaylight | Getting started with Resharper Global Tools 
+  </title>
+
+  <script crossorigin="anonymous" src="https://kit.fontawesome.com/201b8d5e05.js"></script>
+
+  
+</head>
+
+<body class="has-background-white">
+  
+  <nav aria-label="section navigation" class="navbar is-light" role="navigation">
+    <div class="container">
+      <div class="navbar-brand">
+        <a class="navbar-item has-text-weight-bold" href="/">burningdaylight</a>
+        <a aria-expanded="false" aria-label="menu" class="navbar-burger burger" data-target="navMenu" role="button">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+      <div class="navbar-menu" id="navMenu">
+        <div class="navbar-end has-text-centered">
+          
+          <a class="navbar-item" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;'>
+            Home
+          </a>
+          
+          <a class="navbar-item" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;posts'>
+            Posts
+          </a>
+          
+          <a class="navbar-item" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;docs'>
+            Docs
+          </a>
+          
+          <a class="navbar-item" href='https:&#x2F;&#x2F;github.com&#x2F;n0mn0m'>
+            Repos
+          </a>
+          
+          <a class="navbar-item" id="nav-search" title="Search" data-target="#search-modal">
+            <span class="icon">
+              <i class="fas fa-search"></i>
+            </span>
+          </a>
+          <a class="navbar-item" id="dark-mode" title="Switch to dark theme">
+            <span class="icon">
+              <i class="fas fa-adjust"></i>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  
+
+  
+  
+
+  
+<section class="section pb-0">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-8 is-offset-2">
+        <article>
+          <h1 class="title">Getting started with Resharper Global Tools</h1>
+          <h2 class="subtitle"></h2>
+          <div class="columns is-multiline is-gapless">
+            <div class="column is-8">
+              
+  <p class="has-text-grey">
+    <span class="icon">
+      <i class="fas fa-user"></i>
+    </span>
+     published on
+    <span class="icon">
+      <i class="far fa-calendar-alt"></i>
+    </span>
+    <time datetime='2020-10-11'>October 11, 2020</time>
+  </p>
+
+            </div>
+            <div class="column is-4 has-text-right-desktop">
+              
+  <p class="has-text-grey">
+    <span class="icon">
+      <i class="far fa-clock"></i>
+    </span>
+    5 min,
+    <span class="icon">
+      <i class="fas fa-pencil-alt"></i>
+    </span>
+    938 words
+  </p>
+
+            </div>
+            <div class="column is-4">
+              
+            </div>
+            <div class="column is-8 has-text-right-desktop">
+               
+  <p>
+    <span class="has-text-black has-text-weight-normal">Tags:</span>
+    
+      <a class="link has-text-weight-light" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;tags&#x2F;resharper&#x2F;'>
+        <span class="icon is-small">
+          <i class="fas fa-tag fa-xs"></i>
+        </span>
+        resharper
+      </a>
+    
+      <a class="link has-text-weight-light" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;tags&#x2F;ci&#x2F;'>
+        <span class="icon is-small">
+          <i class="fas fa-tag fa-xs"></i>
+        </span>
+        ci
+      </a>
+    
+      <a class="link has-text-weight-light" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;tags&#x2F;csharp&#x2F;'>
+        <span class="icon is-small">
+          <i class="fas fa-tag fa-xs"></i>
+        </span>
+        csharp
+      </a>
+    
+      <a class="link has-text-weight-light" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;tags&#x2F;code-quality&#x2F;'>
+        <span class="icon is-small">
+          <i class="fas fa-tag fa-xs"></i>
+        </span>
+        code quality
+      </a>
+    
+  </p>
+ 
+            </div>
+          </div>
+          <div class="content has-text-justified">
+            <p>For a while now I've been interested in build tools, CI and code quality. I
+think I got a taste for it as a member of the PyMSSQL project and it has
+continued on from there. Recently I worked on the initial CI setup for a C#
+project. As part of the setup I took the time to look at what lint and
+analysis tools we wanted to integrate into our project.</p>
+<p>For C# some of the more common tools appear to be:</p>
+<ul>
+<li><a href="https://github.com/dotnet/roslyn-analyzers">Roslyn Analyzers</a></li>
+<li><a href="http://www.sonarsource.com">Sonarsource</a></li>
+<li><a href="https://www.ndepend.com">NDepend</a></li>
+<li><a href="https://www.jetbrains.com/resharper/">Jetbrains Resharper</a></li>
+</ul>
+<p>I won't go into the full criteria for our choice of Resharper (I'll update this post
+if I end up writing that up one day), instead I'll summarize that Resharper provided:</p>
+<ul>
+<li>easy cross platform setup</li>
+<li>ide/editor and shell agnostic</li>
+<li>works the same locally and in CI.</li>
+<li>opinionated by default</li>
+</ul>
+<h2 id="resharper-command-line-tools">Resharper Command Line Tools</h2>
+<p>From the <a href="https://www.jetbrains.com/help/resharper/ReSharper_Command_Line_Tools.html">docs</a></p>
+<pre style="background-color:#2b303b;">
+<code class="language-text" data-lang="text"><span style="color:#abb2bf;">ReSharper Command Line Tools is a set of free cross-platform standalone tools
+that help you integrate automatic code quality procedures into your CI, version
+control, or any other server.
+
+You can also run coverage analysis from the command line.
+
+The Command Line Tools package includes the following tools:
+
+- InspectCode, which executes hundreds of ReSharper code inspections
+- dupFinder, which detects duplicated code in the whole solution or narrower
+scope
+- CleanupCode, which instantly eliminates code style violations and ensures a
+uniform code base
+</span></code></pre><h2 id="install">Install</h2>
+<p>To get started with Resharper tools (assuming you already have .NET Core
+installed) run</p>
+<pre style="background-color:#2b303b;">
+<code class="language-bash" data-lang="bash"><span style="color:#5ebfcc;">cd </span><span style="color:#adb7c9;">&lt;</span><span style="color:#abb2bf;">project</span><span style="color:#adb7c9;">&gt;
+</span><span style="color:#abb2bf;">dotnet new tool-manifest
+</span><span style="color:#eb6772;">dotnet</span><span style="color:#abb2bf;"> tool install JetBrains.ReSharper.GlobalTools</span><span style="color:#eb6772;"> --version</span><span style="color:#abb2bf;"> 2020.2.4
+</span></code></pre>
+<p>Which installs the <a href="https://www.nuget.org/packages/JetBrains.ReSharper.GlobalTools/2020.2.4">Resharper Global Tools</a>
+at the project level. This then allows CI and other contributors to use
+<code>dotnet tool restore</code> in the future.</p>
+<h2 id="configuration">Configuration</h2>
+<p>Out of the box inspect, format, and dupefinder all have default configurations
+that work well. That said each team has their own needs and preferences you
+may want these tools to promote. While there are a few ways to configure
+these tools I found using <a href="https://www.jetbrains.com/help/resharper/Using_EditorConfig.html">editorconfig</a>
+to be the most human readable approach.</p>
+<p>For additional details on the editorconfig format see the <a href="https://editorconfig.org">docs</a>
+and this property <a href="https://www.jetbrains.com/help/rider/EditorConfig_Index.html">index</a>.</p>
+<h2 id="running">Running</h2>
+<p>Running the tools from a shell is relatively easy:</p>
+<pre style="background-color:#2b303b;">
+<code class="language-bash" data-lang="bash"><span style="color:#eb6772;">jb</span><span style="color:#abb2bf;"> cleanupcode</span><span style="color:#eb6772;"> --verbosity</span><span style="color:#adb7c9;">=</span><span style="color:#abb2bf;">ERROR</span><span style="color:#eb6772;"> --config</span><span style="color:#adb7c9;">=</span><span style="color:#abb2bf;">./.config/cleanup</span><span style="color:#eb6772;"> --settings</span><span style="color:#adb7c9;">=</span><span style="color:#abb2bf;">./.editorconfig</span><span style="color:#eb6772;"> --no-buildin-settings</span><span style="color:#abb2bf;"> ./Project.sln
+</span><span style="color:#eb6772;">jb</span><span style="color:#abb2bf;"> inspectcode</span><span style="color:#eb6772;"> --verbosity</span><span style="color:#adb7c9;">=</span><span style="color:#abb2bf;">ERROR Project.sln</span><span style="color:#eb6772;"> -o</span><span style="color:#adb7c9;">=</span><span style="color:#abb2bf;">./reports/resharperInspect.xml
+</span><span style="color:#eb6772;">jb</span><span style="color:#abb2bf;"> dupfinder</span><span style="color:#eb6772;"> --verbosity</span><span style="color:#adb7c9;">=</span><span style="color:#abb2bf;">ERROR Project..sln</span><span style="color:#eb6772;"> -o</span><span style="color:#adb7c9;">=</span><span style="color:#abb2bf;">./reports/resharperDupFinder.xml
+</span></code></pre>
+<p>One thing to note is that by default the autoformatting will attempt to enforce
+line endings. If you have a team working across multiple platforms and using <code>git</code>
+to automatically handle line endings these can come into conflict. It's up to
+you and your team to decide if you want to handle this by tweaking <code>git</code> behavior,
+<code>editorconfig</code> or another method.</p>
+<h2 id="ci">CI</h2>
+<p><em>If your using Team City see <a href="https://www.jetbrains.com/help/resharper/Detect_code_issues_in_a_build_using_ReSharper_and_TeamCity.html">this</a>
+doc for details.</em></p>
+<p>With everything running in our shell locally we can also set things up to run
+in our CI pipeline. Running the tools is easy as long as your CI platform has
+a shell like task/step/operator:</p>
+<pre style="background-color:#2b303b;">
+<code class="language-bash" data-lang="bash"><span style="color:#eb6772;">-</span><span style="color:#abb2bf;"> script: </span><span style="color:#adb7c9;">|
+    </span><span style="color:#eb6772;">dotnet</span><span style="color:#abb2bf;"> tool restore
+    </span><span style="color:#eb6772;">jb</span><span style="color:#abb2bf;"> cleanupcode</span><span style="color:#eb6772;"> --verbosity</span><span style="color:#adb7c9;">=</span><span style="color:#abb2bf;">ERROR</span><span style="color:#eb6772;"> --config</span><span style="color:#adb7c9;">=</span><span style="color:#abb2bf;">./.config/cleanup</span><span style="color:#eb6772;"> --settings</span><span style="color:#adb7c9;">=</span><span style="color:#abb2bf;">./.editorconfig</span><span style="color:#eb6772;"> --no-buildin-settings</span><span style="color:#abb2bf;"> ./Project.sln
+    </span><span style="color:#eb6772;">jb</span><span style="color:#abb2bf;"> inspectcode</span><span style="color:#eb6772;"> --verbosity</span><span style="color:#adb7c9;">=</span><span style="color:#abb2bf;">ERROR Project.sln</span><span style="color:#eb6772;"> -o</span><span style="color:#adb7c9;">=</span><span style="color:#abb2bf;">./reports/resharperInspect.xml
+    </span><span style="color:#eb6772;">jb</span><span style="color:#abb2bf;"> dupfinder</span><span style="color:#eb6772;"> --verbosity</span><span style="color:#adb7c9;">=</span><span style="color:#abb2bf;">ERROR Project..sln</span><span style="color:#eb6772;"> -o</span><span style="color:#adb7c9;">=</span><span style="color:#abb2bf;">./reports/resharperDupFinder.xml
+</span><span style="color:#eb6772;">displayName: </span><span style="color:#9acc76;">&#39;Resharper&#39;
+</span></code></pre>
+<p>Of course you will probably break these up for easier maintenance and
+reporting.</p>
+<p>Running the tools is easy. The trick is detecting when these tools find
+an issue. I'll share what I did in case it's helpful, but long term it
+would be great if Jetbrains had the tools exit with documented status
+codes for different issues. As it stands the tools only exit with an
+error if the tool fails, not when issues are reported.</p>
+<h3 id="cleanupcode">CleanupCode</h3>
+<p>Since <code>CleanupCode</code> will format our file rewriting it on disk we can use
+git to detect the change.</p>
+<pre style="background-color:#2b303b;">
+<code class="language-bash" data-lang="bash"><span style="color:#eb6772;">formatted</span><span style="color:#adb7c9;">=</span><span style="color:#9acc76;">$(</span><span style="color:#eb6772;">git</span><span style="color:#9acc76;"> status</span><span style="color:#eb6772;"> --porcelain</span><span style="color:#adb7c9;">=</span><span style="color:#9acc76;">v1 </span><span style="color:#db9d63;">2</span><span style="color:#adb7c9;">&gt;</span><span style="color:#9acc76;">/dev/null </span><span style="color:#adb7c9;">| </span><span style="color:#eb6772;">wc -l</span><span style="color:#9acc76;">)
+</span><span style="color:#5ebfcc;">exit </span><span style="color:#abb2bf;">$</span><span style="color:#eb6772;">formatted
+</span></code></pre><h3 id="dupfinder">dupFinder</h3>
+<p><code>dupFinder</code> outputs an XML file highlighting any issues found. Powershell's
+built in XML support makes it easy enough to query this file and see if any
+issues exist.</p>
+<pre style="background-color:#2b303b;">
+<code class="language-powershell" data-lang="powershell"><span style="color:#eb6772;">$Result </span><span style="color:#adb7c9;">= </span><span style="color:#5ebfcc;">Select-Xml </span><span style="color:#adb7c9;">-</span><span style="color:#abb2bf;">Path $(System.DefaultWorkingDirectory)</span><span style="color:#adb7c9;">/</span><span style="color:#abb2bf;">reports</span><span style="color:#adb7c9;">/</span><span style="color:#abb2bf;">resharperDupFinder.xml </span><span style="color:#adb7c9;">-</span><span style="color:#abb2bf;">XPath </span><span style="color:#9acc76;">&quot;/DuplicatesReport/Duplicates/*&quot;
+</span><span style="color:#cd74e8;">If </span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">$Result </span><span style="color:#adb7c9;">-eq </span><span style="color:#db9d63;">$null</span><span style="color:#abb2bf;">) { [</span><span style="color:#cd74e8;">Environment</span><span style="color:#abb2bf;">]::</span><span style="color:#cd74e8;">Exit</span><span style="color:#abb2bf;">(</span><span style="color:#db9d63;">0</span><span style="color:#abb2bf;">) } </span><span style="color:#cd74e8;">Else </span><span style="color:#abb2bf;">{ [</span><span style="color:#cd74e8;">Environment</span><span style="color:#abb2bf;">]::</span><span style="color:#cd74e8;">Exit</span><span style="color:#abb2bf;">(</span><span style="color:#db9d63;">1</span><span style="color:#abb2bf;">) }
+</span></code></pre><h3 id="inspectcode">InspectCode</h3>
+<p>Similar to <code>dupFinder</code> <code>InspectCode</code> documents issues with an XML file, and
+once again we can use Powershell to detect if there are any issues to fix.</p>
+<pre style="background-color:#2b303b;">
+<code class="language-powershell" data-lang="powershell"><span style="color:#eb6772;">$Result </span><span style="color:#adb7c9;">= </span><span style="color:#5ebfcc;">Select-Xml </span><span style="color:#adb7c9;">-</span><span style="color:#abb2bf;">Path $(System.DefaultWorkingDirectory)</span><span style="color:#adb7c9;">/</span><span style="color:#abb2bf;">reports</span><span style="color:#adb7c9;">/</span><span style="color:#abb2bf;">resharperInspect.xml </span><span style="color:#adb7c9;">-</span><span style="color:#abb2bf;">XPath </span><span style="color:#9acc76;">&quot;/Report/Issues/Project/*&quot;
+</span><span style="color:#cd74e8;">If </span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">$Result </span><span style="color:#adb7c9;">-eq </span><span style="color:#db9d63;">$null</span><span style="color:#abb2bf;">) { [</span><span style="color:#cd74e8;">Environment</span><span style="color:#abb2bf;">]::</span><span style="color:#cd74e8;">Exit</span><span style="color:#abb2bf;">(</span><span style="color:#db9d63;">0</span><span style="color:#abb2bf;">) } </span><span style="color:#cd74e8;">Else </span><span style="color:#abb2bf;">{ [</span><span style="color:#cd74e8;">Environment</span><span style="color:#abb2bf;">]::</span><span style="color:#cd74e8;">Exit</span><span style="color:#abb2bf;">(</span><span style="color:#db9d63;">1</span><span style="color:#abb2bf;">) }
+</span></code></pre>
+<p>And since <code>dupFinder</code> and <code>InspectCode</code> output XML it can be useful to save
+these as CI artifacts for review. In Azure Pipelines this looks like:</p>
+<pre style="background-color:#2b303b;">
+<code class="language-yaml" data-lang="yaml"><span style="color:#abb2bf;">- </span><span style="color:#eb6772;">task</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">PublishPipelineArtifact@1
+  inputs</span><span style="color:#abb2bf;">:
+    </span><span style="color:#eb6772;">targetPath</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&#39;$(System.DefaultWorkingDirectory)/reports/&#39;
+    </span><span style="color:#eb6772;">artifactName</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&#39;measurements&#39;
+  </span><span style="color:#eb6772;">condition</span><span style="color:#abb2bf;">: </span><span style="color:#eb6772;">always()
+  displayName</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&#39;Save ReSharper Results For Review.&#39;
+</span></code></pre><h2 id="wrapping-up">Wrapping Up</h2>
+<p>We've been using the ReSharper tools for a few months now and I have to say they
+provided what I was looking for in the beginning. The tools have been easy
+to use, help us maintain our code and haven't boxed us in or required a lot
+of extra time on configuration and unseen gotchas. The only criticism I have is
+cold start time is pretty slow for <code>cleanupcode</code>, and the return exit codes
+could be better. Both of these would also help with CI, and our git hook setup.
+Otherwise I think these will continue to serve us well and let us focus
+on our project delivery.</p>
+
+          </div>
+        </article>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+
+  
+  <section class="modal" id="search-modal">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+      <div class="field">
+        <p class="control has-icons-right">
+          <input class="input" id="search" placeholder="Search this website." type="search" />
+          <span class="icon is-small is-right">
+            <i class="fas fa-search"></i>
+          </span>
+        </p>
+      </div>
+      <div class="search-results">
+        <div class="search-results__items"></div>
+      </div>
+    </div>
+    <button aria-label="close" class="modal-close is-large"></button>
+  </section>
+  
+
+
+   
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <nav class="level">
+          
+          <div class="level-item has-text-centered">
+            <a
+              class="button is-black is-outlined"
+              href="https:&#x2F;&#x2F;burningdaylight.io&#x2F;posts&#x2F;git-hooks&#x2F;"
+            >
+              <span class="icon mr-2">
+                <i class="fas fa-arrow-circle-left"></i>
+              </span>
+              Roll your own git hook
+            </a>
+          </div>
+           
+          <div class="level-item has-text-centered">
+            <a
+              class="button is-black is-outlined"
+              href="https:&#x2F;&#x2F;burningdaylight.io&#x2F;posts&#x2F;group-by-python&#x2F;"
+            >
+              GroupBy Fun with SQL and Python<span class="icon ml-2">
+                <i class="fas fa-arrow-circle-right"></i>
+              </span>
+            </a>
+          </div>
+            
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+
+    
+
+  
+  <footer class="py-4 has-background-light">
+    <p class="has-text-centered">
+      Built with
+      <span class="icon is-small">
+        <i class="fas fa-code fa-xs"></i>
+      </span>
+      code and
+      <span class="icon is-small">
+        <i class="fas fa-heart fa-xs"></i>
+      </span>
+      love <br /> Powered By
+      <span class="icon is-small">
+        <i class="fas fa-power-off fa-xs"></i>
+      </span>
+      Zola <br />Posts licensed by <a href="https://creativecommons.org/publicdomain/zero/1.0/">Creative Commons CC0 1.0 </a><i class="fa fa-cc"></i>
+      <br /> Code licensed <a href="https://www.gnu.org/licenses/lgpl-3.0.txt">LGPL</a>
+    </p>
+  </footer>
+  
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sharer.js@latest/sharer.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/galleria.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.xkcd@1/dist/chart.xkcd.min.js"></script>
+  <script src="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/themes/folio/galleria.folio.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/elasticlunr/0.9.6/elasticlunr.min.js"></script>
+  <script src='https:&#x2F;&#x2F;burningdaylight.io&#x2F;search_index.en.js'></script>
+  <script src='https:&#x2F;&#x2F;burningdaylight.io&#x2F;js&#x2F;site.js'></script>
+
+    
+</body>
+
+</html>

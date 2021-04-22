@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <meta content="#ffffff" name="theme-color" />
+  <meta content="#da532c" name="msapplication-TileColor" />
+
+  
+  <link href='&#x2F;icons&#x2F;site.webmanifest' rel="manifest" />
+  
+  
+  
+  <link href='&#x2F;icons&#x2F;favicon-16x16.png' rel="icon" sizes="16x16" type="image/png" />
+  
+  
+  <link href='&#x2F;icons&#x2F;favicon-32x32.png' rel="icon" sizes="32x32" type="image/png" />
+  
+  
+  <link href='&#x2F;icons&#x2F;apple-icon.png' rel="apple-touch-icon" sizes="180x180" />
+  
+
+  <link href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/themes/folio/galleria.folio.min.css"
+    rel="stylesheet" />
+  <link href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css" rel="stylesheet" />
+  <link href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;site.css' rel="stylesheet" />
+
+  
+  
+
+  <title>
+     burningdaylight | Parsing Time with Python 
+  </title>
+
+  <script crossorigin="anonymous" src="https://kit.fontawesome.com/201b8d5e05.js"></script>
+
+  
+</head>
+
+<body class="has-background-white">
+  
+  <nav aria-label="section navigation" class="navbar is-light" role="navigation">
+    <div class="container">
+      <div class="navbar-brand">
+        <a class="navbar-item has-text-weight-bold" href="/">burningdaylight</a>
+        <a aria-expanded="false" aria-label="menu" class="navbar-burger burger" data-target="navMenu" role="button">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+      <div class="navbar-menu" id="navMenu">
+        <div class="navbar-end has-text-centered">
+          
+          <a class="navbar-item" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;'>
+            Home
+          </a>
+          
+          <a class="navbar-item" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;posts'>
+            Posts
+          </a>
+          
+          <a class="navbar-item" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;docs'>
+            Docs
+          </a>
+          
+          <a class="navbar-item" href='https:&#x2F;&#x2F;github.com&#x2F;n0mn0m'>
+            Repos
+          </a>
+          
+          <a class="navbar-item" id="nav-search" title="Search" data-target="#search-modal">
+            <span class="icon">
+              <i class="fas fa-search"></i>
+            </span>
+          </a>
+          <a class="navbar-item" id="dark-mode" title="Switch to dark theme">
+            <span class="icon">
+              <i class="fas fa-adjust"></i>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  
+
+  
+  
+
+  
+<section class="section pb-0">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-8 is-offset-2">
+        <article>
+          <h1 class="title">Parsing Time with Python</h1>
+          <h2 class="subtitle"></h2>
+          <div class="columns is-multiline is-gapless">
+            <div class="column is-8">
+              
+  <p class="has-text-grey">
+    <span class="icon">
+      <i class="fas fa-user"></i>
+    </span>
+     published on
+    <span class="icon">
+      <i class="far fa-calendar-alt"></i>
+    </span>
+    <time datetime='2020-01-23'>January 23, 2020</time>
+  </p>
+
+            </div>
+            <div class="column is-4 has-text-right-desktop">
+              
+  <p class="has-text-grey">
+    <span class="icon">
+      <i class="far fa-clock"></i>
+    </span>
+    4 min,
+    <span class="icon">
+      <i class="fas fa-pencil-alt"></i>
+    </span>
+    645 words
+  </p>
+
+            </div>
+            <div class="column is-4">
+              
+            </div>
+            <div class="column is-8 has-text-right-desktop">
+               
+  <p>
+    <span class="has-text-black has-text-weight-normal">Tags:</span>
+    
+      <a class="link has-text-weight-light" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;tags&#x2F;python&#x2F;'>
+        <span class="icon is-small">
+          <i class="fas fa-tag fa-xs"></i>
+        </span>
+        python
+      </a>
+    
+      <a class="link has-text-weight-light" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;tags&#x2F;time&#x2F;'>
+        <span class="icon is-small">
+          <i class="fas fa-tag fa-xs"></i>
+        </span>
+        time
+      </a>
+    
+      <a class="link has-text-weight-light" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;tags&#x2F;linux&#x2F;'>
+        <span class="icon is-small">
+          <i class="fas fa-tag fa-xs"></i>
+        </span>
+        linux
+      </a>
+    
+      <a class="link has-text-weight-light" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;tags&#x2F;string-parsing&#x2F;'>
+        <span class="icon is-small">
+          <i class="fas fa-tag fa-xs"></i>
+        </span>
+        string parsing
+      </a>
+    
+      <a class="link has-text-weight-light" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;tags&#x2F;cli&#x2F;'>
+        <span class="icon is-small">
+          <i class="fas fa-tag fa-xs"></i>
+        </span>
+        cli
+      </a>
+    
+  </p>
+ 
+            </div>
+          </div>
+          <div class="content has-text-justified">
+            <p>I recently had the need to measure time and performance on an application that
+interacted with a lot of on disk files. Most of the time when talking about
+timing and measurement in Python we see the use of <code>timeit</code> and various built
+in timing techniques. For this work I wanted a little more information about
+how the application was interacting with the system, and what the performance
+looked like from outside the application. Getting a rough view of this is
+pretty easy on a nix using
+<a href="http://man7.org/linux/man-pages/man1/time.1.html">/usr/bin/time</a>.</p>
+<h2 id="parsing-time">Parsing Time</h2>
+<p>To make use of <code>time</code> you simply call it with your application as an argument.
+You can find the <code>time</code> args with <code>man time</code>, but on useful one is the <code>-v</code> flag
+for more system information in the output, and an <code>--output</code> file path. Doing
+this you get a fair amount of page, time and system information in your output
+packaged up in a file that you can parse. In my script I'm also including some
+information in the file name so I can know what source file my application was
+parsing relating to that <code>time</code> information.</p>
+<pre style="background-color:#2b303b;">
+<code class="language-bash" data-lang="bash"><span style="font-style:italic;color:#5f697a;">#!/bin/bash
+
+</span><span style="color:#eb6772;">SRC_DIR_PATH</span><span style="color:#adb7c9;">=</span><span style="color:#9acc76;">/data
+</span><span style="color:#eb6772;">RESULTS</span><span style="color:#adb7c9;">=</span><span style="color:#9acc76;">/profile
+
+</span><span style="color:#cd74e8;">for</span><span style="color:#abb2bf;"> file </span><span style="color:#cd74e8;">in </span><span style="color:#abb2bf;">$</span><span style="color:#eb6772;">SRD_DIR_FILES</span><span style="color:#adb7c9;">; </span><span style="color:#cd74e8;">do
+   </span><span style="color:#eb6772;">filename</span><span style="color:#adb7c9;">=</span><span style="color:#9acc76;">$(</span><span style="color:#eb6772;">basename</span><span style="color:#adb7c9;"> -- </span><span style="color:#9acc76;">&quot;$</span><span style="color:#eb6772;">file</span><span style="color:#9acc76;">&quot;)
+   </span><span style="color:#eb6772;">filebase</span><span style="color:#adb7c9;">=</span><span style="color:#9acc76;">&quot;${</span><span style="color:#eb6772;">filename</span><span style="color:#adb7c9;">%</span><span style="color:#9acc76;">.</span><span style="color:#adb7c9;">*</span><span style="color:#9acc76;">}&quot;
+   </span><span style="color:#5ebfcc;">echo </span><span style="color:#abb2bf;">$</span><span style="color:#eb6772;">filebase
+   /usr/bin/time -v --output</span><span style="color:#adb7c9;">=</span><span style="color:#abb2bf;">$</span><span style="color:#eb6772;">PROFILE_RESULTS_DIR</span><span style="color:#abb2bf;">$</span><span style="color:#eb6772;">filebase</span><span style="color:#abb2bf;">.txt cmd args
+   </span><span style="color:#5ebfcc;">echo </span><span style="color:#9acc76;">&quot;done&quot;
+</span><span style="color:#cd74e8;">done
+
+</span><span style="color:#eb6772;">ls -1sh </span><span style="color:#abb2bf;">$</span><span style="color:#eb6772;">SRC_DIR_PATH </span><span style="color:#adb7c9;">&amp;&gt;</span><span style="color:#abb2bf;"> profiled_directory.size
+</span></code></pre>
+<p>Once the application has ran you can see the output of time in your file,
+but you will also probably notice that it's just a text blob not ready for
+aggregation. Overall parsing time is relatively straight forward with one
+gotcha. I use the below to translate the blob into rows and columns:</p>
+<pre style="background-color:#2b303b;">
+<code class="language-python" data-lang="python"><span style="color:#cd74e8;">import </span><span style="color:#abb2bf;">os
+</span><span style="color:#cd74e8;">from </span><span style="color:#abb2bf;">typing </span><span style="color:#cd74e8;">import </span><span style="color:#abb2bf;">Tuple, List, Any, Union
+
+
+</span><span style="color:#cd74e8;">def </span><span style="color:#5cb3fa;">format_time_profile_output</span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">fpath</span><span style="color:#abb2bf;">, </span><span style="color:#eb6772;">fobject</span><span style="color:#abb2bf;">) -&gt; List[Any]:
+    </span><span style="font-style:italic;color:#5f697a;">&quot;&quot;&quot;
+    Takes a directory of files containing the output of /usr/bin/time
+    and transforms the time blob data to a series of rows and columns.
+    &quot;&quot;&quot;
+    </span><span style="color:#abb2bf;">f </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">os.path.</span><span style="color:#eb6772;">join</span><span style="color:#abb2bf;">(fpath, fobject)
+    time_metrics </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">[fobject]
+
+    </span><span style="color:#cd74e8;">with </span><span style="color:#5ebfcc;">open</span><span style="color:#abb2bf;">(f, </span><span style="color:#9acc76;">&quot;r&quot;</span><span style="color:#abb2bf;">) </span><span style="color:#cd74e8;">as </span><span style="color:#abb2bf;">tfile:
+        </span><span style="color:#cd74e8;">for </span><span style="color:#abb2bf;">line </span><span style="color:#cd74e8;">in </span><span style="color:#abb2bf;">tfile:
+            </span><span style="color:#cd74e8;">if </span><span style="color:#9acc76;">&quot;Elapsed&quot; </span><span style="color:#cd74e8;">not in </span><span style="color:#abb2bf;">line:
+                clean_line </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">line.</span><span style="color:#eb6772;">lstrip</span><span style="color:#abb2bf;">()
+                metric, sep, value </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">clean_line.</span><span style="color:#eb6772;">rpartition</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&quot;:&quot;</span><span style="color:#abb2bf;">)
+                time_metrics.</span><span style="color:#eb6772;">append</span><span style="color:#abb2bf;">(value.</span><span style="color:#eb6772;">strip</span><span style="color:#abb2bf;">())
+            </span><span style="color:#cd74e8;">else</span><span style="color:#abb2bf;">:
+                </span><span style="font-style:italic;color:#5f697a;"># Handling the special case of the Elapsed time
+                # format using : in the time formatting.
+                </span><span style="color:#abb2bf;">clean_line </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">line.</span><span style="color:#eb6772;">lstrip</span><span style="color:#abb2bf;">()
+                metric, sep, seconds </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">clean_line.</span><span style="color:#eb6772;">rpartition</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&quot;:&quot;</span><span style="color:#abb2bf;">)
+                </span><span style="font-style:italic;color:#5f697a;"># we now have something like val = 43.45
+                # metric = Elapsed (Wall Clock) time (H:MM:SS or M:ss) 1
+                # partition again on metric, then combine back our time.
+                </span><span style="color:#abb2bf;">metric, sep, minutes </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">metric.</span><span style="color:#eb6772;">rpartition</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&quot;:&quot;</span><span style="color:#abb2bf;">)
+                </span><span style="font-style:italic;color:#5f697a;"># put time back into metrics
+                </span><span style="color:#abb2bf;">value </span><span style="color:#adb7c9;">= </span><span style="color:#cd74e8;">f</span><span style="color:#9acc76;">&quot;</span><span style="color:#abb2bf;">{</span><span style="color:#5ebfcc;">min</span><span style="color:#abb2bf;">}</span><span style="color:#9acc76;">:</span><span style="color:#abb2bf;">{secs}</span><span style="color:#9acc76;">&quot;
+                </span><span style="color:#abb2bf;">time_metrics.</span><span style="color:#eb6772;">append</span><span style="color:#abb2bf;">(value.</span><span style="color:#eb6772;">strip</span><span style="color:#abb2bf;">())
+                </span><span style="font-style:italic;color:#5f697a;"># setup tool second metric for easier evaluation of
+                # time metrics
+                </span><span style="color:#abb2bf;">minutes </span><span style="color:#adb7c9;">= </span><span style="color:#5ebfcc;">float</span><span style="color:#abb2bf;">(</span><span style="color:#5ebfcc;">int</span><span style="color:#abb2bf;">(minutes) </span><span style="color:#adb7c9;">* </span><span style="color:#db9d63;">60</span><span style="color:#abb2bf;">)
+                seconds </span><span style="color:#adb7c9;">= </span><span style="color:#5ebfcc;">float</span><span style="color:#abb2bf;">(seconds)
+                seconds </span><span style="color:#adb7c9;">+= </span><span style="color:#abb2bf;">minutes
+                time_metrics.</span><span style="color:#eb6772;">append</span><span style="color:#abb2bf;">(seconds)
+    </span><span style="color:#cd74e8;">return </span><span style="color:#abb2bf;">time_metrics
+</span></code></pre>
+<p>Notice the one edge case in <code>Elapsed (wall clock) time...)</code>. All other
+rows end with <code>\n</code> and seperate the metric name from the value with <code>:</code>.
+Elapsed wall clock time however throws in a couple extra colons for fun.
+Overall not a big deal, but a little gotcha waiting in the details when
+going from a string to another object/format.</p>
+<p>Using the script above you end up with a collection of rows and columns
+that you can then use to find out how your application performed for that
+run instance.</p>
+<p>A quick bonus script, since my application was reading in and writing
+out new files I wanted to include the size of the input files so I
+could begin to understand the impact of the input file size on the
+applications time metrics.</p>
+<pre style="background-color:#2b303b;">
+<code class="language-python" data-lang="python"><span style="color:#cd74e8;">import </span><span style="color:#abb2bf;">os
+
+</span><span style="color:#cd74e8;">def </span><span style="color:#5cb3fa;">format_size_output</span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">fpath</span><span style="color:#abb2bf;">, </span><span style="color:#eb6772;">fobject</span><span style="color:#abb2bf;">) -&gt; List[List[str]]:
+    f </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">os.path.</span><span style="color:#eb6772;">join</span><span style="color:#abb2bf;">(fpath, fobject)
+    size_metrics </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">[]
+
+    </span><span style="color:#cd74e8;">with </span><span style="color:#5ebfcc;">open</span><span style="color:#abb2bf;">(f, </span><span style="color:#9acc76;">&quot;r&quot;</span><span style="color:#abb2bf;">) </span><span style="color:#cd74e8;">as </span><span style="color:#abb2bf;">sfile:
+        </span><span style="color:#cd74e8;">for </span><span style="color:#abb2bf;">line </span><span style="color:#cd74e8;">in </span><span style="color:#abb2bf;">sfile:
+            metric, sep, filename </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">line.</span><span style="color:#eb6772;">rpartition</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&quot; &quot;</span><span style="color:#abb2bf;">)
+            size_metrics.</span><span style="color:#eb6772;">append</span><span style="color:#abb2bf;">([metric.</span><span style="color:#eb6772;">strip</span><span style="color:#abb2bf;">(), filename.</span><span style="color:#eb6772;">strip</span><span style="color:#abb2bf;">()])
+    </span><span style="color:#cd74e8;">return </span><span style="color:#abb2bf;">size_metrics[</span><span style="color:#db9d63;">1</span><span style="color:#abb2bf;">:]
+</span></code></pre>
+<p>With this and the above time parsing we have the input file size, name,
+application command, page and time information. More than enough to begin
+looking at what our application is doing from the outside.</p>
+
+          </div>
+        </article>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+
+  
+  <section class="modal" id="search-modal">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+      <div class="field">
+        <p class="control has-icons-right">
+          <input class="input" id="search" placeholder="Search this website." type="search" />
+          <span class="icon is-small is-right">
+            <i class="fas fa-search"></i>
+          </span>
+        </p>
+      </div>
+      <div class="search-results">
+        <div class="search-results__items"></div>
+      </div>
+    </div>
+    <button aria-label="close" class="modal-close is-large"></button>
+  </section>
+  
+
+
+   
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <nav class="level">
+          
+          <div class="level-item has-text-centered">
+            <a
+              class="button is-black is-outlined"
+              href="https:&#x2F;&#x2F;burningdaylight.io&#x2F;posts&#x2F;mocking-context&#x2F;"
+            >
+              <span class="icon mr-2">
+                <i class="fas fa-arrow-circle-left"></i>
+              </span>
+              Providing Context with Mocks
+            </a>
+          </div>
+           
+          <div class="level-item has-text-centered">
+            <a
+              class="button is-black is-outlined"
+              href="https:&#x2F;&#x2F;burningdaylight.io&#x2F;posts&#x2F;airflow-log-cleanup&#x2F;"
+            >
+              Cleaning Airflow Logs<span class="icon ml-2">
+                <i class="fas fa-arrow-circle-right"></i>
+              </span>
+            </a>
+          </div>
+            
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+
+    
+
+  
+  <footer class="py-4 has-background-light">
+    <p class="has-text-centered">
+      Built with
+      <span class="icon is-small">
+        <i class="fas fa-code fa-xs"></i>
+      </span>
+      code and
+      <span class="icon is-small">
+        <i class="fas fa-heart fa-xs"></i>
+      </span>
+      love <br /> Powered By
+      <span class="icon is-small">
+        <i class="fas fa-power-off fa-xs"></i>
+      </span>
+      Zola <br />Posts licensed by <a href="https://creativecommons.org/publicdomain/zero/1.0/">Creative Commons CC0 1.0 </a><i class="fa fa-cc"></i>
+      <br /> Code licensed <a href="https://www.gnu.org/licenses/lgpl-3.0.txt">LGPL</a>
+    </p>
+  </footer>
+  
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sharer.js@latest/sharer.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/galleria.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.xkcd@1/dist/chart.xkcd.min.js"></script>
+  <script src="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/themes/folio/galleria.folio.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/elasticlunr/0.9.6/elasticlunr.min.js"></script>
+  <script src='https:&#x2F;&#x2F;burningdaylight.io&#x2F;search_index.en.js'></script>
+  <script src='https:&#x2F;&#x2F;burningdaylight.io&#x2F;js&#x2F;site.js'></script>
+
+    
+</body>
+
+</html>

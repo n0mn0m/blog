@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <meta content="#ffffff" name="theme-color" />
+  <meta content="#da532c" name="msapplication-TileColor" />
+
+  
+  <link href='&#x2F;icons&#x2F;site.webmanifest' rel="manifest" />
+  
+  
+  
+  <link href='&#x2F;icons&#x2F;favicon-16x16.png' rel="icon" sizes="16x16" type="image/png" />
+  
+  
+  <link href='&#x2F;icons&#x2F;favicon-32x32.png' rel="icon" sizes="32x32" type="image/png" />
+  
+  
+  <link href='&#x2F;icons&#x2F;apple-icon.png' rel="apple-touch-icon" sizes="180x180" />
+  
+
+  <link href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/themes/folio/galleria.folio.min.css"
+    rel="stylesheet" />
+  <link href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css" rel="stylesheet" />
+  <link href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;site.css' rel="stylesheet" />
+
+  
+  
+
+  <title>
+     burningdaylight | Subdomain SSL with Gitlab Pages 
+  </title>
+
+  <script crossorigin="anonymous" src="https://kit.fontawesome.com/201b8d5e05.js"></script>
+
+  
+</head>
+
+<body class="has-background-white">
+  
+  <nav aria-label="section navigation" class="navbar is-light" role="navigation">
+    <div class="container">
+      <div class="navbar-brand">
+        <a class="navbar-item has-text-weight-bold" href="/">burningdaylight</a>
+        <a aria-expanded="false" aria-label="menu" class="navbar-burger burger" data-target="navMenu" role="button">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+      <div class="navbar-menu" id="navMenu">
+        <div class="navbar-end has-text-centered">
+          
+          <a class="navbar-item" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;'>
+            Home
+          </a>
+          
+          <a class="navbar-item" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;posts'>
+            Posts
+          </a>
+          
+          <a class="navbar-item" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;docs'>
+            Docs
+          </a>
+          
+          <a class="navbar-item" href='https:&#x2F;&#x2F;github.com&#x2F;n0mn0m'>
+            Repos
+          </a>
+          
+          <a class="navbar-item" id="nav-search" title="Search" data-target="#search-modal">
+            <span class="icon">
+              <i class="fas fa-search"></i>
+            </span>
+          </a>
+          <a class="navbar-item" id="dark-mode" title="Switch to dark theme">
+            <span class="icon">
+              <i class="fas fa-adjust"></i>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  
+
+  
+  
+
+  
+<section class="section pb-0">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-8 is-offset-2">
+        <article>
+          <h1 class="title">Subdomain SSL with Gitlab Pages</h1>
+          <h2 class="subtitle"></h2>
+          <div class="columns is-multiline is-gapless">
+            <div class="column is-8">
+              
+  <p class="has-text-grey">
+    <span class="icon">
+      <i class="fas fa-user"></i>
+    </span>
+     published on
+    <span class="icon">
+      <i class="far fa-calendar-alt"></i>
+    </span>
+    <time datetime='2019-02-10'>February 10, 2019</time>
+  </p>
+
+            </div>
+            <div class="column is-4 has-text-right-desktop">
+              
+  <p class="has-text-grey">
+    <span class="icon">
+      <i class="far fa-clock"></i>
+    </span>
+    4 min,
+    <span class="icon">
+      <i class="fas fa-pencil-alt"></i>
+    </span>
+    795 words
+  </p>
+
+            </div>
+            <div class="column is-4">
+              
+            </div>
+            <div class="column is-8 has-text-right-desktop">
+               
+  <p>
+    <span class="has-text-black has-text-weight-normal">Tags:</span>
+    
+      <a class="link has-text-weight-light" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;tags&#x2F;gitlab&#x2F;'>
+        <span class="icon is-small">
+          <i class="fas fa-tag fa-xs"></i>
+        </span>
+        gitlab
+      </a>
+    
+      <a class="link has-text-weight-light" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;tags&#x2F;ssl&#x2F;'>
+        <span class="icon is-small">
+          <i class="fas fa-tag fa-xs"></i>
+        </span>
+        ssl
+      </a>
+    
+      <a class="link has-text-weight-light" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;tags&#x2F;pelican&#x2F;'>
+        <span class="icon is-small">
+          <i class="fas fa-tag fa-xs"></i>
+        </span>
+        pelican
+      </a>
+    
+      <a class="link has-text-weight-light" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;tags&#x2F;python&#x2F;'>
+        <span class="icon is-small">
+          <i class="fas fa-tag fa-xs"></i>
+        </span>
+        python
+      </a>
+    
+  </p>
+ 
+            </div>
+          </div>
+          <div class="content has-text-justified">
+            <p><strong>This is out of date, I have since switched to self hosting gitea and AWS.</strong></p>
+<p>A few months ago I decided to migrate my Pelican site from Github to Gitlab.
+This was motivated largely by that fact that Gitlab has CI/CD built in by
+default. During this migration I also decided it was time to setup my own
+SSL certificate for <a href="https://burningdaylight.io">burningdaylight.io</a>. Since this
+was new I looked around to see if there was any documentation readily available
+, and I found
+<a href="https://fedoramagazine.org/gitlab-pelican-lets-encrypt-secure-blog/">this</a>
+wonderful tutorial from Fedora Magazine.</p>
+<p>Between that and the Gitlab
+<a href="https://docs.gitlab.com/ee/user/project/pages/getting_started_part_three.html">custom domain and ssl</a>
+I was able to get up and running pretty quickly. I had accomplished my goals:</p>
+<ul>
+<li>migrate to Gitlab</li>
+<li>setup CI/CD of the Pelican site project</li>
+<li>setup ssl</li>
+</ul>
+<p>Good to go, done in an afternoon with plenty of time to work on a new post.
+I thought.</p>
+<p>About a week later I was on a different computer and instead of browsing to
+<a href="https://burningdaylight.io">https://burningdaylight.io</a> I went to <a href="https://www.burningdaylight.io">https://www.burningdaylight.io</a> and Firefox
+blocked my request citing an SSL certificate error. Wondering what I had done
+wrong I started tracing back through what I had done and realized that I had
+only setup SSL certificate for my primary domain. Luckily last year lets
+encrypt added support for
+<a href="https://community.letsencrypt.org/t/certbot-0-22-0-release-with-acmev2-and-wildcard-support/55061">wildcard</a>
+certificates to certbot. Unfortunately that has not been included in a
+<a href="https://community.letsencrypt.org/t/certbot-the-currently-selected-acme-ca-endpoint-does-not-support-issuing-wildcard-certificates/55667/8">release</a>
+so there's a couple steps that differ from the original Fedora article above.</p>
+<h2 id="setup-instructions">Setup Instructions</h2>
+<p>Below are the steps to use certbot, gitlab pages and your domain management
+console to setup SSL for your subdomains. This assumes you are using a Debian
+based OS (I'm using Ubuntu 18.04) to install Certbot. If not swap out the
+certbot install steps for your OS and continue.</p>
+<p><strong>If you read the Fedora article linked above you do not need another key in
+<code>.well-known</code>. Instead for your subdomain you will validate with certbot by a
+DNS record setup via your Domain Management Console.</strong></p>
+<pre style="background-color:#2b303b;">
+<code class="language-bash" data-lang="bash"><span style="color:#eb6772;">sudo</span><span style="color:#abb2bf;"> aptget install certbot
+</span></code></pre><pre style="background-color:#2b303b;">
+<code class="language-bash" data-lang="bash"><span style="color:#eb6772;">certbot</span><span style="color:#abb2bf;"> certonly</span><span style="color:#eb6772;"> -a</span><span style="color:#abb2bf;"> manual</span><span style="color:#eb6772;"> -d </span><span style="color:#adb7c9;">*</span><span style="color:#abb2bf;">.</span><span style="color:#adb7c9;">&lt;</span><span style="color:#abb2bf;">yourdomainhere</span><span style="color:#adb7c9;">&gt;</span><span style="color:#abb2bf;">.</span><span style="color:#adb7c9;">&lt;</span><span style="color:#abb2bf;">topleveldomainhere</span><span style="color:#adb7c9;">&gt; </span><span style="color:#abb2bf;">\
+--config-dir </span><span style="color:#eb6772;">~</span><span style="color:#abb2bf;">/letsencrypt/config</span><span style="color:#eb6772;"> --work-dir ~</span><span style="color:#abb2bf;">/letsencrypt/work \
+</span><span style="color:#eb6772;">--logs-dir ~</span><span style="color:#abb2bf;">/letsencrypt/logs \
+</span><span style="color:#eb6772;">--server</span><span style="color:#abb2bf;"> https://acme-v02.api.letsencrypt.org/directory
+</span></code></pre>
+<p>Follow the instructions entering your email, reviewing ToS, etc</p>
+<p>You will then see this prompt:</p>
+<pre style="background-color:#2b303b;">
+<code class="language-bash" data-lang="bash"><span style="color:#eb6772;">Please</span><span style="color:#abb2bf;"> deploy a DNS TXT record under the name
+</span><span style="color:#eb6772;">_acme-challenge.burningdaylight.io</span><span style="color:#abb2bf;"> with the following value:
+</span></code></pre>
+<p>Login to your domain management console and setup a txt record similar to:</p>
+<table><thead><tr><th align="center">NAME</th><th align="center">TYPE</th><th align="center">TTL</th><th align="center">VALUE</th></tr></thead><tbody>
+<tr><td align="center">_acme-challenge</td><td align="center">TXT</td><td align="center">1800</td><td align="center">your code from the terminal prompt above</td></tr>
+</tbody></table>
+<p>Once you have this setup it's a good idea to wait a couple minutes since this
+record will populate via DNS and then return to your console and hit enter.</p>
+<p>Once certbot validates the <code>TXT</code> record is available as part of your domain it
+will provide you the new location of your <code>fullchain.pem</code> and <code>privkey.pem</code>
+files for use with Gitlab pages.</p>
+<p>With these files ready to go browse to your Gitlab page settings and setup your
+subdomains as documented here and
+<a href="https://docs.gitlab.com/ee/user/project/pages/getting_started_part_three.html">here</a>.</p>
+<p>I highly recommend reading the Gitlab documentation above, but to summarize:</p>
+<ul>
+<li>In your Gitlab pages project settings click add a new site</li>
+<li>Enter the url</li>
+<li>Add the data from your <code>fullchain.pem</code> and <code>privkey.pem</code> files generated via
+certbot</li>
+<li>Copy the <code>gitlab-pages-verfication-code=</code> section from the Gitlab validation
+record box</li>
+<li>Login to your domain management console</li>
+<li>Setup a new <code>TXT</code> record for your subdomain:</li>
+</ul>
+<table><thead><tr><th align="center">NAME</th><th align="center">TYPE</th><th align="center">TTL</th><th align="center">VALUE</th></tr></thead><tbody>
+<tr><td align="center">WWW</td><td align="center">TXT</td><td align="center">1800</td><td align="center">gitlab-pages-verification-code=<gitlabcode></td></tr>
+</tbody></table>
+<ul>
+<li>Setup a new <code>A</code> record for</li>
+</ul>
+<p><a href="https://docs.gitlab.com/ee/user/project/pages/getting_started_part_three.html">Gitlab</a></p>
+<table><thead><tr><th align="center">NAME</th><th align="center">TYPE</th><th align="center">TTL</th><th align="center">VALUE</th></tr></thead><tbody>
+<tr><td align="center">WWW</td><td align="center">A</td><td align="center">1800</td><td align="center">35.185.44.232</td></tr>
+</tbody></table>
+<ul>
+<li>Return to your Gitlab Pages settings console and click the verify button.</li>
+</ul>
+<h2 id="wrapping-up">Wrapping Up</h2>
+<p>With that you pages should show green and verified. If you browse to the
+different subdomains you setup then you should get through without any SSL
+problems.</p>
+<p>One thing to note is that you will need to renew your certbot certificate
+every 90 days. This is done via the <code>certbot renew</code> command. I've setup an
+Airflow dag to take care of this since I have Airflow managing various other
+things for me. You can see that <a href="https://gitlab.com/n0mn0m/docker-airflow">here</a></p>
+<p>Hopefully you find the above helpful. If you run into issues I recommend:</p>
+<ul>
+<li>Make sure you used the <code>*</code> wildcard in the domain cert setup</li>
+<li>Setup your _acme-challenge record correctly in your domain management console
+and left it there</li>
+<li>Setup the right <code>TXT</code> and <code>A</code> records for Gitlab</li>
+</ul>
+
+          </div>
+        </article>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+
+  
+  <section class="modal" id="search-modal">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+      <div class="field">
+        <p class="control has-icons-right">
+          <input class="input" id="search" placeholder="Search this website." type="search" />
+          <span class="icon is-small is-right">
+            <i class="fas fa-search"></i>
+          </span>
+        </p>
+      </div>
+      <div class="search-results">
+        <div class="search-results__items"></div>
+      </div>
+    </div>
+    <button aria-label="close" class="modal-close is-large"></button>
+  </section>
+  
+
+
+   
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <nav class="level">
+          
+          <div class="level-item has-text-centered">
+            <a
+              class="button is-black is-outlined"
+              href="https:&#x2F;&#x2F;burningdaylight.io&#x2F;posts&#x2F;what-is-odbc&#x2F;"
+            >
+              <span class="icon mr-2">
+                <i class="fas fa-arrow-circle-left"></i>
+              </span>
+              What is ODBC Part 1 of 3
+            </a>
+          </div>
+           
+          <div class="level-item has-text-centered">
+            <a
+              class="button is-black is-outlined"
+              href="https:&#x2F;&#x2F;burningdaylight.io&#x2F;posts&#x2F;vim-rust-2019&#x2F;"
+            >
+              Vim and Rust in 2019<span class="icon ml-2">
+                <i class="fas fa-arrow-circle-right"></i>
+              </span>
+            </a>
+          </div>
+            
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+
+    
+
+  
+  <footer class="py-4 has-background-light">
+    <p class="has-text-centered">
+      Built with
+      <span class="icon is-small">
+        <i class="fas fa-code fa-xs"></i>
+      </span>
+      code and
+      <span class="icon is-small">
+        <i class="fas fa-heart fa-xs"></i>
+      </span>
+      love <br /> Powered By
+      <span class="icon is-small">
+        <i class="fas fa-power-off fa-xs"></i>
+      </span>
+      Zola <br />Posts licensed by <a href="https://creativecommons.org/publicdomain/zero/1.0/">Creative Commons CC0 1.0 </a><i class="fa fa-cc"></i>
+      <br /> Code licensed <a href="https://www.gnu.org/licenses/lgpl-3.0.txt">LGPL</a>
+    </p>
+  </footer>
+  
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sharer.js@latest/sharer.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/galleria.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.xkcd@1/dist/chart.xkcd.min.js"></script>
+  <script src="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/themes/folio/galleria.folio.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/elasticlunr/0.9.6/elasticlunr.min.js"></script>
+  <script src='https:&#x2F;&#x2F;burningdaylight.io&#x2F;search_index.en.js'></script>
+  <script src='https:&#x2F;&#x2F;burningdaylight.io&#x2F;js&#x2F;site.js'></script>
+
+    
+</body>
+
+</html>

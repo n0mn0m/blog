@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <meta content="#ffffff" name="theme-color" />
+  <meta content="#da532c" name="msapplication-TileColor" />
+
+  
+  <link href='&#x2F;icons&#x2F;site.webmanifest' rel="manifest" />
+  
+  
+  
+  <link href='&#x2F;icons&#x2F;favicon-16x16.png' rel="icon" sizes="16x16" type="image/png" />
+  
+  
+  <link href='&#x2F;icons&#x2F;favicon-32x32.png' rel="icon" sizes="32x32" type="image/png" />
+  
+  
+  <link href='&#x2F;icons&#x2F;apple-icon.png' rel="apple-touch-icon" sizes="180x180" />
+  
+
+  <link href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/themes/folio/galleria.folio.min.css"
+    rel="stylesheet" />
+  <link href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css" rel="stylesheet" />
+  <link href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;site.css' rel="stylesheet" />
+
+  
+  
+
+  <title>
+     burningdaylight | Creating a Con Badge with PyPortal 
+  </title>
+
+  <script crossorigin="anonymous" src="https://kit.fontawesome.com/201b8d5e05.js"></script>
+
+  
+</head>
+
+<body class="has-background-white">
+  
+  <nav aria-label="section navigation" class="navbar is-light" role="navigation">
+    <div class="container">
+      <div class="navbar-brand">
+        <a class="navbar-item has-text-weight-bold" href="/">burningdaylight</a>
+        <a aria-expanded="false" aria-label="menu" class="navbar-burger burger" data-target="navMenu" role="button">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+      <div class="navbar-menu" id="navMenu">
+        <div class="navbar-end has-text-centered">
+          
+          <a class="navbar-item" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;'>
+            Home
+          </a>
+          
+          <a class="navbar-item" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;posts'>
+            Posts
+          </a>
+          
+          <a class="navbar-item" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;docs'>
+            Docs
+          </a>
+          
+          <a class="navbar-item" href='https:&#x2F;&#x2F;github.com&#x2F;n0mn0m'>
+            Repos
+          </a>
+          
+          <a class="navbar-item" id="nav-search" title="Search" data-target="#search-modal">
+            <span class="icon">
+              <i class="fas fa-search"></i>
+            </span>
+          </a>
+          <a class="navbar-item" id="dark-mode" title="Switch to dark theme">
+            <span class="icon">
+              <i class="fas fa-adjust"></i>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  
+
+  
+  
+
+  
+<section class="section pb-0">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-8 is-offset-2">
+        <article>
+          <h1 class="title">Creating a Con Badge with PyPortal</h1>
+          <h2 class="subtitle"></h2>
+          <div class="columns is-multiline is-gapless">
+            <div class="column is-8">
+              
+  <p class="has-text-grey">
+    <span class="icon">
+      <i class="fas fa-user"></i>
+    </span>
+     published on
+    <span class="icon">
+      <i class="far fa-calendar-alt"></i>
+    </span>
+    <time datetime='2019-07-14'>July 14, 2019</time>
+  </p>
+
+            </div>
+            <div class="column is-4 has-text-right-desktop">
+              
+  <p class="has-text-grey">
+    <span class="icon">
+      <i class="far fa-clock"></i>
+    </span>
+    8 min,
+    <span class="icon">
+      <i class="fas fa-pencil-alt"></i>
+    </span>
+    1547 words
+  </p>
+
+            </div>
+            <div class="column is-4">
+              
+            </div>
+            <div class="column is-8 has-text-right-desktop">
+               
+  <p>
+    <span class="has-text-black has-text-weight-normal">Tags:</span>
+    
+      <a class="link has-text-weight-light" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;tags&#x2F;circuitpython&#x2F;'>
+        <span class="icon is-small">
+          <i class="fas fa-tag fa-xs"></i>
+        </span>
+        circuitpython
+      </a>
+    
+      <a class="link has-text-weight-light" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;tags&#x2F;python&#x2F;'>
+        <span class="icon is-small">
+          <i class="fas fa-tag fa-xs"></i>
+        </span>
+        python
+      </a>
+    
+      <a class="link has-text-weight-light" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;tags&#x2F;hardware&#x2F;'>
+        <span class="icon is-small">
+          <i class="fas fa-tag fa-xs"></i>
+        </span>
+        hardware
+      </a>
+    
+      <a class="link has-text-weight-light" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;tags&#x2F;adafruit&#x2F;'>
+        <span class="icon is-small">
+          <i class="fas fa-tag fa-xs"></i>
+        </span>
+        adafruit
+      </a>
+    
+      <a class="link has-text-weight-light" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;tags&#x2F;gencon&#x2F;'>
+        <span class="icon is-small">
+          <i class="fas fa-tag fa-xs"></i>
+        </span>
+        gencon
+      </a>
+    
+  </p>
+ 
+            </div>
+          </div>
+          <div class="content has-text-justified">
+            <p>Recently I've heard about multiple people working on con badges and decided to
+try my hand at a simple take on the idea. Since I had just recently received my
+PyPortal Adabox I thought I would use that as my first platform to get started.</p>
+<p>From the product <a href="https://www.adafruit.com/product/4116">page</a> the PyPortal is:</p>
+<blockquote>
+<p>An easy-to-use IoT device that allows you to create all the things for the
+“Internet of Things” in minutes. Make custom touch screen interface GUIs,
+all open-source, and Python-powered using tinyJSON / APIs to get news, stock,
+weather, cat photos, and more – all over Wi-Fi with the latest technologies.
+Create little pocket universes of joy that connect to something good. Rotate
+it 90 degrees, it’s a web-connected conference badge #badgelife.</p>
+</blockquote>
+<p>Like many other CircuitPython powered devices the PyPortal has a great
+<a href="https://learn.adafruit.com/adafruit-pyportal">Explore and Learn</a> page
+available that walks you through getting the right firmware installed as well
+as providing hardware breakdowns, code demos and FAQ.</p>
+<p>Once I had the PyPortal up to date and had gone through a couple demos I landed
+on having my first badge being a simple menu systems. While many badges will
+contain easter eggs or ways to interact with other badges I decided to keep it
+simple for this first run. I wanted my badge to be able to display a couple
+pieces of static data and have a couple interactive options.</p>
+<p>I landed on a <code>Button</code> menu that would show a couple maps, a photo of my
+badge, a countdown to Gen Con, and a simple D20 roller.</p>
+<p><img src="/static/images/con-portal.jpg" alt="Gen Con 2019 PyPortal Badge" title="Gen Con 2019 PyPortal Badge" /></p>
+<p>Along the way I made extensive use of the
+<a href="https://circuitpython.readthedocs.io/en/latest/">docs</a> and
+<a href="https://github.com/adafruit">source code</a> that
+<a href="https://www.adafruit.com/">Adafruit</a> provides.</p>
+<p>I also found it easy to find documentation for the module I would pull in from
+the library modules by referencing the list of submodules on
+<a href="https://readthedocs.org/projects/circuitpython/">Read the Docs</a></p>
+<h2 id="curiosities">Curiosities</h2>
+<p>While building my badge I ran into some interesting edges that I hope to
+explore further. I'm sharing these here just in case somebody else reads this
+and can avoid similar pitfalls or suggest a different direction.</p>
+<ul>
+<li>Large buttons seem to lead to performance and OOM errors
+<ul>
+<li>Originally my menu had 8 buttons (one with information about Adafruit,
+another with information about the project), but that wasn't stable.
+After 3 or 4 clicks <code>gc</code> or something else couldn't keep up with the
+memory allocation and the badge would crash with a <code>MemoryError</code></li>
+<li>My schedule was also a menu of buttons originally. This let me setup a
+<code>list</code> of <code>tuples</code> I could manipulate in code, but when I had 5 buttons
+span the screen render time was visibly slow, and lead to inconsistent
+<code>OOM</code> errors.</li>
+</ul>
+</li>
+<li>Different fonts have different performance characteristics
+<ul>
+<li>Looking back this makes sense. Different glyphs will have different
+structures. Depending on that a glyph can place different loads on the
+system. I tried a few of the &quot;performance&quot; font from GoogleFonts, but
+ultimately landed on Arial Bold for a font that looked consistent,
+rendered quickly and didn't have a large file size.</li>
+</ul>
+</li>
+<li>Better ways to sleep?
+<ul>
+<li>My badge spends a lot of time in the main super loop polling if a
+button has been pressed. At this time I don't think CircuitPython
+supports interrupts. I hope in the future i can figure out a better was to
+let the device sleep, but capture an interrupt type event such as the
+display being touched.</li>
+</ul>
+</li>
+<li>PDB for CircuitPython
+<ul>
+<li>I spent a lot of time running snippets in the REPL. This is a nice
+experience to have for an embedded device, but I do miss having PDB or
+WebPDB to drop a breakpoint in my code, let it run and then inspect the
+stack, heap etc from a given point in my program. I believe MicroPython
+contains this functionality so I'm guessing it's possible with
+CircuitPython I just haven't dug in to make it happen yet.</li>
+</ul>
+</li>
+</ul>
+<h2 id="lessons-learned">Lessons Learned</h2>
+<p>Similar to the interesting behaviors I found above I learned a bit about
+developing with CircuitPython and how it can differ from my day to day Python
+development along the way.</p>
+<ul>
+<li>Python data structure sizes
+<ul>
+<li>Many code bases make liberal use of dictionaries. In fact some say that
+Python is built on top of the <code>dict</code> data structure. It's incredibly useful
+to look items up by key, and provides some human readability over indexing
+into a collection with no reference beyond position. That said Dictionaries
+are one of the <a href="https://stackoverflow.com/questions/1331471/in-memory-size-of-a-python-structure/1331541#1331541">largest</a>
+builtin Python objects. One of the reasons for this is something called a
+load factor that I won't go into now, but suffice to say as you add more
+objects to a dictionary and it approaches a given load factor it will
+automatically grow in size. Because of this in a memory constrained
+environment I found myself removing dictionaries or list of dicts and using
+more tuples and list of tuples.</li>
+</ul>
+</li>
+<li>Take out the garbage
+<ul>
+<li>Python Garbage Collection is handled via reference counting. Because of
+this it's important to think about when an object (especially large objects
+) you are using come in scope, and when they leave scope. In an environment
+like CircuitPython you may also want to call <code>gc.collect()</code> when you leave
+scopes with large objects to make sure they are garbage collected before
+you carry on. This can help avoid some OOM errors.</li>
+</ul>
+</li>
+<li>Careful wih that indirection.
+<ul>
+<li>I found myself removing helper functions and other pieces of code that
+helped keep things &quot;clean&quot;. Often times I  did this because I was hitting
+performance of OOM errors that would go away when I put the functionality
+in the parent scope. Because of this I have repeated code, and code that
+isn't what I would expect to pass code review day to day, but it works,
+achieved stability and gave the performance I'm looking for on my badge.</li>
+</ul>
+</li>
+<li>Testing and profiling for this environment is still a challenge for me.
+<ul>
+<li>I would love to be able to write a test for my function and then profile
+that test to capture things like stack depth, object sizes, timing, etc.
+And since I have a test I could do this <code>N</code> times to see what kind of
+behaviors emerge. Instead right now I manually make a change and validate.
+Because of this I think I'm building an intuition of what is happening, but
+I can't verify it which leads me to assume my understanding has gaps, and
+potentially wrong assumptions today. Making this better can help me address
+the point above.</li>
+</ul>
+</li>
+</ul>
+<h2 id="next-steps">Next Steps</h2>
+<p>So with v1 of the badge prepared and ready for Gen Con 2019 I'm going to step
+back and work on some other items in this  space. While working on the project
+I found out that labels don't support an orientation flag. After mentioning
+this in discord I opened an <a href="https://github.com/adafruit/Adafruit_CircuitPython_Display_Button/issues/9">issue</a>
+on Github with some encouragement from @ladyada. Hopefully I can spend some
+cycles working on that.</p>
+<p>I also continue to think about how to write tests for CircuitPython. Since the
+runtime is tied to the boards it's not as simple as running the code in a
+CPython <code>unittest</code> environment. While there is a lot of overlap in the API and
+behavior it's not a one to one match. I think being able to test the code would
+lead to faster development cycles and would open the door to better profiling
+and understanding of my applications behavior.</p>
+<p>Finally I plan to back up and read <code>Making Embdedded Systems</code> by Elicia White
+and visit some other embedded getting started materials. While I had a lot of
+ideas for this project (and I'm happy with how it turned out) I realized that
+since I'm not as familiar with this type of hardware environment I struggled at
+times to get the functionality I was looking for with the performance I needed.</p>
+<h3 id="acknowledgements">Acknowledgements</h3>
+<p>Thanks to the team at Adafruit. The devices they build and the creation of
+CircuitPython has lead me to pick up  a hobby that continues to be fun and
+encourages me to think in new ways about hardware and the programs I'm writing.
+Additionally Adafruit has a
+<a href="https://blog.adafruit.com/2017/07/20/adafruit-is-on-discord-discordapp-adafruit-discord-adafruit/">discord</a>
+where many people have been incredibly patient and helpful as I learn and ask
+questions.</p>
+<h3 id="contact">Contact</h3>
+<p>I've really enjoyed working on this project. If you want to reach out feel free
+to follow up via <a href="mailto:n0mn0m@burningdaylight.io">email</a> or on.</p>
+<p>You can find out more about the badge and source code in the
+<a href="https://github.com/n0mn0m/gencon-portal">repo</a></p>
+<h4 id="more-photos">More Photos</h4>
+<p>Some additional photos of the portal. I've ordered a case off
+<a href="https://www.thingiverse.com/search?q=pyportal&amp;dwh=345d2cd0845a6f9">thingiverse</a>
+, but using the Adabox case while I wait.</p>
+<p><img src="/static/images/con-portal-with-case-home.jpg" alt="Gen Con 2019 PyPortal Home" />
+<img src="/static/images/con-portal-with-case-d20.jpg" alt="Gen Con 2019 PyPortal D20" />
+<img src="/static/images/con-portal-with-case-badge.jpg" alt="Gen Con 2019 PyPortal Con Badge" />
+<img src="/static/images/con-portal-with-case-countdown.jpg" alt="Gen Con 2019 PyPortal Countdown" /></p>
+
+          </div>
+        </article>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+
+  
+  <section class="modal" id="search-modal">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+      <div class="field">
+        <p class="control has-icons-right">
+          <input class="input" id="search" placeholder="Search this website." type="search" />
+          <span class="icon is-small is-right">
+            <i class="fas fa-search"></i>
+          </span>
+        </p>
+      </div>
+      <div class="search-results">
+        <div class="search-results__items"></div>
+      </div>
+    </div>
+    <button aria-label="close" class="modal-close is-large"></button>
+  </section>
+  
+
+
+   
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <nav class="level">
+          
+          <div class="level-item has-text-centered">
+            <a
+              class="button is-black is-outlined"
+              href="https:&#x2F;&#x2F;burningdaylight.io&#x2F;posts&#x2F;connected-roomba-prototype&#x2F;"
+            >
+              <span class="icon mr-2">
+                <i class="fas fa-arrow-circle-left"></i>
+              </span>
+              Connected Roomba - Possibilities
+            </a>
+          </div>
+           
+          <div class="level-item has-text-centered">
+            <a
+              class="button is-black is-outlined"
+              href="https:&#x2F;&#x2F;burningdaylight.io&#x2F;posts&#x2F;dataclasses-as-config-objects&#x2F;"
+            >
+              Using Dataclasses for Configuration<span class="icon ml-2">
+                <i class="fas fa-arrow-circle-right"></i>
+              </span>
+            </a>
+          </div>
+            
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+
+    
+
+  
+  <footer class="py-4 has-background-light">
+    <p class="has-text-centered">
+      Built with
+      <span class="icon is-small">
+        <i class="fas fa-code fa-xs"></i>
+      </span>
+      code and
+      <span class="icon is-small">
+        <i class="fas fa-heart fa-xs"></i>
+      </span>
+      love <br /> Powered By
+      <span class="icon is-small">
+        <i class="fas fa-power-off fa-xs"></i>
+      </span>
+      Zola <br />Posts licensed by <a href="https://creativecommons.org/publicdomain/zero/1.0/">Creative Commons CC0 1.0 </a><i class="fa fa-cc"></i>
+      <br /> Code licensed <a href="https://www.gnu.org/licenses/lgpl-3.0.txt">LGPL</a>
+    </p>
+  </footer>
+  
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sharer.js@latest/sharer.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/galleria.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.xkcd@1/dist/chart.xkcd.min.js"></script>
+  <script src="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/themes/folio/galleria.folio.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/elasticlunr/0.9.6/elasticlunr.min.js"></script>
+  <script src='https:&#x2F;&#x2F;burningdaylight.io&#x2F;search_index.en.js'></script>
+  <script src='https:&#x2F;&#x2F;burningdaylight.io&#x2F;js&#x2F;site.js'></script>
+
+    
+</body>
+
+</html>

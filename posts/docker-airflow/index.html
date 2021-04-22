@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <meta content="#ffffff" name="theme-color" />
+  <meta content="#da532c" name="msapplication-TileColor" />
+
+  
+  <link href='&#x2F;icons&#x2F;site.webmanifest' rel="manifest" />
+  
+  
+  
+  <link href='&#x2F;icons&#x2F;favicon-16x16.png' rel="icon" sizes="16x16" type="image/png" />
+  
+  
+  <link href='&#x2F;icons&#x2F;favicon-32x32.png' rel="icon" sizes="32x32" type="image/png" />
+  
+  
+  <link href='&#x2F;icons&#x2F;apple-icon.png' rel="apple-touch-icon" sizes="180x180" />
+  
+
+  <link href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/themes/folio/galleria.folio.min.css"
+    rel="stylesheet" />
+  <link href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css" rel="stylesheet" />
+  <link href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;site.css' rel="stylesheet" />
+
+  
+  
+
+  <title>
+     burningdaylight | docker-airflow 
+  </title>
+
+  <script crossorigin="anonymous" src="https://kit.fontawesome.com/201b8d5e05.js"></script>
+
+  
+</head>
+
+<body class="has-background-white">
+  
+  <nav aria-label="section navigation" class="navbar is-light" role="navigation">
+    <div class="container">
+      <div class="navbar-brand">
+        <a class="navbar-item has-text-weight-bold" href="/">burningdaylight</a>
+        <a aria-expanded="false" aria-label="menu" class="navbar-burger burger" data-target="navMenu" role="button">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+      <div class="navbar-menu" id="navMenu">
+        <div class="navbar-end has-text-centered">
+          
+          <a class="navbar-item" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;'>
+            Home
+          </a>
+          
+          <a class="navbar-item" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;posts'>
+            Posts
+          </a>
+          
+          <a class="navbar-item" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;docs'>
+            Docs
+          </a>
+          
+          <a class="navbar-item" href='https:&#x2F;&#x2F;github.com&#x2F;n0mn0m'>
+            Repos
+          </a>
+          
+          <a class="navbar-item" id="nav-search" title="Search" data-target="#search-modal">
+            <span class="icon">
+              <i class="fas fa-search"></i>
+            </span>
+          </a>
+          <a class="navbar-item" id="dark-mode" title="Switch to dark theme">
+            <span class="icon">
+              <i class="fas fa-adjust"></i>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  
+
+  
+  
+
+  
+<section class="section pb-0">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-8 is-offset-2">
+        <article>
+          <h1 class="title">docker-airflow</h1>
+          <h2 class="subtitle"></h2>
+          <div class="columns is-multiline is-gapless">
+            <div class="column is-8">
+              
+  <p class="has-text-grey">
+    <span class="icon">
+      <i class="fas fa-user"></i>
+    </span>
+     published on
+    <span class="icon">
+      <i class="far fa-calendar-alt"></i>
+    </span>
+    <time datetime='2018-12-22'>December 22, 2018</time>
+  </p>
+
+            </div>
+            <div class="column is-4 has-text-right-desktop">
+              
+  <p class="has-text-grey">
+    <span class="icon">
+      <i class="far fa-clock"></i>
+    </span>
+    9 min,
+    <span class="icon">
+      <i class="fas fa-pencil-alt"></i>
+    </span>
+    1672 words
+  </p>
+
+            </div>
+            <div class="column is-4">
+              
+            </div>
+            <div class="column is-8 has-text-right-desktop">
+               
+  <p>
+    <span class="has-text-black has-text-weight-normal">Tags:</span>
+    
+      <a class="link has-text-weight-light" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;tags&#x2F;python&#x2F;'>
+        <span class="icon is-small">
+          <i class="fas fa-tag fa-xs"></i>
+        </span>
+        python
+      </a>
+    
+      <a class="link has-text-weight-light" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;tags&#x2F;docker&#x2F;'>
+        <span class="icon is-small">
+          <i class="fas fa-tag fa-xs"></i>
+        </span>
+        docker
+      </a>
+    
+      <a class="link has-text-weight-light" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;tags&#x2F;conda&#x2F;'>
+        <span class="icon is-small">
+          <i class="fas fa-tag fa-xs"></i>
+        </span>
+        conda
+      </a>
+    
+      <a class="link has-text-weight-light" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;tags&#x2F;airflow&#x2F;'>
+        <span class="icon is-small">
+          <i class="fas fa-tag fa-xs"></i>
+        </span>
+        airflow
+      </a>
+    
+  </p>
+ 
+            </div>
+          </div>
+          <div class="content has-text-justified">
+            <p>If you've spent time using Python for ETL processes or working with data
+pipelines using tools from the Apache ecosystem then you've probably heard
+about <a href="https://airflow.apache.org/">Apache Airflow</a>. In this post I'm going
+to briefly write about why I'm using Airflow, show how you can get started with
+Airflow using docker and I will show how I customized this setup so that you
+can do the same. Finally at the end I'll talk about a couple of issues I ran
+into getting started with Airflow and docker.</p>
+<h2 id="what-is-apache-airflow">What is  <a href="https://airflow.apache.org/">Apache Airflow</a></h2>
+<p>From the home page:</p>
+<ul>
+<li>Airflow is a platform to programmatically author, schedule and monitor
+workflows.</li>
+</ul>
+<p><strong>Programatically</strong> being a key part so that you can create and orchestrate
+worflows/data pipelines using the same processes and tools that let you create
+reliable, scaling software.</p>
+<h2 id="why-airflow">Why  <a href="https://airflow.apache.org/">Airflow</a></h2>
+<p>I don't plan to write much on this subject since it's been covered in depth
+else where, but at work and often times when talking about Airflow the question
+of why Airflow versus X traditional solution where X is something like:</p>
+<ul>
+<li>SSIS</li>
+<li>Informatica</li>
+<li>Streamsets</li>
+<li>Snaplogic</li>
+</ul>
+<p>inevitably comes up. The primary reason I prefer a solution like Airflow to
+more traditional solutions is because my ETL is code. While there are numerous
+benefits to ETL as code my talking points are:</p>
+<ul>
+<li>Your data pipes/workflows go through the same processes that helps you create
+better products like TDD</li>
+<li>Your ETL development and production can be integrated with your CI/CD process</li>
+<li>Better debugging tools</li>
+<li>Flexibility</li>
+</ul>
+<p>That's not to say the traditional tools don't have their place, but my
+experience is that any significantly complex data pipeline ends up making use
+of that tools script task (C# for SSIS, Java for Informatica) and now you have
+an amalgamation of GUI product and untested, undocumented and non versioned
+code in production data pipelines.</p>
+<h2 id="why-conda">Why <a href="https://docs.conda.io/en/latest/">conda</a></h2>
+<ul>
+<li>Conda is a cross-platform, Python-agnostic binary package manager. It is the
+package manager used by Anaconda installations, but it may be used for other
+systems as well. Conda makes environments first-class citizens, making it easy
+to create independent environments even for C libraries.</li>
+</ul>
+<p>By day I'm a data engineer helping to build platforms, applications and
+pipelines to enable data scientist. Because of this conda is a tool I've become
+familiar with and it let's me work across languages, but easily integrate those
+various languages into my Airflow dags.</p>
+<h2 id="docker-airflow"><a href="https://github.com/puckel/docker-airflow">docker-airflow</a></h2>
+<p>To get started with Airflow I highly recommend reading
+<a href="https://airflow.apache.org/index.html">the homepage</a> and
+<a href="https://airflow.apache.org/tutorial.html">tutorial</a> to get an idea of the core
+concepts and pick up on the vocabulary used within the framework.</p>
+<p>After that there is a great project called
+<a href="https://github.com/puckel/docker-airflow">docker-airflow</a> that you can get
+started with. This provides a quick way to get started with Airflow in an
+environment with sane defaults making use of Postgres and Redis.</p>
+<p>This project provides an example dag and also allows you to load the Airflow
+example dags via the <code>LOAD_EX</code> environment variable. Additionally you might
+want to open up the Airflow dashboard and checkout the Connections tab where
+you can setup things such as SSH an SSH connection to reference in your dags.</p>
+<h2 id="customizing-the-setup">Customizing the setup</h2>
+<p>The <a href="https://github.com/puckel/docker-airflow">docker-airflow</a> project is a
+great start, but it makes assumptions that may not be true of your environment
+such as which database you plan to use, use of environment variables, etc.</p>
+<p>If all you're needing to tweak is the behavior of the environment or Airflow
+your first stop should be <code>airflow.cfg</code> in the <code>/config</code> directory. This is a
+centralized location for Airflow settings and is checked after any settings
+from the environment are loaded. If you're trying to change settings related to
+work pools, ssl, kerberos, etc this is probably the best place to get started.</p>
+<p>If you're looking to change things related to your containers such as when to
+restart, dependencies, etc then your going to want to checkout either the
+<code>LocalExecutor</code> or <code>CeleryExecutor</code> docker-compose files.</p>
+<p>Finally you might want to make bigger changes like I did such as using a
+different database, base docker image etc. Doing this requires changing quite a
+few items. The changes I made were:</p>
+<ul>
+<li>switch to miniconda for my base image to use Intel Dist Python</li>
+<li>switch to Microsoft SQL Server for the database</li>
+<li>switch the task queue to RabbitMQ</li>
+</ul>
+<p>Most of this was driven by a desire to experiment and to learn more about tools
+that I use day to day. Since I work in a data engineering shop there are
+packages from <code>conda-forge</code> that I like to use driving the miniconda switch,
+I've used MS SQL for the last 8 years professionally and I've been working on
+scaling with RabbitMQ over the last year.</p>
+<p>The switch to miniconda was a one liner in the Dockfile:</p>
+<pre style="background-color:#2b303b;">
+<code class="language-bash" data-lang="bash"><span style="color:#eb6772;">FROM</span><span style="color:#abb2bf;"> continuumio/miniconda3
+</span></code></pre>
+<p>Then to use IDP (Intel Distribution of Python) within the container I added
+this towards the bottom:</p>
+<pre style="background-color:#2b303b;">
+<code class="language-bash" data-lang="bash"><span style="color:#eb6772;">RUN</span><span style="color:#abb2bf;"> conda config</span><span style="color:#eb6772;"> --add</span><span style="color:#abb2bf;"> channels intel\
+    </span><span style="color:#adb7c9;">&amp;&amp; </span><span style="color:#eb6772;">conda</span><span style="color:#abb2bf;"> config</span><span style="color:#eb6772;"> --add</span><span style="color:#abb2bf;"> channels conda-forge \
+    </span><span style="color:#adb7c9;">&amp;&amp; </span><span style="color:#eb6772;">conda</span><span style="color:#abb2bf;"> install</span><span style="color:#eb6772;">  -y -q</span><span style="color:#abb2bf;"> intelpython3_core=2019.1 python=3 \
+</span><span style="color:#adb7c9;">&amp;&amp; </span><span style="color:#eb6772;">conda</span><span style="color:#abb2bf;"> clean</span><span style="color:#eb6772;"> --all </span><span style="color:#abb2bf;">\
+</span></code></pre>
+<p>And with that I can make use of conda packages alongside traditional Python
+packages within my Airflow environment.</p>
+<p>Next up I wanted to switch to MSSQL. Doing this was a matter of switching
+from Postgres in docker-compose and adding the MSSQL Linux drivers to the base
+docker-airflow Dockerfile.</p>
+<pre style="background-color:#2b303b;">
+<code class="language-bash" data-lang="bash"><span style="font-style:italic;color:#5f697a;">#docker-compose
+
+    </span><span style="color:#eb6772;">mssql:
+        image:</span><span style="color:#abb2bf;"> microsoft/mssql-server-linux:latest
+        </span><span style="color:#eb6772;">environment:
+            -</span><span style="color:#abb2bf;"> ACCEPT_EULA=Y
+            </span><span style="color:#eb6772;">-</span><span style="color:#abb2bf;"> SA_PASSWORD=YourStrong!Passw0rd
+        </span><span style="color:#eb6772;">ports:
+            -</span><span style="color:#abb2bf;"> 1433:1433
+        </span><span style="color:#eb6772;">volumes:
+            -</span><span style="color:#abb2bf;"> /var/opt/mssql
+</span></code></pre>
+<p>You may or may not want to preserver your database volume so keep that in mind.</p>
+<p>Setting up the MSSQL Linux drivers is fairly straight forward following the
+<a href="https://docs.microsoft.com/en-us/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server?view=sql-server-2017">documentation</a>
+from Microsoft.</p>
+<pre style="background-color:#2b303b;">
+<code class="language-bash" data-lang="bash"><span style="font-style:italic;color:#5f697a;">#Dockerfile
+
+# MS SQL EULA
+</span><span style="color:#eb6772;">ENV</span><span style="color:#abb2bf;"> ACCEPT_EULA=Y
+
+</span><span style="color:#eb6772;">RUN</span><span style="color:#abb2bf;"> curl https://packages.microsoft.com/keys/microsoft.asc </span><span style="color:#adb7c9;">| </span><span style="color:#eb6772;">apt-key</span><span style="color:#abb2bf;"> add - \
+    </span><span style="color:#adb7c9;">&amp;&amp; </span><span style="color:#eb6772;">curl</span><span style="color:#abb2bf;"> https://packages.microsoft.com/config/ubuntu/16.04/prod.list </span><span style="color:#adb7c9;">| </span><span style="color:#eb6772;">tee</span><span style="color:#abb2bf;"> /etc/apt/sources.list.d/msprod.list
+
+</span><span style="color:#eb6772;">RUN</span><span style="color:#abb2bf;"> apt-get update</span><span style="color:#eb6772;"> -yqq </span><span style="color:#abb2bf;">\
+</span><span style="color:#adb7c9;">&amp;&amp; </span><span style="color:#eb6772;">apt-get</span><span style="color:#abb2bf;"> install</span><span style="color:#eb6772;"> -yqq</span><span style="color:#abb2bf;"> mssql-tools unixodbc-dev
+</span></code></pre>
+<p>One thing to note if you're using a Debian based image is that Microsoft has a
+somewhat obscure dependency on <code>libssl1.0.0</code>. Without that installed you will
+get some obscure <code>unixodbc</code> error connecting to MSSQL with sql-alchemy. To
+remedy this add the below to your Dockerfile.</p>
+<pre style="background-color:#2b303b;">
+<code class="language-bash" data-lang="bash"><span style="font-style:italic;color:#5f697a;">#Dockerfile
+
+</span><span style="color:#eb6772;">RUN</span><span style="color:#abb2bf;"> echo </span><span style="color:#9acc76;">&#39;export PATH=&quot;$PATH:/opt/mssql-tools/bin&quot;&#39; </span><span style="color:#adb7c9;">&gt;&gt; </span><span style="color:#eb6772;">~</span><span style="color:#abb2bf;">/.bash_profile
+</span><span style="color:#eb6772;">RUN</span><span style="color:#abb2bf;"> echo </span><span style="color:#9acc76;">&quot;deb http://httpredir.debian.org/debian jessie main contrib non-free\n</span><span style="color:#5ebfcc;">\
+</span><span style="color:#9acc76;">deb-src http://httpredir.debian.org/debian jessie main contrib non-free\n</span><span style="color:#5ebfcc;">\
+</span><span style="color:#9acc76;">\n</span><span style="color:#5ebfcc;">\
+</span><span style="color:#9acc76;">deb http://security.debian.org/ jessie/updates main contrib non-free\n</span><span style="color:#5ebfcc;">\
+</span><span style="color:#9acc76;">deb-src http://security.debian.org/ jessie/updates main contrib non-free&quot; </span><span style="color:#adb7c9;">&gt;&gt;</span><span style="color:#abb2bf;"> /etc/apt/sources.list.d/jessie.list
+
+</span><span style="color:#eb6772;">RUN</span><span style="color:#abb2bf;"> apt update \
+</span><span style="color:#adb7c9;">&amp;&amp; </span><span style="color:#eb6772;">apt</span><span style="color:#abb2bf;"> install libssl1.0.0
+</span></code></pre>
+<p>Finally setup your connection string either in <code>airflow.cfg</code> or an Airflow
+<a href="https://airflow.readthedocs.io/en/stable/howto/set-config.html">environment variable</a>
+. I like to use the Airflow environment variables and pass them in from a <code>.env</code>
+file with docker-compose.</p>
+<pre style="background-color:#2b303b;">
+<code class="language-bash" data-lang="bash"><span style="font-style:italic;color:#5f697a;">#docker-compose
+
+        </span><span style="color:#eb6772;">environment:
+            -</span><span style="color:#abb2bf;"> LOAD_EX=n
+            </span><span style="color:#eb6772;">-</span><span style="color:#abb2bf;"> FERNET_KEY=46BKJoQYlPPOexq0OhDZnIlNepKFf87WFwLbfzqDDho=
+            </span><span style="color:#eb6772;">-</span><span style="color:#abb2bf;"> EXECUTOR=Celery
+            </span><span style="color:#eb6772;">-</span><span style="color:#abb2bf;"> AIRFLOW__CELERY__BROKER_URL=${</span><span style="color:#eb6772;">CELERY_RABBIT_BROKER</span><span style="color:#abb2bf;">}
+            </span><span style="color:#eb6772;">-</span><span style="color:#abb2bf;"> AIRFLOW__CORE__SQL_ALCHEMY_CONN=${</span><span style="color:#eb6772;">SQL_ALCHEMY_CONN</span><span style="color:#abb2bf;">}
+            </span><span style="color:#eb6772;">-</span><span style="color:#abb2bf;"> AIRFLOW__CELERY__RESULT_BACKEND=${</span><span style="color:#eb6772;">CELERY_RESULTS_BACKEND</span><span style="color:#abb2bf;">}
+</span></code></pre>
+<p>And finally the last big change I implemented was the switch to RabbitMQ
+instead of Redis. Similar to the MSSQL switch this was just an update to the
+docker-compose file.</p>
+<pre style="background-color:#2b303b;">
+<code class="language-bash" data-lang="bash"><span style="color:#abb2bf;">    </span><span style="color:#eb6772;">rabbitmq:
+        image:</span><span style="color:#abb2bf;"> rabbitmq:3-management
+        </span><span style="color:#eb6772;">hostname:</span><span style="color:#abb2bf;"> rabbitmq
+        </span><span style="color:#eb6772;">environment:
+        -</span><span style="color:#abb2bf;"> RABBITMQ_ERLANG_COOKIE=${</span><span style="color:#eb6772;">RABBITMQ_ERLANG_COOKIE</span><span style="color:#abb2bf;">}
+        </span><span style="color:#eb6772;">-</span><span style="color:#abb2bf;"> RABBITMQ_DEFAULT_USER=${</span><span style="color:#eb6772;">RABBITMQ_DEFAULT_USER</span><span style="color:#abb2bf;">}
+        </span><span style="color:#eb6772;">-</span><span style="color:#abb2bf;"> RABBITMQ_DEFAULT_PASS=${</span><span style="color:#eb6772;">RABBITMQ_DEFAULT_PASS</span><span style="color:#abb2bf;">}
+        </span><span style="color:#eb6772;">-</span><span style="color:#abb2bf;"> RABBITMQ_DEFAULT_VHOST=${</span><span style="color:#eb6772;">RABBITMQ_DEFAULT_VHOST</span><span style="color:#abb2bf;">}
+</span></code></pre>
+<p>And setting up the right connection string for Celery to talk with rabbitmq.
+Similar to the MSSQL connection string I put this in my <code>.env</code> file and
+reference it in my docker-compose file as seen above.</p>
+<pre style="background-color:#2b303b;">
+<code class="language-bash" data-lang="bash"><span style="font-style:italic;color:#5f697a;"># .env
+
+</span><span style="color:#eb6772;">CELERY_RABBIT_BROKER</span><span style="color:#adb7c9;">=</span><span style="color:#9acc76;">amqp://user:pass@host:port/
+</span></code></pre>
+<p>One thing to note is anytime you are referencing the host and running with
+docker-compose you can reference the service id in this case rabbitmq as the
+host name.</p>
+<p>And with that I have a nice Airflow environment that lets me make use of the
+database I'm familiar with, a durable queue and packages across the Python and
+Data Science ecosystems via <code>conda</code>.</p>
+<p>You can find these changes in my fork of the
+<a href="https://github.com/n0mn0m/airflow-docker">docker-airflow</a> project. I've also
+opened a <a href="https://github.com/puckel/docker-airflow/issues/289">GitHub issue</a>
+with the goal of creating some way to track other community variations of
+docker-airflow with the hope of helping others discover setups specific to
+their need.</p>
+<h2 id="issues-so-far">Issues so far</h2>
+<p>I've been using the setup above for a couple weeks now with pretty good results.
+I've made use of some libraries like hdfs3 that have their latest releases in
+conda-forge and my familiarity with MSSQL has saved me some maintenance time.
+The experience hasn't been without it's issues. The highlights are:</p>
+<ul>
+<li><a href="https://airflow.apache.org/installation.html#extra-packages">Airflow packages</a>
+may not be what you want. See <code>librabbitmq</code> and celery. It's best to manage a
+requirements.txt or conda.txt with your dependencies still.</li>
+<li>Dependency management across multiple dags. In short with a standard setup
+you need one package version and it needs to be installed everywhere. For an
+interesting approach to this read
+<a href="https://medium.com/bluecore-engineering/were-all-using-airflow-wrong-and-how-to-fix-it-a56f14cb0753">We’re All Using Airflow Wrong and How to Fix It</a></li>
+<li>Silent failures. Be aware of all the reasons why a worker may provide exit
+code 0 especially with docker. This took a minute to catch when an NFS mount
+stopped showing new files being available, but the exit code 0 made things
+seem ok. This isn't Airflows fault, but just something to keep in mind when
+using Airflow in an environment with docker and remote resources.</li>
+</ul>
+<h3 id="reaching-out">Reaching out</h3>
+<p>Hopefully this post helps you get started with
+<a href="https://github.com/puckel/docker-airflow">docker-airflow</a>. If you have
+questions or want to share something cool that you end up doing feel free to
+open up an <a href="https://todo.sr.ht/%7En0mn0m/Airflow-Bugs">issue</a> on Sourcehut or
+reach out to me <a href="mailto:n0mn0m@burningdaylight.io">n0mn0m@burningdaylight.io</a>.</p>
+
+          </div>
+        </article>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+
+  
+  <section class="modal" id="search-modal">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+      <div class="field">
+        <p class="control has-icons-right">
+          <input class="input" id="search" placeholder="Search this website." type="search" />
+          <span class="icon is-small is-right">
+            <i class="fas fa-search"></i>
+          </span>
+        </p>
+      </div>
+      <div class="search-results">
+        <div class="search-results__items"></div>
+      </div>
+    </div>
+    <button aria-label="close" class="modal-close is-large"></button>
+  </section>
+  
+
+
+   
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <nav class="level">
+          
+          <div class="level-item has-text-centered">
+            <a
+              class="button is-black is-outlined"
+              href="https:&#x2F;&#x2F;burningdaylight.io&#x2F;posts&#x2F;vim-anaconda-build&#x2F;"
+            >
+              <span class="icon mr-2">
+                <i class="fas fa-arrow-circle-left"></i>
+              </span>
+              Building Vim with Anaconda Python Support
+            </a>
+          </div>
+           
+          <div class="level-item has-text-centered">
+            <a
+              class="button is-black is-outlined"
+              href="https:&#x2F;&#x2F;burningdaylight.io&#x2F;posts&#x2F;dealing-with-null-transformations-in-pyspark&#x2F;"
+            >
+              Dealing with NULL in PySpark transformations<span class="icon ml-2">
+                <i class="fas fa-arrow-circle-right"></i>
+              </span>
+            </a>
+          </div>
+            
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+
+    
+
+  
+  <footer class="py-4 has-background-light">
+    <p class="has-text-centered">
+      Built with
+      <span class="icon is-small">
+        <i class="fas fa-code fa-xs"></i>
+      </span>
+      code and
+      <span class="icon is-small">
+        <i class="fas fa-heart fa-xs"></i>
+      </span>
+      love <br /> Powered By
+      <span class="icon is-small">
+        <i class="fas fa-power-off fa-xs"></i>
+      </span>
+      Zola <br />Posts licensed by <a href="https://creativecommons.org/publicdomain/zero/1.0/">Creative Commons CC0 1.0 </a><i class="fa fa-cc"></i>
+      <br /> Code licensed <a href="https://www.gnu.org/licenses/lgpl-3.0.txt">LGPL</a>
+    </p>
+  </footer>
+  
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sharer.js@latest/sharer.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/galleria.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.xkcd@1/dist/chart.xkcd.min.js"></script>
+  <script src="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/themes/folio/galleria.folio.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/elasticlunr/0.9.6/elasticlunr.min.js"></script>
+  <script src='https:&#x2F;&#x2F;burningdaylight.io&#x2F;search_index.en.js'></script>
+  <script src='https:&#x2F;&#x2F;burningdaylight.io&#x2F;js&#x2F;site.js'></script>
+
+    
+</body>
+
+</html>

@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <meta content="#ffffff" name="theme-color" />
+  <meta content="#da532c" name="msapplication-TileColor" />
+
+  
+  <link href='&#x2F;icons&#x2F;site.webmanifest' rel="manifest" />
+  
+  
+  
+  <link href='&#x2F;icons&#x2F;favicon-16x16.png' rel="icon" sizes="16x16" type="image/png" />
+  
+  
+  <link href='&#x2F;icons&#x2F;favicon-32x32.png' rel="icon" sizes="32x32" type="image/png" />
+  
+  
+  <link href='&#x2F;icons&#x2F;apple-icon.png' rel="apple-touch-icon" sizes="180x180" />
+  
+
+  <link href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/themes/folio/galleria.folio.min.css"
+    rel="stylesheet" />
+  <link href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css" rel="stylesheet" />
+  <link href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;site.css' rel="stylesheet" />
+
+  
+  
+
+  <title>
+     burningdaylight | DerbyPy Introduction to Python Modules and Packages 
+  </title>
+
+  <script crossorigin="anonymous" src="https://kit.fontawesome.com/201b8d5e05.js"></script>
+
+  
+</head>
+
+<body class="has-background-white">
+  
+  <nav aria-label="section navigation" class="navbar is-light" role="navigation">
+    <div class="container">
+      <div class="navbar-brand">
+        <a class="navbar-item has-text-weight-bold" href="/">burningdaylight</a>
+        <a aria-expanded="false" aria-label="menu" class="navbar-burger burger" data-target="navMenu" role="button">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+      <div class="navbar-menu" id="navMenu">
+        <div class="navbar-end has-text-centered">
+          
+          <a class="navbar-item" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;'>
+            Home
+          </a>
+          
+          <a class="navbar-item" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;posts'>
+            Posts
+          </a>
+          
+          <a class="navbar-item" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;docs'>
+            Docs
+          </a>
+          
+          <a class="navbar-item" href='https:&#x2F;&#x2F;github.com&#x2F;n0mn0m'>
+            Repos
+          </a>
+          
+          <a class="navbar-item" id="nav-search" title="Search" data-target="#search-modal">
+            <span class="icon">
+              <i class="fas fa-search"></i>
+            </span>
+          </a>
+          <a class="navbar-item" id="dark-mode" title="Switch to dark theme">
+            <span class="icon">
+              <i class="fas fa-adjust"></i>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  
+
+  
+  
+
+  
+<section class="section pb-0">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-8 is-offset-2">
+        <article>
+          <h1 class="title">DerbyPy Introduction to Python Modules and Packages</h1>
+          <h2 class="subtitle"></h2>
+          <div class="columns is-multiline is-gapless">
+            <div class="column is-8">
+              
+  <p class="has-text-grey">
+    <span class="icon">
+      <i class="fas fa-user"></i>
+    </span>
+     published on
+    <span class="icon">
+      <i class="far fa-calendar-alt"></i>
+    </span>
+    <time datetime='2018-10-09'>October 09, 2018</time>
+  </p>
+
+            </div>
+            <div class="column is-4 has-text-right-desktop">
+              
+  <p class="has-text-grey">
+    <span class="icon">
+      <i class="far fa-clock"></i>
+    </span>
+    4 min,
+    <span class="icon">
+      <i class="fas fa-pencil-alt"></i>
+    </span>
+    800 words
+  </p>
+
+            </div>
+            <div class="column is-4">
+              
+            </div>
+            <div class="column is-8 has-text-right-desktop">
+               
+  <p>
+    <span class="has-text-black has-text-weight-normal">Tags:</span>
+    
+      <a class="link has-text-weight-light" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;tags&#x2F;python&#x2F;'>
+        <span class="icon is-small">
+          <i class="fas fa-tag fa-xs"></i>
+        </span>
+        python
+      </a>
+    
+      <a class="link has-text-weight-light" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;tags&#x2F;packaging&#x2F;'>
+        <span class="icon is-small">
+          <i class="fas fa-tag fa-xs"></i>
+        </span>
+        packaging
+      </a>
+    
+      <a class="link has-text-weight-light" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;tags&#x2F;modules&#x2F;'>
+        <span class="icon is-small">
+          <i class="fas fa-tag fa-xs"></i>
+        </span>
+        modules
+      </a>
+    
+      <a class="link has-text-weight-light" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;tags&#x2F;derbypy&#x2F;'>
+        <span class="icon is-small">
+          <i class="fas fa-tag fa-xs"></i>
+        </span>
+        derbypy
+      </a>
+    
+  </p>
+ 
+            </div>
+          </div>
+          <div class="content has-text-justified">
+            <p>Most programming languages offer ways to organize your code into namespaces.
+These namespaces are logical containers that group different names and
+behaviors together and isolate them to that namespace. By organizing your code
+with namespaces it makes it easier to structure your application without naming
+collisions and it can make it easier for you and others to maintain your code
+by adding some additional organization to your project.</p>
+<p>In Python we can use modules and packages to create namespaces that we can then
+reference in other modules as we build our application.</p>
+<p>A Python module is a <code>.py</code> file containing Python definitions and statements.
+The file name is the module name with the suffix <code>.py</code> appended.</p>
+<ul>
+<li><a href="https://docs.python.org/3/tutorial/modules.html#modules">https://docs.python.org/3/tutorial/modules.html#modules</a></li>
+</ul>
+<p>As with all things in Python when we import a module it is an object, and just
+like other objects it has dunder (double underscore) attributes that define
+additional data about that module. We can use that to learn more about the
+module before we ever start to use it.</p>
+<pre style="background-color:#2b303b;">
+<code class="language-python" data-lang="python"><span style="color:#cd74e8;">import </span><span style="color:#abb2bf;">pprint_ext
+
+</span><span style="color:#5ebfcc;">print</span><span style="color:#abb2bf;">(pprint_ext.__doc__)
+</span><span style="color:#5ebfcc;">print</span><span style="color:#abb2bf;">(</span><span style="color:#5ebfcc;">dir</span><span style="color:#abb2bf;">(pprint_ext))
+
+    A module providing extensions to pretty </span><span style="color:#cd74e8;">print </span><span style="color:#abb2bf;">structures that pprint may </span><span style="color:#cd74e8;">not </span><span style="color:#abb2bf;">handle well.
+
+    [</span><span style="color:#9acc76;">&#39;__builtins__&#39;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&#39;__cached__&#39;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&#39;__doc__&#39;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&#39;__file__&#39;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&#39;__loader__&#39;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&#39;__name__&#39;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&#39;__package__&#39;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&#39;__spec__&#39;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&#39;list_directory&#39;</span><span style="color:#abb2bf;">, </span><span style="color:#9acc76;">&#39;os&#39;</span><span style="color:#abb2bf;">]
+</span></code></pre>
+<p>From the output of <code>dir()</code> we can see there is a function called
+<code>list_directory</code> that is part of this module.</p>
+<pre style="background-color:#2b303b;">
+<code class="language-python" data-lang="python"><span style="color:#abb2bf;">pprint_ext.</span><span style="color:#eb6772;">list_directory</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&quot;plugins&quot;</span><span style="color:#abb2bf;">)
+
+    plugins</span><span style="color:#adb7c9;">/
+        </span><span style="color:#abb2bf;">ipynb</span><span style="color:#adb7c9;">/
+            </span><span style="color:#5ebfcc;">__init__</span><span style="color:#abb2bf;">.py
+            liquid.py
+            markup.py
+            requirements.txt
+            .git
+            </span><span style="color:#eb6772;">README</span><span style="color:#abb2bf;">.md
+            ipynb.py
+            </span><span style="color:#eb6772;">LICENSE
+            </span><span style="color:#abb2bf;">.gitignore
+            core.py
+            __pycache__</span><span style="color:#adb7c9;">/
+                </span><span style="color:#abb2bf;">core.cpython</span><span style="color:#adb7c9;">-</span><span style="color:#db9d63;">36.</span><span style="color:#abb2bf;">pyc
+                </span><span style="color:#5ebfcc;">__init__</span><span style="color:#abb2bf;">.cpython</span><span style="color:#adb7c9;">-</span><span style="color:#db9d63;">36.</span><span style="color:#abb2bf;">pyc
+                markup.cpython</span><span style="color:#adb7c9;">-</span><span style="color:#db9d63;">36.</span><span style="color:#abb2bf;">pyc
+                ipynb.cpython</span><span style="color:#adb7c9;">-</span><span style="color:#db9d63;">36.</span><span style="color:#abb2bf;">pyc
+            tests</span><span style="color:#adb7c9;">/
+                </span><span style="color:#abb2bf;">pelican</span><span style="color:#adb7c9;">/
+                    </span><span style="color:#abb2bf;">pelicanconf_markup.py
+                    pelicanconf_liquid.py
+                    theme</span><span style="color:#adb7c9;">/
+                        </span><span style="color:#abb2bf;">templates</span><span style="color:#adb7c9;">/
+                            </span><span style="color:#abb2bf;">base.html
+                    content</span><span style="color:#adb7c9;">/
+                        </span><span style="color:#cd74e8;">with</span><span style="color:#adb7c9;">-</span><span style="color:#abb2bf;">meta</span><span style="color:#adb7c9;">-</span><span style="color:#abb2bf;">file.ipynb</span><span style="color:#adb7c9;">-</span><span style="color:#abb2bf;">meta
+                        </span><span style="color:#cd74e8;">with</span><span style="color:#adb7c9;">-</span><span style="color:#abb2bf;">liquid</span><span style="color:#adb7c9;">-</span><span style="color:#abb2bf;">tag.ipynb
+                        </span><span style="color:#cd74e8;">with</span><span style="color:#adb7c9;">-</span><span style="color:#abb2bf;">metacell.ipynb
+                        </span><span style="color:#cd74e8;">with</span><span style="color:#adb7c9;">-</span><span style="color:#abb2bf;">meta</span><span style="color:#adb7c9;">-</span><span style="color:#abb2bf;">file.ipynb
+                        </span><span style="color:#cd74e8;">with</span><span style="color:#adb7c9;">-</span><span style="color:#abb2bf;">liquid</span><span style="color:#adb7c9;">-</span><span style="color:#abb2bf;">tag.md
+</span></code></pre>
+<p>Finally we can see where we are importing this module from with <code>.__file__</code> and
+we see that this is a module local to our application.</p>
+<pre style="background-color:#2b303b;">
+<code class="language-python" data-lang="python"><span style="color:#abb2bf;">pprint_ext.__file__
+
+    </span><span style="color:#9acc76;">&#39;/home/alex/projects/alexhagerman.github.io/pprint_ext.py&#39;
+</span></code></pre><h2 id="packages">Packages</h2>
+<p>For the sake of brevity and simplicity tonight we can say that a Python package
+is a collection of Python modules. It is a folder that contains .py file and
+provides a parent namespace for the modules in the folder.</p>
+<p>Another way of saying this is:</p>
+<ul>
+<li>Python packages are a way of structuring Python’s module namespace by using
+“dotted module names” <a href="https://docs.python.org/3/tutorial/modules.html#packages">https://docs.python.org/3/tutorial/modules.html#packages</a></li>
+</ul>
+<p>Just like we did with our module we can call <code>dir()</code> on our package to see
+associated attributes and objects.</p>
+<pre style="background-color:#2b303b;">
+<code class="language-python" data-lang="python"><span style="color:#cd74e8;">import </span><span style="color:#abb2bf;">pprint_extension
+</span><span style="color:#5ebfcc;">dir</span><span style="color:#abb2bf;">(pprint_extension)
+
+    [</span><span style="color:#9acc76;">&#39;__all__&#39;</span><span style="color:#abb2bf;">,
+     </span><span style="color:#9acc76;">&#39;__builtins__&#39;</span><span style="color:#abb2bf;">,
+     </span><span style="color:#9acc76;">&#39;__cached__&#39;</span><span style="color:#abb2bf;">,
+     </span><span style="color:#9acc76;">&#39;__doc__&#39;</span><span style="color:#abb2bf;">,
+     </span><span style="color:#9acc76;">&#39;__file__&#39;</span><span style="color:#abb2bf;">,
+     </span><span style="color:#9acc76;">&#39;__loader__&#39;</span><span style="color:#abb2bf;">,
+     </span><span style="color:#9acc76;">&#39;__name__&#39;</span><span style="color:#abb2bf;">,
+     </span><span style="color:#9acc76;">&#39;__package__&#39;</span><span style="color:#abb2bf;">,
+     </span><span style="color:#9acc76;">&#39;__path__&#39;</span><span style="color:#abb2bf;">,
+     </span><span style="color:#9acc76;">&#39;__spec__&#39;</span><span style="color:#abb2bf;">,
+     </span><span style="color:#9acc76;">&#39;network&#39;</span><span style="color:#abb2bf;">,
+     </span><span style="color:#9acc76;">&#39;pprint_extension&#39;</span><span style="color:#abb2bf;">]
+</span></code></pre>
+<p>Additionally we can call help which may provide more information about the
+package defined in <code>__init__.py</code>. You can think of <code>__init__.py</code> as a place to
+put initialization behavior and documentation for your package. In the way that
+<code>__init__</code> handles initializing your class <code>__init__.py</code> handles the
+initialization of your package during import. <code>__init__.py</code> used to be required
+to make a directory a package, but as of Python 3.3 thanks to <code>pep-420</code> it is
+no longer required. More links and information are provided at the end of the
+notebook.</p>
+<pre style="background-color:#2b303b;">
+<code class="language-python" data-lang="python"><span style="color:#5ebfcc;">help</span><span style="color:#abb2bf;">(pprint_extension)
+
+    Help on package pprint_extension:
+
+    </span><span style="color:#eb6772;">NAME
+        </span><span style="color:#abb2bf;">pprint_extension
+
+    </span><span style="color:#eb6772;">DESCRIPTION
+        </span><span style="color:#abb2bf;">A package providing functions to pretty </span><span style="color:#cd74e8;">print </span><span style="color:#abb2bf;">structures that may have alternative renderings </span><span style="color:#cd74e8;">from </span><span style="color:#abb2bf;">the standard
+        pprint package.
+
+    </span><span style="color:#eb6772;">PACKAGE CONTENTS
+        </span><span style="color:#abb2bf;">file_system
+        network
+
+    </span><span style="color:#eb6772;">DATA
+        </span><span style="color:#abb2bf;">__all__ </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">[</span><span style="color:#9acc76;">&#39;file_system&#39;</span><span style="color:#abb2bf;">]
+
+    </span><span style="color:#eb6772;">FILE
+        </span><span style="color:#adb7c9;">/</span><span style="color:#abb2bf;">home</span><span style="color:#adb7c9;">/</span><span style="color:#abb2bf;">alex</span><span style="color:#adb7c9;">/</span><span style="color:#abb2bf;">projects</span><span style="color:#adb7c9;">/</span><span style="color:#abb2bf;">modules</span><span style="color:#adb7c9;">-</span><span style="color:#cd74e8;">and</span><span style="color:#adb7c9;">-</span><span style="color:#abb2bf;">packages</span><span style="color:#adb7c9;">-</span><span style="color:#abb2bf;">into</span><span style="color:#adb7c9;">/</span><span style="color:#abb2bf;">pprint_extension</span><span style="color:#adb7c9;">/</span><span style="color:#5ebfcc;">__init__</span><span style="color:#abb2bf;">.py
+</span></code></pre>
+<p>Additionally we can import modules from packages and refer to them directly
+instead of using the fully qualified namespacing syntax
+<code>&lt;package&gt;.&lt;module&gt;.&lt;object&gt;</code></p>
+<pre style="background-color:#2b303b;">
+<code class="language-python" data-lang="python"><span style="color:#cd74e8;">from </span><span style="color:#abb2bf;">pprint_extension </span><span style="color:#cd74e8;">import </span><span style="color:#abb2bf;">file_system
+file_system.</span><span style="color:#eb6772;">list_hidden_directory</span><span style="color:#abb2bf;">()
+
+    .</span><span style="color:#adb7c9;">/
+</span><span style="color:#abb2bf;">        .ipynb_checkpoints</span><span style="color:#adb7c9;">/
+</span><span style="color:#abb2bf;">        .git</span><span style="color:#adb7c9;">/
+</span><span style="color:#abb2bf;">        .idea</span><span style="color:#adb7c9;">/
+</span></code></pre>
+<p>Packages go way beyond what we have covered here. As you build packages you
+want to consider their structure relative to the public API you're creating.
+Publishing and distributing packages is a talk or series of talks on its own.
+For now what we have covered is how we can group modules together in a package
+and some basics for how to control the initialization behavior of a package.</p>
+<h3 id="finishing-up">Finishing up</h3>
+<p>Now that we know what a Python <code>module</code> and <code>package</code> is next month we will
+look at the <code>import</code> statement. As a sneak peak I'll leave you with <code>sys.path</code>
+and you can begin exploring how this relates to our own packages and modules
+that make up our application as well as those we might install with tools such
+as <code>pip</code> or <code>conda</code>.</p>
+<p><a href="https://docs.python.org/3/library/sys.html#sys.path">https://docs.python.org/3/library/sys.html#sys.path</a></p>
+<pre style="background-color:#2b303b;">
+<code class="language-python" data-lang="python"><span style="color:#cd74e8;">import </span><span style="color:#abb2bf;">sys
+sys.path
+
+    [</span><span style="color:#9acc76;">&#39;&#39;</span><span style="color:#abb2bf;">,
+     </span><span style="color:#9acc76;">&#39;/home/alex/miniconda3/envs/blogging/lib/python36.zip&#39;</span><span style="color:#abb2bf;">,
+     </span><span style="color:#9acc76;">&#39;/home/alex/miniconda3/envs/blogging/lib/python3.6&#39;</span><span style="color:#abb2bf;">,
+     </span><span style="color:#9acc76;">&#39;/home/alex/miniconda3/envs/blogging/lib/python3.6/lib-dynload&#39;</span><span style="color:#abb2bf;">,
+     </span><span style="color:#9acc76;">&#39;/home/alex/miniconda3/envs/blogging/lib/python3.6/site-packages&#39;</span><span style="color:#abb2bf;">,
+     </span><span style="color:#9acc76;">&#39;/home/alex/miniconda3/envs/blogging/lib/python3.6/site-packages/IPython/extensions&#39;</span><span style="color:#abb2bf;">,
+     </span><span style="color:#9acc76;">&#39;/home/alex/.ipython&#39;</span><span style="color:#abb2bf;">]
+</span></code></pre><h3 id="additional-reading">Additional Reading</h3>
+<ul>
+<li><a href="https://docs.python.org/3/tutorial/modules.html">https://docs.python.org/3/tutorial/modules.html</a></li>
+<li><a href="https://packaging.python.org/guides/packaging-namespace-packages/">https://packaging.python.org/guides/packaging-namespace-packages/</a></li>
+<li><a href="https://www.python.org/dev/peps/pep-0420/">https://www.python.org/dev/peps/pep-0420/</a></li>
+<li><a href="https://realpython.com/python-modules-packages/">https://realpython.com/python-modules-packages/</a></li>
+</ul>
+
+          </div>
+        </article>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+
+  
+  <section class="modal" id="search-modal">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+      <div class="field">
+        <p class="control has-icons-right">
+          <input class="input" id="search" placeholder="Search this website." type="search" />
+          <span class="icon is-small is-right">
+            <i class="fas fa-search"></i>
+          </span>
+        </p>
+      </div>
+      <div class="search-results">
+        <div class="search-results__items"></div>
+      </div>
+    </div>
+    <button aria-label="close" class="modal-close is-large"></button>
+  </section>
+  
+
+
+   
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <nav class="level">
+          
+          <div class="level-item has-text-centered">
+            <a
+              class="button is-black is-outlined"
+              href="https:&#x2F;&#x2F;burningdaylight.io&#x2F;posts&#x2F;pyspark-intro&#x2F;"
+            >
+              <span class="icon mr-2">
+                <i class="fas fa-arrow-circle-left"></i>
+              </span>
+              DerbyPy Intro to PySpark
+            </a>
+          </div>
+           
+          <div class="level-item has-text-centered">
+            <a
+              class="button is-black is-outlined"
+              href="https:&#x2F;&#x2F;burningdaylight.io&#x2F;posts&#x2F;recurse&#x2F;"
+            >
+              Recursive Search with Python<span class="icon ml-2">
+                <i class="fas fa-arrow-circle-right"></i>
+              </span>
+            </a>
+          </div>
+            
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+
+    
+
+  
+  <footer class="py-4 has-background-light">
+    <p class="has-text-centered">
+      Built with
+      <span class="icon is-small">
+        <i class="fas fa-code fa-xs"></i>
+      </span>
+      code and
+      <span class="icon is-small">
+        <i class="fas fa-heart fa-xs"></i>
+      </span>
+      love <br /> Powered By
+      <span class="icon is-small">
+        <i class="fas fa-power-off fa-xs"></i>
+      </span>
+      Zola <br />Posts licensed by <a href="https://creativecommons.org/publicdomain/zero/1.0/">Creative Commons CC0 1.0 </a><i class="fa fa-cc"></i>
+      <br /> Code licensed <a href="https://www.gnu.org/licenses/lgpl-3.0.txt">LGPL</a>
+    </p>
+  </footer>
+  
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sharer.js@latest/sharer.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/galleria.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.xkcd@1/dist/chart.xkcd.min.js"></script>
+  <script src="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/themes/folio/galleria.folio.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/elasticlunr/0.9.6/elasticlunr.min.js"></script>
+  <script src='https:&#x2F;&#x2F;burningdaylight.io&#x2F;search_index.en.js'></script>
+  <script src='https:&#x2F;&#x2F;burningdaylight.io&#x2F;js&#x2F;site.js'></script>
+
+    
+</body>
+
+</html>

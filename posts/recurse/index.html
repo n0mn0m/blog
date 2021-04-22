@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <meta content="#ffffff" name="theme-color" />
+  <meta content="#da532c" name="msapplication-TileColor" />
+
+  
+  <link href='&#x2F;icons&#x2F;site.webmanifest' rel="manifest" />
+  
+  
+  
+  <link href='&#x2F;icons&#x2F;favicon-16x16.png' rel="icon" sizes="16x16" type="image/png" />
+  
+  
+  <link href='&#x2F;icons&#x2F;favicon-32x32.png' rel="icon" sizes="32x32" type="image/png" />
+  
+  
+  <link href='&#x2F;icons&#x2F;apple-icon.png' rel="apple-touch-icon" sizes="180x180" />
+  
+
+  <link href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/themes/folio/galleria.folio.min.css"
+    rel="stylesheet" />
+  <link href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css" rel="stylesheet" />
+  <link href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;site.css' rel="stylesheet" />
+
+  
+  
+
+  <title>
+     burningdaylight | Recursive Search with Python 
+  </title>
+
+  <script crossorigin="anonymous" src="https://kit.fontawesome.com/201b8d5e05.js"></script>
+
+  
+</head>
+
+<body class="has-background-white">
+  
+  <nav aria-label="section navigation" class="navbar is-light" role="navigation">
+    <div class="container">
+      <div class="navbar-brand">
+        <a class="navbar-item has-text-weight-bold" href="/">burningdaylight</a>
+        <a aria-expanded="false" aria-label="menu" class="navbar-burger burger" data-target="navMenu" role="button">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+      <div class="navbar-menu" id="navMenu">
+        <div class="navbar-end has-text-centered">
+          
+          <a class="navbar-item" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;'>
+            Home
+          </a>
+          
+          <a class="navbar-item" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;posts'>
+            Posts
+          </a>
+          
+          <a class="navbar-item" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;docs'>
+            Docs
+          </a>
+          
+          <a class="navbar-item" href='https:&#x2F;&#x2F;github.com&#x2F;n0mn0m'>
+            Repos
+          </a>
+          
+          <a class="navbar-item" id="nav-search" title="Search" data-target="#search-modal">
+            <span class="icon">
+              <i class="fas fa-search"></i>
+            </span>
+          </a>
+          <a class="navbar-item" id="dark-mode" title="Switch to dark theme">
+            <span class="icon">
+              <i class="fas fa-adjust"></i>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  
+
+  
+  
+
+  
+<section class="section pb-0">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-8 is-offset-2">
+        <article>
+          <h1 class="title">Recursive Search with Python</h1>
+          <h2 class="subtitle"></h2>
+          <div class="columns is-multiline is-gapless">
+            <div class="column is-8">
+              
+  <p class="has-text-grey">
+    <span class="icon">
+      <i class="fas fa-user"></i>
+    </span>
+     published on
+    <span class="icon">
+      <i class="far fa-calendar-alt"></i>
+    </span>
+    <time datetime='2018-06-29'>June 29, 2018</time>
+  </p>
+
+            </div>
+            <div class="column is-4 has-text-right-desktop">
+              
+  <p class="has-text-grey">
+    <span class="icon">
+      <i class="far fa-clock"></i>
+    </span>
+    5 min,
+    <span class="icon">
+      <i class="fas fa-pencil-alt"></i>
+    </span>
+    808 words
+  </p>
+
+            </div>
+            <div class="column is-4">
+              
+            </div>
+            <div class="column is-8 has-text-right-desktop">
+               
+  <p>
+    <span class="has-text-black has-text-weight-normal">Tags:</span>
+    
+      <a class="link has-text-weight-light" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;tags&#x2F;python&#x2F;'>
+        <span class="icon is-small">
+          <i class="fas fa-tag fa-xs"></i>
+        </span>
+        python
+      </a>
+    
+      <a class="link has-text-weight-light" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;tags&#x2F;recursion&#x2F;'>
+        <span class="icon is-small">
+          <i class="fas fa-tag fa-xs"></i>
+        </span>
+        recursion
+      </a>
+    
+  </p>
+ 
+            </div>
+          </div>
+          <div class="content has-text-justified">
+            <p>Recently I received from JSON like data that I needed to transform into a
+tabular dataset. As part of that there was a specific key that could occur as a
+child of different keys at different depths in the structure. Not only could
+the key I needed appear at different locations and depths, but when it was
+located it was possible that it would have N sibling occurrences I needed to
+retrieve at the same location. Finally for all of these there were a set of id
+and date keys at the top level of the structure that I was asked to include
+with each search key result.</p>
+<p>I took a couple different paths on my way to solving this. One of the first
+things I found was the total depth was inconsistent across the structures. Not
+only that, but it wasn't uncommon to find the key scattered across depths up
+to 5 or 6 levels deep. The function below is what I ended up using. It's a
+recursive search that relies on the fact that the data is JSON like. Instead
+of trying to pull the parent keys out as part of the search I have a function
+that parses out the id and date keys passing those into this function as base.
+Then a search is performed on the input object checking the dictionary
+collections for all instances of the search key and when located appending the
+search keys value to the base data, which is then added to a list of results
+which is returned when the entire collection has been searched.</p>
+<h2 id="gotchas">Gotchas</h2>
+<ul>
+<li>This needed to be Python 2 and 3 compatible so pay attention to iterating
+dictionary keys and values when you have this requirement. There are
+different ways to handle this. I used <code>future</code>.</li>
+<li>The way that Python appends to list can be tricky. This bit me when I found
+that results contained the right number of results, but all of my results
+where the same and where based on the last hit. This is because I was calling
+<code>append</code> on base which was creating bindings that I mutated on each search
+result. Luckily Python has a <code>copy</code> module in the standard library to help
+with this scenario.</li>
+</ul>
+<h2 id="problem-solved">Problem Solved</h2>
+<p>The function below represents my final result. This worked well on the sample
+data, and eventually was used on PySpark RDDs to process hundreds of millions
+of structures quickly.</p>
+<pre style="background-color:#2b303b;">
+<code class="language-python" data-lang="python"><span style="color:#cd74e8;">import </span><span style="color:#abb2bf;">copy
+</span><span style="color:#cd74e8;">from </span><span style="color:#abb2bf;">future.utils </span><span style="color:#cd74e8;">import </span><span style="color:#abb2bf;">iteritems
+
+</span><span style="color:#cd74e8;">def </span><span style="color:#5cb3fa;">search</span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">input</span><span style="color:#abb2bf;">, </span><span style="color:#eb6772;">row_base</span><span style="color:#abb2bf;">, </span><span style="color:#eb6772;">search_key</span><span style="color:#abb2bf;">, </span><span style="color:#eb6772;">results</span><span style="color:#abb2bf;">):
+
+</span><span style="font-style:italic;color:#5f697a;">&quot;&quot;&quot;
+A search function to help transform nested JSON like objects into tabular rows.
+
+The function takes a JSON like object as input along with a search key and
+returns a row for each occurrence of the key in the object.
+
+row_base is expected to be a list containing any base data you would like associated
+with the search_key data.
+&quot;&quot;&quot;
+
+    </span><span style="color:#cd74e8;">if </span><span style="color:#5ebfcc;">input</span><span style="color:#abb2bf;">:
+        </span><span style="color:#cd74e8;">for </span><span style="color:#abb2bf;">i </span><span style="color:#cd74e8;">in </span><span style="color:#5ebfcc;">input</span><span style="color:#abb2bf;">:
+            </span><span style="font-style:italic;color:#5f697a;"># If input contains a list run it through search again since it
+            # may contain dictionaries with the key being searched
+            </span><span style="color:#cd74e8;">if </span><span style="color:#5ebfcc;">isinstance</span><span style="color:#abb2bf;">(i, list):
+                </span><span style="color:#eb6772;">search</span><span style="color:#abb2bf;">(i, row_base, search_key, results)
+            </span><span style="font-style:italic;color:#5f697a;"># If input contains a dictionary check if it contains the search_key
+            # Also check if any of the values are list or dictionaries that need
+            # to be searched
+            </span><span style="color:#cd74e8;">if </span><span style="color:#5ebfcc;">isinstance</span><span style="color:#abb2bf;">(i, dict):
+                </span><span style="color:#cd74e8;">for </span><span style="color:#abb2bf;">k, v </span><span style="color:#cd74e8;">in </span><span style="color:#eb6772;">iteritems</span><span style="color:#abb2bf;">(i):
+                    </span><span style="font-style:italic;color:#5f697a;"># If the search_key is located deepcopy row_base to prevent changing
+                    # row_base on future hits. Create full row and append to results
+                    </span><span style="color:#cd74e8;">if </span><span style="color:#abb2bf;">k </span><span style="color:#adb7c9;">== </span><span style="color:#abb2bf;">search_key:
+                        row </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">copy.</span><span style="color:#eb6772;">deepcopy</span><span style="color:#abb2bf;">(row_base)
+                        row.</span><span style="color:#eb6772;">append</span><span style="color:#abb2bf;">(i)
+                        results.</span><span style="color:#eb6772;">append</span><span style="color:#abb2bf;">(row)
+                        </span><span style="color:#cd74e8;">continue
+                    elif </span><span style="color:#5ebfcc;">isinstance</span><span style="color:#abb2bf;">(v, list):
+                        </span><span style="color:#eb6772;">search</span><span style="color:#abb2bf;">(v, row_base, search_key, results)
+                    </span><span style="color:#cd74e8;">elif </span><span style="color:#5ebfcc;">isinstance</span><span style="color:#abb2bf;">(v, dict):
+                        </span><span style="color:#eb6772;">search</span><span style="color:#abb2bf;">(v, row_base, search_key, results)
+
+    </span><span style="font-style:italic;color:#5f697a;"># Search has been exhausted return search results to caller.
+    # Results will be a list of list.
+    </span><span style="color:#cd74e8;">return </span><span style="color:#abb2bf;">results
+</span></code></pre><h3 id="next-steps">Next Steps</h3>
+<p>Since this works there are a couple of ideas I want to explore with it.</p>
+<ul>
+<li>This seems like a good place to gain experience with Python type annotations.</li>
+<li>Since this needs to work in a pure Python environment as well as a PySpark
+environment I want to do some profiling, but I'm not sure how tools like
+Cython or Numba will work/interact with the PySpark piece of this. That will
+be interesting to explore.</li>
+<li>It would be interesting to add depth tracking and see if there are any
+levels where the search key never occurs so that the function could
+potentially skip <code>iteritems</code> at that level.</li>
+</ul>
+<h3 id="docs">Docs</h3>
+<p>For more information documentation on <code>copy</code> and <code>future</code> you can
+check out the documentation.</p>
+<ul>
+<li><a href="https://docs.python.org/3.6/library/copy.html">https://docs.python.org/3.6/library/copy.html</a></li>
+<li><a href="http://python-future.org/">http://python-future.org/</a></li>
+</ul>
+<h3 id="contact">Contact</h3>
+<p>I'm sure others will have different ideas and approaches to something like
+this. Or you might have suggestions on something that could be done to make
+this faster or easier to read. If you have feedback or suggestion feel free to
+send them my way via up via <a href="mailto:n0mn0m@burningdaylight.io">email</a>.</p>
+
+          </div>
+        </article>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+
+  
+  <section class="modal" id="search-modal">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+      <div class="field">
+        <p class="control has-icons-right">
+          <input class="input" id="search" placeholder="Search this website." type="search" />
+          <span class="icon is-small is-right">
+            <i class="fas fa-search"></i>
+          </span>
+        </p>
+      </div>
+      <div class="search-results">
+        <div class="search-results__items"></div>
+      </div>
+    </div>
+    <button aria-label="close" class="modal-close is-large"></button>
+  </section>
+  
+
+
+   
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <nav class="level">
+          
+          <div class="level-item has-text-centered">
+            <a
+              class="button is-black is-outlined"
+              href="https:&#x2F;&#x2F;burningdaylight.io&#x2F;posts&#x2F;modules-and-packages&#x2F;"
+            >
+              <span class="icon mr-2">
+                <i class="fas fa-arrow-circle-left"></i>
+              </span>
+              DerbyPy Introduction to Python Modules and Packages
+            </a>
+          </div>
+           
+          <div class="level-item has-text-centered">
+            <a
+              class="button is-black is-outlined"
+              href="https:&#x2F;&#x2F;burningdaylight.io&#x2F;posts&#x2F;pelican-on-windows&#x2F;"
+            >
+              Publishing with Pelican on Windows<span class="icon ml-2">
+                <i class="fas fa-arrow-circle-right"></i>
+              </span>
+            </a>
+          </div>
+            
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+
+    
+
+  
+  <footer class="py-4 has-background-light">
+    <p class="has-text-centered">
+      Built with
+      <span class="icon is-small">
+        <i class="fas fa-code fa-xs"></i>
+      </span>
+      code and
+      <span class="icon is-small">
+        <i class="fas fa-heart fa-xs"></i>
+      </span>
+      love <br /> Powered By
+      <span class="icon is-small">
+        <i class="fas fa-power-off fa-xs"></i>
+      </span>
+      Zola <br />Posts licensed by <a href="https://creativecommons.org/publicdomain/zero/1.0/">Creative Commons CC0 1.0 </a><i class="fa fa-cc"></i>
+      <br /> Code licensed <a href="https://www.gnu.org/licenses/lgpl-3.0.txt">LGPL</a>
+    </p>
+  </footer>
+  
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sharer.js@latest/sharer.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/galleria.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.xkcd@1/dist/chart.xkcd.min.js"></script>
+  <script src="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/themes/folio/galleria.folio.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/elasticlunr/0.9.6/elasticlunr.min.js"></script>
+  <script src='https:&#x2F;&#x2F;burningdaylight.io&#x2F;search_index.en.js'></script>
+  <script src='https:&#x2F;&#x2F;burningdaylight.io&#x2F;js&#x2F;site.js'></script>
+
+    
+</body>
+
+</html>

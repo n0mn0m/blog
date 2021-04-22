@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <meta content="#ffffff" name="theme-color" />
+  <meta content="#da532c" name="msapplication-TileColor" />
+
+  
+  <link href='&#x2F;icons&#x2F;site.webmanifest' rel="manifest" />
+  
+  
+  
+  <link href='&#x2F;icons&#x2F;favicon-16x16.png' rel="icon" sizes="16x16" type="image/png" />
+  
+  
+  <link href='&#x2F;icons&#x2F;favicon-32x32.png' rel="icon" sizes="32x32" type="image/png" />
+  
+  
+  <link href='&#x2F;icons&#x2F;apple-icon.png' rel="apple-touch-icon" sizes="180x180" />
+  
+
+  <link href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/themes/folio/galleria.folio.min.css"
+    rel="stylesheet" />
+  <link href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css" rel="stylesheet" />
+  <link href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;site.css' rel="stylesheet" />
+
+  
+  
+
+  <title>
+     burningdaylight | Publishing with Pelican on Windows 
+  </title>
+
+  <script crossorigin="anonymous" src="https://kit.fontawesome.com/201b8d5e05.js"></script>
+
+  
+</head>
+
+<body class="has-background-white">
+  
+  <nav aria-label="section navigation" class="navbar is-light" role="navigation">
+    <div class="container">
+      <div class="navbar-brand">
+        <a class="navbar-item has-text-weight-bold" href="/">burningdaylight</a>
+        <a aria-expanded="false" aria-label="menu" class="navbar-burger burger" data-target="navMenu" role="button">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+      <div class="navbar-menu" id="navMenu">
+        <div class="navbar-end has-text-centered">
+          
+          <a class="navbar-item" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;'>
+            Home
+          </a>
+          
+          <a class="navbar-item" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;posts'>
+            Posts
+          </a>
+          
+          <a class="navbar-item" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;docs'>
+            Docs
+          </a>
+          
+          <a class="navbar-item" href='https:&#x2F;&#x2F;github.com&#x2F;n0mn0m'>
+            Repos
+          </a>
+          
+          <a class="navbar-item" id="nav-search" title="Search" data-target="#search-modal">
+            <span class="icon">
+              <i class="fas fa-search"></i>
+            </span>
+          </a>
+          <a class="navbar-item" id="dark-mode" title="Switch to dark theme">
+            <span class="icon">
+              <i class="fas fa-adjust"></i>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  
+
+  
+  
+
+  
+<section class="section pb-0">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-8 is-offset-2">
+        <article>
+          <h1 class="title">Publishing with Pelican on Windows</h1>
+          <h2 class="subtitle"></h2>
+          <div class="columns is-multiline is-gapless">
+            <div class="column is-8">
+              
+  <p class="has-text-grey">
+    <span class="icon">
+      <i class="fas fa-user"></i>
+    </span>
+     published on
+    <span class="icon">
+      <i class="far fa-calendar-alt"></i>
+    </span>
+    <time datetime='2018-05-17'>May 17, 2018</time>
+  </p>
+
+            </div>
+            <div class="column is-4 has-text-right-desktop">
+              
+  <p class="has-text-grey">
+    <span class="icon">
+      <i class="far fa-clock"></i>
+    </span>
+    4 min,
+    <span class="icon">
+      <i class="fas fa-pencil-alt"></i>
+    </span>
+    707 words
+  </p>
+
+            </div>
+            <div class="column is-4">
+              
+            </div>
+            <div class="column is-8 has-text-right-desktop">
+               
+  <p>
+    <span class="has-text-black has-text-weight-normal">Tags:</span>
+    
+      <a class="link has-text-weight-light" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;tags&#x2F;python&#x2F;'>
+        <span class="icon is-small">
+          <i class="fas fa-tag fa-xs"></i>
+        </span>
+        python
+      </a>
+    
+      <a class="link has-text-weight-light" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;tags&#x2F;pelican&#x2F;'>
+        <span class="icon is-small">
+          <i class="fas fa-tag fa-xs"></i>
+        </span>
+        pelican
+      </a>
+    
+      <a class="link has-text-weight-light" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;tags&#x2F;blogging&#x2F;'>
+        <span class="icon is-small">
+          <i class="fas fa-tag fa-xs"></i>
+        </span>
+        blogging
+      </a>
+    
+  </p>
+ 
+            </div>
+          </div>
+          <div class="content has-text-justified">
+            <p>Before jumping in here are the links I used while setting this up. I recommend
+at least reading through the Pelican and Github pages documentation before
+jumping in.</p>
+<h2 id="reference-material">Reference Material</h2>
+<ul>
+<li><a href="http://docs.getpelican.com/en/3.6.3/install.html">http://docs.getpelican.com/en/3.6.3/install.html</a></li>
+<li><a href="http://docs.getpelican.com/en/3.6.3/publish.html">http://docs.getpelican.com/en/3.6.3/publish.html</a></li>
+<li><a href="http://docs.getpelican.com/en/3.6.3/tips.html#publishing-to-github">http://docs.getpelican.com/en/3.6.3/tips.html#publishing-to-github</a></li>
+<li><a href="https://pages.github.com/">https://pages.github.com/</a></li>
+<li><a href="https://help.github.com/articles/user-organization-and-project-pages/">https://help.github.com/articles/user-organization-and-project-pages/</a></li>
+<li><a href="https://help.github.com/articles/setting-up-an-apex-domain/">https://help.github.com/articles/setting-up-an-apex-domain/</a></li>
+<li><a href="https://wiki.gandi.net/en/dns/zone/a-record">https://wiki.gandi.net/en/dns/zone/a-record</a></li>
+</ul>
+<h2 id="getting-started">Getting Started</h2>
+<p>To get things started I thought it might be a good idea to document using
+Pelican on Windows with Github and Gandi for blog publishing. I'll start by
+configuring Pelican and Github. Once that's working I'll then talk about
+configuring Gandi so you can use a custom domain. If you're using a different
+domain provider you may need to use different settings, but Github has plenty
+of documentation around this that I'll provide links for. Using Pelican on
+Windows isn't that much different than macOS or Linux, but you won't find as
+many tutorials or be able to use the quickstart makefile.</p>
+<h2 id="github-pages-setup">Github Pages Setup</h2>
+<p>The first thing you should do is login to Github and then setup a Github pages
+repo. You can read more detailed istructions here:
+<a href="https://pages.github.com/">https://pages.github.com/</a> or create a repo that
+follows the pattern:</p>
+<pre style="background-color:#2b303b;">
+<code class="language-bash" data-lang="bash"><span style="color:#abb2bf;">    </span><span style="color:#adb7c9;">&lt;</span><span style="color:#abb2bf;">reponame</span><span style="color:#adb7c9;">&gt;</span><span style="color:#abb2bf;">.github.io
+</span></code></pre>
+<p>I followed a pattern for User Github pages. This will be important when
+publishing with Pelican.</p>
+<p><a href="https://help.github.com/articles/user-organization-and-project-pages/">https://help.github.com/articles/user-organization-and-project-pages/</a></p>
+<h2 id="pelican-local">Pelican Local</h2>
+<p>With that out of the way we want to move on to setting up our project on
+Windows. I'm using Anaconda and I will be creating a new conda environment for
+this project.</p>
+<pre style="background-color:#2b303b;">
+<code class="language-bash" data-lang="bash"><span style="color:#abb2bf;">    </span><span style="color:#5ebfcc;">cd</span><span style="color:#abb2bf;"> C:</span><span style="color:#5ebfcc;">\U</span><span style="color:#abb2bf;">sers</span><span style="color:#5ebfcc;">\&lt;</span><span style="color:#abb2bf;">username</span><span style="color:#adb7c9;">&gt;</span><span style="color:#5ebfcc;">\s</span><span style="color:#abb2bf;">ource</span><span style="color:#5ebfcc;">\r</span><span style="color:#abb2bf;">epos
+    </span><span style="color:#eb6772;">mkdir</span><span style="color:#abb2bf;"> pelican_blog
+    </span><span style="color:#eb6772;">conda</span><span style="color:#abb2bf;"> create</span><span style="color:#eb6772;"> -n</span><span style="color:#abb2bf;"> blogging python=3.6
+    </span><span style="color:#eb6772;">conda</span><span style="color:#abb2bf;"> activate blogging
+    </span><span style="color:#eb6772;">pip</span><span style="color:#abb2bf;"> install pelican ghp-import markdown
+    </span><span style="color:#5ebfcc;">cd</span><span style="color:#abb2bf;"> pelican_blog
+    </span><span style="color:#eb6772;">pelican-quickstart
+</span></code></pre>
+<p>The main thing to pay attention to when you go through the quickstart prompts
+is that you won't need or be able to use the makefile with Windows. Once you
+have completed the quikstart there are a couple things to pay attention to.</p>
+<ol>
+<li>Your articles should be markdown documents in the content folder.</li>
+<li>pelicanconf.py contains various settings related to you blog.</li>
+<li>publishconf.py can be left alone because we are using ghp-import</li>
+</ol>
+<h2 id="publishing">Publishing</h2>
+<p>Go ahead and create a file under content. Something like getting_started.md
+and add some text. Once you've done that switch back to the terminal prompt.</p>
+<pre style="background-color:#2b303b;">
+<code class="language-bash" data-lang="bash"><span style="color:#abb2bf;">    </span><span style="color:#eb6772;">pelican</span><span style="color:#abb2bf;"> content</span><span style="color:#eb6772;"> -o</span><span style="color:#abb2bf;"> output</span><span style="color:#eb6772;"> -s</span><span style="color:#abb2bf;"> pelicanconf.py
+    </span><span style="color:#eb6772;">git</span><span style="color:#abb2bf;"> add .
+    </span><span style="color:#eb6772;">git</span><span style="color:#abb2bf;"> commit</span><span style="color:#eb6772;"> -m </span><span style="color:#9acc76;">&quot;initial commit&quot;
+    </span><span style="color:#eb6772;">ghp-import</span><span style="color:#abb2bf;"> output
+    </span><span style="color:#eb6772;">git</span><span style="color:#abb2bf;"> push git@github.com:alexhagerman/alexhagerman.github.io.git gh-pages:main
+</span></code></pre><h2 id="custom-domain-url">Custom Domain URL</h2>
+<p>Ok, now that we have Github setup and we can see our blog pages I want to
+look at the steps required to use my custom domain hosted by Gandi with the
+Github pages. With Gandi we want to modify our A Records to allow routing to
+Github. Logging into your Gandi dashboard, select domains from the menu and
+then DNS records. On this page you should be able to edit your DNS record and
+add the following:</p>
+<p><a href="https://wiki.gandi.net/en/dns/zone/a-record">https://wiki.gandi.net/en/dns/zone/a-record</a></p>
+<pre style="background-color:#2b303b;">
+<code class="language-bash" data-lang="bash"><span style="color:#abb2bf;">    </span><span style="color:#eb6772;">@</span><span style="color:#abb2bf;"> 10800 IN A 185.199.108.153
+    </span><span style="color:#eb6772;">@</span><span style="color:#abb2bf;"> 10800 IN A 185.199.109.153
+    </span><span style="color:#eb6772;">@</span><span style="color:#abb2bf;"> 10800 IN A 185.199.110.153
+    </span><span style="color:#eb6772;">@</span><span style="color:#abb2bf;"> 10800 IN A 185.199.111.153
+</span></code></pre>
+<p>Ok finally navigate back to your Github repo and go to the settings page. Under
+settings scroll down until you see Github pages. You should see a textbox
+allowing you to enter a custom domain. Add that, and if possible I recommend
+checking the enforce https box below this.</p>
+<h3 id="wrapping-up">Wrapping Up</h3>
+<p>With that done you should be good to go. Whenever you want to write a new
+article create a markdown document in the content folder and follow the same
+steps above for publishing. One last note if this doesn't work immediately you
+might want to wait before beginning to change settings since your A record
+changes can take some time to replicate.</p>
+
+          </div>
+        </article>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+
+  
+  <section class="modal" id="search-modal">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+      <div class="field">
+        <p class="control has-icons-right">
+          <input class="input" id="search" placeholder="Search this website." type="search" />
+          <span class="icon is-small is-right">
+            <i class="fas fa-search"></i>
+          </span>
+        </p>
+      </div>
+      <div class="search-results">
+        <div class="search-results__items"></div>
+      </div>
+    </div>
+    <button aria-label="close" class="modal-close is-large"></button>
+  </section>
+  
+
+
+   
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <nav class="level">
+          
+          <div class="level-item has-text-centered">
+            <a
+              class="button is-black is-outlined"
+              href="https:&#x2F;&#x2F;burningdaylight.io&#x2F;posts&#x2F;recurse&#x2F;"
+            >
+              <span class="icon mr-2">
+                <i class="fas fa-arrow-circle-left"></i>
+              </span>
+              Recursive Search with Python
+            </a>
+          </div>
+           
+          <div class="level-item has-text-centered">
+            <a
+              class="button is-black is-outlined"
+              href="https:&#x2F;&#x2F;burningdaylight.io&#x2F;posts&#x2F;first&#x2F;"
+            >
+              Getting Started<span class="icon ml-2">
+                <i class="fas fa-arrow-circle-right"></i>
+              </span>
+            </a>
+          </div>
+            
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+
+    
+
+  
+  <footer class="py-4 has-background-light">
+    <p class="has-text-centered">
+      Built with
+      <span class="icon is-small">
+        <i class="fas fa-code fa-xs"></i>
+      </span>
+      code and
+      <span class="icon is-small">
+        <i class="fas fa-heart fa-xs"></i>
+      </span>
+      love <br /> Powered By
+      <span class="icon is-small">
+        <i class="fas fa-power-off fa-xs"></i>
+      </span>
+      Zola <br />Posts licensed by <a href="https://creativecommons.org/publicdomain/zero/1.0/">Creative Commons CC0 1.0 </a><i class="fa fa-cc"></i>
+      <br /> Code licensed <a href="https://www.gnu.org/licenses/lgpl-3.0.txt">LGPL</a>
+    </p>
+  </footer>
+  
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sharer.js@latest/sharer.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/galleria.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.xkcd@1/dist/chart.xkcd.min.js"></script>
+  <script src="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/themes/folio/galleria.folio.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/elasticlunr/0.9.6/elasticlunr.min.js"></script>
+  <script src='https:&#x2F;&#x2F;burningdaylight.io&#x2F;search_index.en.js'></script>
+  <script src='https:&#x2F;&#x2F;burningdaylight.io&#x2F;js&#x2F;site.js'></script>
+
+    
+</body>
+
+</html>

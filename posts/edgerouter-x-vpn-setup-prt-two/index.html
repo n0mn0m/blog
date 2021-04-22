@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <meta content="#ffffff" name="theme-color" />
+  <meta content="#da532c" name="msapplication-TileColor" />
+
+  
+  <link href='&#x2F;icons&#x2F;site.webmanifest' rel="manifest" />
+  
+  
+  
+  <link href='&#x2F;icons&#x2F;favicon-16x16.png' rel="icon" sizes="16x16" type="image/png" />
+  
+  
+  <link href='&#x2F;icons&#x2F;favicon-32x32.png' rel="icon" sizes="32x32" type="image/png" />
+  
+  
+  <link href='&#x2F;icons&#x2F;apple-icon.png' rel="apple-touch-icon" sizes="180x180" />
+  
+
+  <link href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/themes/folio/galleria.folio.min.css"
+    rel="stylesheet" />
+  <link href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css" rel="stylesheet" />
+  <link href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;site.css' rel="stylesheet" />
+
+  
+  
+
+  <title>
+     burningdaylight | EdgeRouter X Home VPN Setup Pt 2 
+  </title>
+
+  <script crossorigin="anonymous" src="https://kit.fontawesome.com/201b8d5e05.js"></script>
+
+  
+</head>
+
+<body class="has-background-white">
+  
+  <nav aria-label="section navigation" class="navbar is-light" role="navigation">
+    <div class="container">
+      <div class="navbar-brand">
+        <a class="navbar-item has-text-weight-bold" href="/">burningdaylight</a>
+        <a aria-expanded="false" aria-label="menu" class="navbar-burger burger" data-target="navMenu" role="button">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+      <div class="navbar-menu" id="navMenu">
+        <div class="navbar-end has-text-centered">
+          
+          <a class="navbar-item" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;'>
+            Home
+          </a>
+          
+          <a class="navbar-item" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;posts'>
+            Posts
+          </a>
+          
+          <a class="navbar-item" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;docs'>
+            Docs
+          </a>
+          
+          <a class="navbar-item" href='https:&#x2F;&#x2F;github.com&#x2F;n0mn0m'>
+            Repos
+          </a>
+          
+          <a class="navbar-item" id="nav-search" title="Search" data-target="#search-modal">
+            <span class="icon">
+              <i class="fas fa-search"></i>
+            </span>
+          </a>
+          <a class="navbar-item" id="dark-mode" title="Switch to dark theme">
+            <span class="icon">
+              <i class="fas fa-adjust"></i>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  
+
+  
+  
+
+  
+<section class="section pb-0">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-8 is-offset-2">
+        <article>
+          <h1 class="title">EdgeRouter X Home VPN Setup Pt 2</h1>
+          <h2 class="subtitle"></h2>
+          <div class="columns is-multiline is-gapless">
+            <div class="column is-8">
+              
+  <p class="has-text-grey">
+    <span class="icon">
+      <i class="fas fa-user"></i>
+    </span>
+     published on
+    <span class="icon">
+      <i class="far fa-calendar-alt"></i>
+    </span>
+    <time datetime='2019-10-18'>October 18, 2019</time>
+  </p>
+
+            </div>
+            <div class="column is-4 has-text-right-desktop">
+              
+  <p class="has-text-grey">
+    <span class="icon">
+      <i class="far fa-clock"></i>
+    </span>
+    4 min,
+    <span class="icon">
+      <i class="fas fa-pencil-alt"></i>
+    </span>
+    636 words
+  </p>
+
+            </div>
+            <div class="column is-4">
+              
+            </div>
+            <div class="column is-8 has-text-right-desktop">
+               
+  <p>
+    <span class="has-text-black has-text-weight-normal">Tags:</span>
+    
+      <a class="link has-text-weight-light" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;tags&#x2F;vpn&#x2F;'>
+        <span class="icon is-small">
+          <i class="fas fa-tag fa-xs"></i>
+        </span>
+        vpn
+      </a>
+    
+      <a class="link has-text-weight-light" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;tags&#x2F;edgerouter&#x2F;'>
+        <span class="icon is-small">
+          <i class="fas fa-tag fa-xs"></i>
+        </span>
+        edgerouter
+      </a>
+    
+      <a class="link has-text-weight-light" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;tags&#x2F;networking&#x2F;'>
+        <span class="icon is-small">
+          <i class="fas fa-tag fa-xs"></i>
+        </span>
+        networking
+      </a>
+    
+      <a class="link has-text-weight-light" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;tags&#x2F;sysadmin&#x2F;'>
+        <span class="icon is-small">
+          <i class="fas fa-tag fa-xs"></i>
+        </span>
+        sysadmin
+      </a>
+    
+  </p>
+ 
+            </div>
+          </div>
+          <div class="content has-text-justified">
+            <p><strong>I am not a network or sysadmin by day. This is something I'm actively
+learning on and figuring out. If you see something wrong or have suggestions
+I would love to <a href="mailto:n0mn0m@burningdaylight.io">hear about it</a>.</strong></p>
+<p>In <a href="https://burningdaylight.io/posts/edgerouter-x-vpn-setup-prt-one/">part one</a> we configured the
+network. Now we are ready to install Wireguard and create our interface. Before
+I jumped into doing this I referenced these post and docs.</p>
+<ul>
+<li><a href="https://www.wireguard.com/quickstart/">Wireguard</a></li>
+<li><a href="https://www.erianna.com/wireguard-ubiquity-edgeos/">Charles R. Portwood || Wireguard on Ubiquity OS</a></li>
+<li><a href="https://www.erianna.com/wireguard-ubiquity-edgeos/">David Wireguard Home Network</a></li>
+</ul>
+<p>To get started <code>ssh</code> into the EdgeRouter device.</p>
+<pre style="background-color:#2b303b;">
+<code class="language-bash" data-lang="bash"><span style="color:#eb6772;">ssh </span><span style="color:#adb7c9;">&lt;</span><span style="color:#abb2bf;">user</span><span style="color:#adb7c9;">&gt;</span><span style="color:#abb2bf;">@</span><span style="color:#adb7c9;">&lt;</span><span style="color:#abb2bf;">edgerouterip</span><span style="color:#adb7c9;">&gt;
+</span></code></pre>
+<p>Once logged in we need to pull, install the Wireguard <code>.deb</code>.</p>
+<pre style="background-color:#2b303b;">
+<code class="language-bash" data-lang="bash"><span style="color:#5ebfcc;">cd</span><span style="color:#abb2bf;"> /tmp
+
+</span><span style="font-style:italic;color:#5f697a;"># Download the appropriate version, pay special attention here, if you are using the Ubiquity v2 firmware
+# you will need the wireguard-v2-*
+</span><span style="color:#abb2bf;">curl -qLs https://github.com/Lochnair/vyatta-wireguard/releases/download/0.0.20190913-1/wireguard-v2.0-e50-0.0.20190913-1.deb
+
+</span><span style="color:#eb6772;">sudo</span><span style="color:#abb2bf;"> dpkg</span><span style="color:#eb6772;"> -i</span><span style="color:#abb2bf;"> wireguard.deb
+</span></code></pre>
+<p>An important note from the source repo</p>
+<p><strong>Note that since Wireguard is not software bundled with the EdgeOS firmware,
+firmware upgrades necessitate re-installing the Wireguard debian package. Once
+the wireguard package is re-installed re-applying the existing Vyatta config
+file, or rebooting will restore your interfaces.</strong></p>
+<p>First things first we need to generate a private key for the router, and a
+public key to share with clients.</p>
+<pre style="background-color:#2b303b;">
+<code class="language-bash" data-lang="bash"><span style="color:#eb6772;">$</span><span style="color:#abb2bf;"> wg genkey </span><span style="color:#adb7c9;">| </span><span style="color:#eb6772;">tee</span><span style="color:#abb2bf;"> /dev/tty </span><span style="color:#adb7c9;">| </span><span style="color:#eb6772;">wg</span><span style="color:#abb2bf;"> pubkey
+</span><span style="color:#eb6772;">123ddgqeqe123123
+</span></code></pre>
+<p>This will output two lines. The first is your private key, the second is your
+public key. Keep these secure, but ready since you will need to provide the
+public key to all clients.</p>
+<p>With our keys generated we can now configure the Wireguard interface. Ours
+will be <code>wg0</code>. In the terminal:</p>
+<pre style="background-color:#2b303b;">
+<code class="language-bash" data-lang="bash"><span style="color:#eb6772;">configure
+
+</span><span style="color:#5ebfcc;">set</span><span style="color:#abb2bf;"> interfaces wireguard wg0 address 192.168.55.1/24
+</span><span style="color:#5ebfcc;">set</span><span style="color:#abb2bf;"> interfaces wireguard wg0 listen-port 51820
+</span><span style="color:#5ebfcc;">set</span><span style="color:#abb2bf;"> interfaces wireguard wg0 route-allowed-ips true
+</span><span style="color:#5ebfcc;">set</span><span style="color:#abb2bf;"> interfaces wireguard wg0 private-key </span><span style="color:#adb7c9;">&lt;</span><span style="color:#abb2bf;">private-key-from above-output</span><span style="color:#adb7c9;">&gt;
+
+</span><span style="color:#abb2bf;">commit
+</span><span style="color:#eb6772;">save
+</span></code></pre>
+<p>This created a new wireguard network on <code>192.168.55.1/24</code>; listening to port
+<code>51820</code> and will route all the traffic through <code>wg0</code>.</p>
+<p>Now keeping our public key ready we can configure a client.</p>
+<h2 id="configuring-wireguard-on-ubuntu">Configuring Wireguard on Ubuntu</h2>
+<p>If you're using Ubuntu 19.10 wireguard should be available from <code>apt</code> by
+default:</p>
+<pre style="background-color:#2b303b;">
+<code class="language-bash" data-lang="bash"><span style="color:#eb6772;">sudo</span><span style="color:#abb2bf;"> apt-get update
+</span><span style="color:#eb6772;">sudo</span><span style="color:#abb2bf;"> apt-get install wireguard
+</span></code></pre>
+<p>With prior versions:</p>
+<pre style="background-color:#2b303b;">
+<code class="language-bash" data-lang="bash"><span style="color:#eb6772;">sudo</span><span style="color:#abb2bf;"> add-apt-repository ppa:wireguard/wireguard
+</span><span style="color:#eb6772;">sudo</span><span style="color:#abb2bf;"> apt-get update
+</span><span style="color:#eb6772;">sudo</span><span style="color:#abb2bf;"> apt-get install wireguard
+</span></code></pre>
+<p>Once again we need to generate our keys, now on the client:</p>
+<pre style="background-color:#2b303b;">
+<code class="language-bash" data-lang="bash"><span style="color:#eb6772;">wg</span><span style="color:#abb2bf;"> genkey </span><span style="color:#adb7c9;">| </span><span style="color:#eb6772;">tee</span><span style="color:#abb2bf;"> /dev/tty </span><span style="color:#adb7c9;">| </span><span style="color:#eb6772;">wg</span><span style="color:#abb2bf;"> pubkey
+</span></code></pre>
+<p>Now, create the wireguard interface, still on the client.</p>
+<pre style="background-color:#2b303b;">
+<code class="language-bash" data-lang="bash"><span style="color:#eb6772;">touch</span><span style="color:#abb2bf;"> /etc/wireguard/wg0.conf
+</span><span style="color:#eb6772;">chown</span><span style="color:#abb2bf;"> root:root /etc/wireguard/wg0.conf
+</span><span style="color:#eb6772;">chmod</span><span style="color:#abb2bf;"> 600 /etc/wireguard/wg0.conf
+
+</span><span style="color:#eb6772;">sudo</span><span style="color:#abb2bf;"> vim /etc/wireguard/wg0.conf
+
+</span><span style="color:#adb7c9;">&lt;</span><span style="color:#abb2bf;">-</span><span style="color:#eb6772;">-------wg0.conf--------</span><span style="color:#adb7c9;">&gt;
+</span><span style="color:#cd74e8;">[</span><span style="color:#abb2bf;">Interface</span><span style="color:#cd74e8;">]
+</span><span style="color:#eb6772;">Address</span><span style="color:#abb2bf;"> = 192.168.55.5/32
+</span><span style="color:#eb6772;">PrivateKey</span><span style="color:#abb2bf;"> = </span><span style="color:#adb7c9;">&lt;</span><span style="color:#abb2bf;">client-private-key</span><span style="color:#adb7c9;">&gt;
+
+</span><span style="color:#cd74e8;">[</span><span style="color:#abb2bf;">Peer</span><span style="color:#cd74e8;">]
+</span><span style="color:#eb6772;">PublicKey</span><span style="color:#abb2bf;"> = </span><span style="color:#adb7c9;">&lt;</span><span style="color:#abb2bf;">router-public-key</span><span style="color:#adb7c9;">&gt;
+</span><span style="color:#abb2bf;">AllowedIPs = 192.168.55.0/24
+</span><span style="color:#eb6772;">Endpoint</span><span style="color:#abb2bf;"> = public_ip_of_router:51820
+</span></code></pre><h2 id="peering-the-router-and-client">Peering the router and client</h2>
+<p>With the client configured and keeping the public key it generated, return to
+the  router. <code>ssh</code> and run:</p>
+<pre style="background-color:#2b303b;">
+<code class="language-bash" data-lang="bash"><span style="color:#5ebfcc;">set</span><span style="color:#abb2bf;"> interfaces wireguard wg0 peer </span><span style="color:#adb7c9;">&lt;</span><span style="color:#abb2bf;">client-public-key</span><span style="color:#adb7c9;">&gt;</span><span style="color:#abb2bf;"> allowed-ips 192.168.55.5/32
+</span><span style="color:#eb6772;">commit
+save
+</span></code></pre><h2 id="starting-your-client-vpn">Starting your client VPN</h2>
+<p>With <code>wg0</code> configured and ready bring up the VPN on our client.</p>
+<pre style="background-color:#2b303b;">
+<code class="language-bash" data-lang="bash"><span style="color:#eb6772;">sudo</span><span style="color:#abb2bf;"> wg-quick up wg0
+</span></code></pre>
+<p>And verify connectivity by running <code>sudo wg</code> on the client, and router.</p>
+<h3 id="next-steps">Next Steps</h3>
+<p>With VPN setup I'm now able to access and provide access to my device lab. This
+also  keeps devices using this router that are not part of the lab separated.</p>
+<p>Finally if you're doing this for the first time some next steps you might want
+to take include:</p>
+<ul>
+<li>Switch devices to only allowing ssh via keys.</li>
+<li>Switch to a non default ssh port.</li>
+<li>Setup fail2ban.</li>
+<li>Pickup from <a href="https://opensource.com/article/19/10/linux-server-security">here</a></li>
+</ul>
+
+          </div>
+        </article>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+
+  
+  <section class="modal" id="search-modal">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+      <div class="field">
+        <p class="control has-icons-right">
+          <input class="input" id="search" placeholder="Search this website." type="search" />
+          <span class="icon is-small is-right">
+            <i class="fas fa-search"></i>
+          </span>
+        </p>
+      </div>
+      <div class="search-results">
+        <div class="search-results__items"></div>
+      </div>
+    </div>
+    <button aria-label="close" class="modal-close is-large"></button>
+  </section>
+  
+
+
+   
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <nav class="level">
+          
+          <div class="level-item has-text-centered">
+            <a
+              class="button is-black is-outlined"
+              href="https:&#x2F;&#x2F;burningdaylight.io&#x2F;posts&#x2F;edgerouter-x-vpn-setup-prt-one&#x2F;"
+            >
+              <span class="icon mr-2">
+                <i class="fas fa-arrow-circle-left"></i>
+              </span>
+              EdgeRouter X Home VPN Setup Pt 1
+            </a>
+          </div>
+           
+          <div class="level-item has-text-centered">
+            <a
+              class="button is-black is-outlined"
+              href="https:&#x2F;&#x2F;burningdaylight.io&#x2F;posts&#x2F;hackaday-connected-world&#x2F;"
+            >
+               Hackaday Connected World Follow Up<span class="icon ml-2">
+                <i class="fas fa-arrow-circle-right"></i>
+              </span>
+            </a>
+          </div>
+            
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+
+    
+
+  
+  <footer class="py-4 has-background-light">
+    <p class="has-text-centered">
+      Built with
+      <span class="icon is-small">
+        <i class="fas fa-code fa-xs"></i>
+      </span>
+      code and
+      <span class="icon is-small">
+        <i class="fas fa-heart fa-xs"></i>
+      </span>
+      love <br /> Powered By
+      <span class="icon is-small">
+        <i class="fas fa-power-off fa-xs"></i>
+      </span>
+      Zola <br />Posts licensed by <a href="https://creativecommons.org/publicdomain/zero/1.0/">Creative Commons CC0 1.0 </a><i class="fa fa-cc"></i>
+      <br /> Code licensed <a href="https://www.gnu.org/licenses/lgpl-3.0.txt">LGPL</a>
+    </p>
+  </footer>
+  
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sharer.js@latest/sharer.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/galleria.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.xkcd@1/dist/chart.xkcd.min.js"></script>
+  <script src="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/themes/folio/galleria.folio.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/elasticlunr/0.9.6/elasticlunr.min.js"></script>
+  <script src='https:&#x2F;&#x2F;burningdaylight.io&#x2F;search_index.en.js'></script>
+  <script src='https:&#x2F;&#x2F;burningdaylight.io&#x2F;js&#x2F;site.js'></script>
+
+    
+</body>
+
+</html>

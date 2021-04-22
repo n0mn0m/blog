@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <meta content="#ffffff" name="theme-color" />
+  <meta content="#da532c" name="msapplication-TileColor" />
+
+  
+  <link href='&#x2F;icons&#x2F;site.webmanifest' rel="manifest" />
+  
+  
+  
+  <link href='&#x2F;icons&#x2F;favicon-16x16.png' rel="icon" sizes="16x16" type="image/png" />
+  
+  
+  <link href='&#x2F;icons&#x2F;favicon-32x32.png' rel="icon" sizes="32x32" type="image/png" />
+  
+  
+  <link href='&#x2F;icons&#x2F;apple-icon.png' rel="apple-touch-icon" sizes="180x180" />
+  
+
+  <link href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/themes/folio/galleria.folio.min.css"
+    rel="stylesheet" />
+  <link href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css" rel="stylesheet" />
+  <link href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;site.css' rel="stylesheet" />
+
+  
+  
+
+  <title>
+     burningdaylight | Roll your own git hook 
+  </title>
+
+  <script crossorigin="anonymous" src="https://kit.fontawesome.com/201b8d5e05.js"></script>
+
+  
+</head>
+
+<body class="has-background-white">
+  
+  <nav aria-label="section navigation" class="navbar is-light" role="navigation">
+    <div class="container">
+      <div class="navbar-brand">
+        <a class="navbar-item has-text-weight-bold" href="/">burningdaylight</a>
+        <a aria-expanded="false" aria-label="menu" class="navbar-burger burger" data-target="navMenu" role="button">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+      <div class="navbar-menu" id="navMenu">
+        <div class="navbar-end has-text-centered">
+          
+          <a class="navbar-item" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;'>
+            Home
+          </a>
+          
+          <a class="navbar-item" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;posts'>
+            Posts
+          </a>
+          
+          <a class="navbar-item" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;docs'>
+            Docs
+          </a>
+          
+          <a class="navbar-item" href='https:&#x2F;&#x2F;github.com&#x2F;n0mn0m'>
+            Repos
+          </a>
+          
+          <a class="navbar-item" id="nav-search" title="Search" data-target="#search-modal">
+            <span class="icon">
+              <i class="fas fa-search"></i>
+            </span>
+          </a>
+          <a class="navbar-item" id="dark-mode" title="Switch to dark theme">
+            <span class="icon">
+              <i class="fas fa-adjust"></i>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  
+
+  
+  
+
+  
+<section class="section pb-0">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-8 is-offset-2">
+        <article>
+          <h1 class="title">Roll your own git hook</h1>
+          <h2 class="subtitle"></h2>
+          <div class="columns is-multiline is-gapless">
+            <div class="column is-8">
+              
+  <p class="has-text-grey">
+    <span class="icon">
+      <i class="fas fa-user"></i>
+    </span>
+     published on
+    <span class="icon">
+      <i class="far fa-calendar-alt"></i>
+    </span>
+    <time datetime='2020-10-18'>October 18, 2020</time>
+  </p>
+
+            </div>
+            <div class="column is-4 has-text-right-desktop">
+              
+  <p class="has-text-grey">
+    <span class="icon">
+      <i class="far fa-clock"></i>
+    </span>
+    3 min,
+    <span class="icon">
+      <i class="fas fa-pencil-alt"></i>
+    </span>
+    503 words
+  </p>
+
+            </div>
+            <div class="column is-4">
+              
+            </div>
+            <div class="column is-8 has-text-right-desktop">
+               
+  <p>
+    <span class="has-text-black has-text-weight-normal">Tags:</span>
+    
+      <a class="link has-text-weight-light" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;tags&#x2F;git&#x2F;'>
+        <span class="icon is-small">
+          <i class="fas fa-tag fa-xs"></i>
+        </span>
+        git
+      </a>
+    
+      <a class="link has-text-weight-light" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;tags&#x2F;ci&#x2F;'>
+        <span class="icon is-small">
+          <i class="fas fa-tag fa-xs"></i>
+        </span>
+        ci
+      </a>
+    
+  </p>
+ 
+            </div>
+          </div>
+          <div class="content has-text-justified">
+            <p>As part of setting up <a href="https://burningdaylight.io/posts/resharper-global-tools/">tools</a> to run in
+our CI pipeline I also setup a git pre-push<a href="https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks">hook</a>
+to run the same tools automatically in the local context. Git provides
+a variety of hooks as documented in the scm book, and they can be used to
+reliably automate different parts of your workflow.</p>
+<p><em>In addition to the official docs <a href="https://githooks.com">this</a>
+page has a nice summary</em></p>
+<h2 id="code">Code</h2>
+<p>The pre-push hook I built for our project looks like:</p>
+<pre style="background-color:#2b303b;">
+<code class="language-bash" data-lang="bash"><span style="font-style:italic;color:#5f697a;">#!/bin/sh
+
+</span><span style="color:#eb6772;">PROJECT_ROOT</span><span style="color:#adb7c9;">=</span><span style="color:#9acc76;">$(</span><span style="color:#eb6772;">git</span><span style="color:#9acc76;"> rev-parse</span><span style="color:#eb6772;"> --show-toplevel</span><span style="color:#9acc76;">)
+</span><span style="color:#5ebfcc;">echo </span><span style="color:#9acc76;">&quot;\033[32;1mRunning pre-push hook for${</span><span style="color:#eb6772;">PROJECT_ROOT</span><span style="color:#9acc76;">}\033[0m&quot;
+
+</span><span style="color:#eb6772;">dotnet</span><span style="color:#abb2bf;"> restore $</span><span style="color:#eb6772;">PROJECT_ROOT
+
+</span><span style="color:#5ebfcc;">echo </span><span style="color:#9acc76;">&quot;\033[34;1mRunning resharper formatter\033[0m&quot;
+</span><span style="color:#eb6772;">dotnet</span><span style="color:#abb2bf;"> jb cleanupcode</span><span style="color:#eb6772;"> --verbosity</span><span style="color:#adb7c9;">=</span><span style="color:#abb2bf;">ERROR</span><span style="color:#eb6772;"> --config</span><span style="color:#adb7c9;">=</span><span style="color:#abb2bf;">$</span><span style="color:#eb6772;">PROJECT_ROOT</span><span style="color:#abb2bf;">/.config/cleanup</span><span style="color:#eb6772;"> --settings</span><span style="color:#adb7c9;">=</span><span style="color:#abb2bf;">$</span><span style="color:#eb6772;">PROJECT_ROOT</span><span style="color:#abb2bf;">/.editorconfig</span><span style="color:#eb6772;"> --no-buildin-settings </span><span style="color:#abb2bf;">$</span><span style="color:#eb6772;">PROJECT_ROOT</span><span style="color:#abb2bf;">/AMS.sln
+</span><span style="color:#eb6772;">formatted</span><span style="color:#adb7c9;">=</span><span style="color:#9acc76;">$(</span><span style="color:#eb6772;">git</span><span style="color:#9acc76;"> status</span><span style="color:#eb6772;"> --porcelain</span><span style="color:#adb7c9;">=</span><span style="color:#9acc76;">v1 </span><span style="color:#db9d63;">2</span><span style="color:#adb7c9;">&gt;</span><span style="color:#9acc76;">/dev/null </span><span style="color:#adb7c9;">| </span><span style="color:#eb6772;">wc -l</span><span style="color:#9acc76;">)
+</span><span style="color:#5ebfcc;">exit </span><span style="color:#abb2bf;">$</span><span style="color:#eb6772;">formatted
+
+</span><span style="color:#5ebfcc;">echo </span><span style="color:#9acc76;">&quot;\033[34;1mRunning dotnet resharper inspector\033[0m&quot;
+</span><span style="color:#eb6772;">dotnet</span><span style="color:#abb2bf;"> jb inspectcode</span><span style="color:#eb6772;"> --verbosity</span><span style="color:#adb7c9;">=</span><span style="color:#abb2bf;">ERROR AMS.sln</span><span style="color:#eb6772;"> -p</span><span style="color:#adb7c9;">=</span><span style="color:#abb2bf;">$</span><span style="color:#eb6772;">PROJECT_ROOT</span><span style="color:#abb2bf;">/.editorconfig</span><span style="color:#eb6772;"> -o</span><span style="color:#adb7c9;">=</span><span style="color:#abb2bf;">$</span><span style="color:#eb6772;">PROJECT_ROOT</span><span style="color:#abb2bf;">/reports/resharperInspect.xml
+
+</span><span style="color:#eb6772;">pwsh </span><span style="color:#abb2bf;">$</span><span style="color:#eb6772;">PROJECT_ROOT</span><span style="color:#abb2bf;">/tools/CheckResharperInspection.ps1
+</span><span style="color:#cd74e8;">if </span><span style="color:#5ebfcc;">[[ </span><span style="color:#abb2bf;">$</span><span style="color:#eb6772;">? -eq</span><span style="color:#abb2bf;"> 0 </span><span style="color:#5ebfcc;">]]
+</span><span style="color:#cd74e8;">then
+    </span><span style="color:#5ebfcc;">echo </span><span style="color:#9acc76;">&quot;\033[34;1mRunning resharper dupe finder\033[0m&quot;
+</span><span style="color:#cd74e8;">else
+    </span><span style="color:#5ebfcc;">echo </span><span style="color:#9acc76;">&quot;\033[31;1mInspector Errors Found\033[0m&quot;
+    </span><span style="color:#5ebfcc;">exit </span><span style="color:#abb2bf;">$</span><span style="color:#eb6772;">?
+</span><span style="color:#cd74e8;">fi
+
+</span><span style="color:#eb6772;">dotnet</span><span style="color:#abb2bf;"> jb dupfinder</span><span style="color:#eb6772;"> --verbosity</span><span style="color:#adb7c9;">=</span><span style="color:#abb2bf;">ERROR AMS.sln</span><span style="color:#eb6772;"> -o</span><span style="color:#adb7c9;">=</span><span style="color:#abb2bf;">$</span><span style="color:#eb6772;">PROJECT_ROOT</span><span style="color:#abb2bf;">/reports/resharperDupFinder.xml
+
+</span><span style="color:#eb6772;">pwsh </span><span style="color:#abb2bf;">$</span><span style="color:#eb6772;">PROJECT_ROOT</span><span style="color:#abb2bf;">/tools/CheckDupeFinder.ps1
+</span><span style="color:#cd74e8;">if </span><span style="color:#5ebfcc;">[[ </span><span style="color:#abb2bf;">$</span><span style="color:#eb6772;">? -eq</span><span style="color:#abb2bf;"> 0 </span><span style="color:#5ebfcc;">]]
+</span><span style="color:#cd74e8;">then
+    </span><span style="color:#5ebfcc;">echo </span><span style="color:#9acc76;">&quot;\033[34;1mRunning dotnet test\033[0m&quot;
+</span><span style="color:#cd74e8;">else
+    </span><span style="color:#5ebfcc;">echo </span><span style="color:#9acc76;">&quot;\033[31;1mDupe Errors Found\033[0m&quot;
+    </span><span style="color:#5ebfcc;">exit </span><span style="color:#abb2bf;">$</span><span style="color:#eb6772;">?
+</span><span style="color:#cd74e8;">fi
+
+</span><span style="color:#eb6772;">dotnet</span><span style="color:#abb2bf;"> cake</span><span style="color:#eb6772;"> --target</span><span style="color:#adb7c9;">=</span><span style="color:#abb2bf;">docker-bg
+</span><span style="color:#eb6772;">dotnet</span><span style="color:#abb2bf;"> cake</span><span style="color:#eb6772;"> --target</span><span style="color:#adb7c9;">=</span><span style="color:#abb2bf;">dotnet-test
+</span><span style="color:#cd74e8;">if </span><span style="color:#5ebfcc;">[[ </span><span style="color:#abb2bf;">$</span><span style="color:#eb6772;">? -eq</span><span style="color:#abb2bf;"> 0 </span><span style="color:#5ebfcc;">]]
+</span><span style="color:#cd74e8;">then
+    </span><span style="color:#eb6772;">dotnet</span><span style="color:#abb2bf;"> cake</span><span style="color:#eb6772;"> --target</span><span style="color:#adb7c9;">=</span><span style="color:#abb2bf;">docker-down
+    </span><span style="color:#5ebfcc;">echo </span><span style="color:#9acc76;">&quot;\033[34;1mGo go go!\033[0m&quot;
+</span><span style="color:#cd74e8;">else
+    </span><span style="color:#eb6772;">dotnet</span><span style="color:#abb2bf;"> cake</span><span style="color:#eb6772;"> --target</span><span style="color:#adb7c9;">=</span><span style="color:#abb2bf;">docker-down
+    </span><span style="color:#5ebfcc;">echo </span><span style="color:#9acc76;">&quot;\033[31;1mTest failed\033[0m&quot;
+    </span><span style="color:#5ebfcc;">exit</span><span style="color:#abb2bf;"> 1
+</span><span style="color:#cd74e8;">fi
+</span></code></pre>
+<p>The first thing that should stand out is that this is just a shell script.
+Git hooks are just that, making it easy to use shell, python, powershell
+or other tools with your hook. Write the script, link it to <code>.git/hooks</code>.</p>
+<h2 id="script-breakdown">Script Breakdown</h2>
+<p>In this script the first thing I do is find the root of our project. This
+makes it easy to reference paths in a manner compatible with scripts
+and tools that are used throughout in other parts of our workflow.</p>
+<h2 id="install">Install</h2>
+<p>Since the hook above is just a shell script I like to keep it (and other hooks)
+in a <code>tools</code> subdirectory in the root project directory. Because <code>git</code> expects
+hooks to be under <code>.git/hooks</code> we can make it executable with a symlink. </p>
+<pre style="background-color:#2b303b;">
+<code class="language-bash" data-lang="bash"><span style="color:#eb6772;">ln -s -f</span><span style="color:#abb2bf;"> ../../tools/pre-push.sh .git/hooks/pre-push
+</span></code></pre>
+<p>With this in place we get feedback before each push so that we don't have
+to correct linting issues later, and we have can be confident our commit(s)
+will run through CI successfully.</p>
+<h2 id="wrapping-up">Wrapping Up</h2>
+<p>While you may have heard of projects like <a href="https://pre-commit.com">pre-commit</a>
+or <a href="https://typicode.github.io/husky/#/">husky</a> rolling your own hook is
+relatively straight forward. While wrappers may help with complex hook setups
+I personally like the low amount of indirection and abstraction that helps with
+debugging when rolling your own.</p>
+
+          </div>
+        </article>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+
+  
+  <section class="modal" id="search-modal">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+      <div class="field">
+        <p class="control has-icons-right">
+          <input class="input" id="search" placeholder="Search this website." type="search" />
+          <span class="icon is-small is-right">
+            <i class="fas fa-search"></i>
+          </span>
+        </p>
+      </div>
+      <div class="search-results">
+        <div class="search-results__items"></div>
+      </div>
+    </div>
+    <button aria-label="close" class="modal-close is-large"></button>
+  </section>
+  
+
+
+   
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <nav class="level">
+          
+          <div class="level-item has-text-centered">
+            <a
+              class="button is-black is-outlined"
+              href="https:&#x2F;&#x2F;burningdaylight.io&#x2F;posts&#x2F;selfhosted&#x2F;"
+            >
+              <span class="icon mr-2">
+                <i class="fas fa-arrow-circle-left"></i>
+              </span>
+              Self Hosting
+            </a>
+          </div>
+           
+          <div class="level-item has-text-centered">
+            <a
+              class="button is-black is-outlined"
+              href="https:&#x2F;&#x2F;burningdaylight.io&#x2F;posts&#x2F;resharper-global-tools&#x2F;"
+            >
+              Getting started with Resharper Global Tools<span class="icon ml-2">
+                <i class="fas fa-arrow-circle-right"></i>
+              </span>
+            </a>
+          </div>
+            
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+
+    
+
+  
+  <footer class="py-4 has-background-light">
+    <p class="has-text-centered">
+      Built with
+      <span class="icon is-small">
+        <i class="fas fa-code fa-xs"></i>
+      </span>
+      code and
+      <span class="icon is-small">
+        <i class="fas fa-heart fa-xs"></i>
+      </span>
+      love <br /> Powered By
+      <span class="icon is-small">
+        <i class="fas fa-power-off fa-xs"></i>
+      </span>
+      Zola <br />Posts licensed by <a href="https://creativecommons.org/publicdomain/zero/1.0/">Creative Commons CC0 1.0 </a><i class="fa fa-cc"></i>
+      <br /> Code licensed <a href="https://www.gnu.org/licenses/lgpl-3.0.txt">LGPL</a>
+    </p>
+  </footer>
+  
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sharer.js@latest/sharer.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/galleria.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.xkcd@1/dist/chart.xkcd.min.js"></script>
+  <script src="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/themes/folio/galleria.folio.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/elasticlunr/0.9.6/elasticlunr.min.js"></script>
+  <script src='https:&#x2F;&#x2F;burningdaylight.io&#x2F;search_index.en.js'></script>
+  <script src='https:&#x2F;&#x2F;burningdaylight.io&#x2F;js&#x2F;site.js'></script>
+
+    
+</body>
+
+</html>

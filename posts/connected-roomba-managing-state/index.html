@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <meta content="#ffffff" name="theme-color" />
+  <meta content="#da532c" name="msapplication-TileColor" />
+
+  
+  <link href='&#x2F;icons&#x2F;site.webmanifest' rel="manifest" />
+  
+  
+  
+  <link href='&#x2F;icons&#x2F;favicon-16x16.png' rel="icon" sizes="16x16" type="image/png" />
+  
+  
+  <link href='&#x2F;icons&#x2F;favicon-32x32.png' rel="icon" sizes="32x32" type="image/png" />
+  
+  
+  <link href='&#x2F;icons&#x2F;apple-icon.png' rel="apple-touch-icon" sizes="180x180" />
+  
+
+  <link href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/themes/folio/galleria.folio.min.css"
+    rel="stylesheet" />
+  <link href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css" rel="stylesheet" />
+  <link href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;site.css' rel="stylesheet" />
+
+  
+  
+
+  <title>
+     burningdaylight | Connected Roomba - Managing State 
+  </title>
+
+  <script crossorigin="anonymous" src="https://kit.fontawesome.com/201b8d5e05.js"></script>
+
+  
+</head>
+
+<body class="has-background-white">
+  
+  <nav aria-label="section navigation" class="navbar is-light" role="navigation">
+    <div class="container">
+      <div class="navbar-brand">
+        <a class="navbar-item has-text-weight-bold" href="/">burningdaylight</a>
+        <a aria-expanded="false" aria-label="menu" class="navbar-burger burger" data-target="navMenu" role="button">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+      <div class="navbar-menu" id="navMenu">
+        <div class="navbar-end has-text-centered">
+          
+          <a class="navbar-item" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;'>
+            Home
+          </a>
+          
+          <a class="navbar-item" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;posts'>
+            Posts
+          </a>
+          
+          <a class="navbar-item" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;docs'>
+            Docs
+          </a>
+          
+          <a class="navbar-item" href='https:&#x2F;&#x2F;github.com&#x2F;n0mn0m'>
+            Repos
+          </a>
+          
+          <a class="navbar-item" id="nav-search" title="Search" data-target="#search-modal">
+            <span class="icon">
+              <i class="fas fa-search"></i>
+            </span>
+          </a>
+          <a class="navbar-item" id="dark-mode" title="Switch to dark theme">
+            <span class="icon">
+              <i class="fas fa-adjust"></i>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  
+
+  
+  
+
+  
+<section class="section pb-0">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-8 is-offset-2">
+        <article>
+          <h1 class="title">Connected Roomba - Managing State</h1>
+          <h2 class="subtitle"></h2>
+          <div class="columns is-multiline is-gapless">
+            <div class="column is-8">
+              
+  <p class="has-text-grey">
+    <span class="icon">
+      <i class="fas fa-user"></i>
+    </span>
+     published on
+    <span class="icon">
+      <i class="far fa-calendar-alt"></i>
+    </span>
+    <time datetime='2020-01-24'>January 24, 2020</time>
+  </p>
+
+            </div>
+            <div class="column is-4 has-text-right-desktop">
+              
+  <p class="has-text-grey">
+    <span class="icon">
+      <i class="far fa-clock"></i>
+    </span>
+    5 min,
+    <span class="icon">
+      <i class="fas fa-pencil-alt"></i>
+    </span>
+    815 words
+  </p>
+
+            </div>
+            <div class="column is-4">
+              
+            </div>
+            <div class="column is-8 has-text-right-desktop">
+               
+  <p>
+    <span class="has-text-black has-text-weight-normal">Tags:</span>
+    
+      <a class="link has-text-weight-light" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;tags&#x2F;circuitpython&#x2F;'>
+        <span class="icon is-small">
+          <i class="fas fa-tag fa-xs"></i>
+        </span>
+        circuitpython
+      </a>
+    
+      <a class="link has-text-weight-light" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;tags&#x2F;python&#x2F;'>
+        <span class="icon is-small">
+          <i class="fas fa-tag fa-xs"></i>
+        </span>
+        python
+      </a>
+    
+      <a class="link has-text-weight-light" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;tags&#x2F;hardware&#x2F;'>
+        <span class="icon is-small">
+          <i class="fas fa-tag fa-xs"></i>
+        </span>
+        hardware
+      </a>
+    
+      <a class="link has-text-weight-light" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;tags&#x2F;adafruit&#x2F;'>
+        <span class="icon is-small">
+          <i class="fas fa-tag fa-xs"></i>
+        </span>
+        adafruit
+      </a>
+    
+      <a class="link has-text-weight-light" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;tags&#x2F;irobot&#x2F;'>
+        <span class="icon is-small">
+          <i class="fas fa-tag fa-xs"></i>
+        </span>
+        irobot
+      </a>
+    
+      <a class="link has-text-weight-light" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;tags&#x2F;roomba&#x2F;'>
+        <span class="icon is-small">
+          <i class="fas fa-tag fa-xs"></i>
+        </span>
+        roomba
+      </a>
+    
+      <a class="link has-text-weight-light" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;tags&#x2F;lora&#x2F;'>
+        <span class="icon is-small">
+          <i class="fas fa-tag fa-xs"></i>
+        </span>
+        lora
+      </a>
+    
+      <a class="link has-text-weight-light" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;tags&#x2F;state&#x2F;'>
+        <span class="icon is-small">
+          <i class="fas fa-tag fa-xs"></i>
+        </span>
+        state
+      </a>
+    
+      <a class="link has-text-weight-light" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;tags&#x2F;systemd&#x2F;'>
+        <span class="icon is-small">
+          <i class="fas fa-tag fa-xs"></i>
+        </span>
+        systemd
+      </a>
+    
+      <a class="link has-text-weight-light" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;tags&#x2F;service&#x2F;'>
+        <span class="icon is-small">
+          <i class="fas fa-tag fa-xs"></i>
+        </span>
+        service
+      </a>
+    
+  </p>
+ 
+            </div>
+          </div>
+          <div class="content has-text-justified">
+            <p>Last year I started work and completed the first prototype for managing a roomba
+via sms and radio. Overall the prototype was a successful, but over time highly
+unreliable in the face of failure. Most of this came down to state management
+for the API endpoint and the Roomba OI (Open Interface) code running on the
+Feather. This week I had the opportunity to sit down and fix some of that.</p>
+<p>The latest version of the project can be found
+<a href="https://github.com/n0mn0m/bot_commander">here</a>.</p>
+<h2 id="roomba">Roomba</h2>
+<p>In previous version of the application that ran on the Feather listening for
+messages over radio I had managed the application state in this class:</p>
+<pre style="background-color:#2b303b;">
+<code class="language-python" data-lang="python"><span style="color:#cd74e8;">class </span><span style="color:#f0c678;">OpenInterface</span><span style="color:#adb7c9;">:
+    </span><span style="color:#cd74e8;">def </span><span style="color:#5ebfcc;">__init__</span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">self</span><span style="color:#abb2bf;">, </span><span style="color:#eb6772;">tx_pin</span><span style="color:#abb2bf;">, </span><span style="color:#eb6772;">rx_pin</span><span style="color:#abb2bf;">, </span><span style="color:#eb6772;">brc_pin</span><span style="color:#abb2bf;">, </span><span style="color:#eb6772;">baud_rate</span><span style="color:#adb7c9;">=</span><span style="color:#db9d63;">115200</span><span style="color:#abb2bf;">):
+        </span><span style="color:#eb6772;">self</span><span style="color:#abb2bf;">._board </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">busio.</span><span style="color:#eb6772;">UART</span><span style="color:#abb2bf;">(tx_pin, rx_pin, </span><span style="color:#eb6772;">baudrate</span><span style="color:#adb7c9;">=</span><span style="color:#abb2bf;">baud_rate)
+        </span><span style="color:#eb6772;">self</span><span style="color:#abb2bf;">._tx_pin </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">tx_pin
+        </span><span style="color:#eb6772;">self</span><span style="color:#abb2bf;">._rx_pin </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">rx_pin
+        </span><span style="color:#eb6772;">self</span><span style="color:#abb2bf;">._brc_pin </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">brc_pin
+        </span><span style="color:#eb6772;">self</span><span style="color:#abb2bf;">._brc_pin.direction </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">digitalio.Direction.</span><span style="color:#eb6772;">OUTPUT
+        self</span><span style="color:#abb2bf;">._baud_rate </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">baud_rate
+        </span><span style="color:#eb6772;">self</span><span style="color:#abb2bf;">._stopped </span><span style="color:#adb7c9;">= </span><span style="color:#db9d63;">True
+</span></code></pre>
+<p>I had done this so that I couldn't send the Roomba signals that were invalid
+for a given state based on the Open Interface documentation. The
+<a href="https://github.com/n0mn0m/circuitroomba">circuitroomba</a> project were I
+originally implemented this actually did a lot more state management. Overall
+maybe this would be helpful during application development, but I found it made
+code on the board unreliable due to the size of the class object in memory and
+other work going on causing the board to eventually crash over an extended
+period of time.</p>
+<p>The more I thought about this I also realized I had caused an even larger issue.
+The Roomba itself manages state internally. It has all of the logic laid out in
+the OI document impelmented internally keeping things &quot;safe&quot; and tracking if a
+given signal is valid or not. By adding my own state management layer on top of
+this I opened the door for all kinds of trouble. First if the internal Roomba
+logic differed from the OI documentation, or I implemented the OI logic
+incorrectly I would be sending the application developer down all kinds of
+paths trying to figure out why state transistion and command signals were not
+exhibiting the expected behavior. Why setup 2 FSMs when one will do, and only
+one ends up being the true dispatch? If we did this at the sms API layer we
+could have 3, all with the potential for bugs, unexpected behavior, logic
+mismatches, timing issues etc. It's a combinatorial explosion of state
+management issues.</p>
+<p>So stepping back, considering the separation of concerns I determined all the
+board needed to do was listen for a given signal flag and pass that on to the
+Roomba. From there the Roomba can determine if the signal should be acted on
+based on it's internal state.</p>
+<p>The new implementation discards the class object and instead just uses a super
+loop and signal functions.</p>
+<pre style="background-color:#2b303b;">
+<code class="language-python" data-lang="python"><span style="color:#cd74e8;">while </span><span style="color:#db9d63;">True</span><span style="color:#abb2bf;">:
+    </span><span style="color:#cd74e8;">try</span><span style="color:#abb2bf;">:
+        packet </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">rfm9x.</span><span style="color:#eb6772;">receive</span><span style="color:#abb2bf;">(</span><span style="color:#db9d63;">1</span><span style="color:#abb2bf;">)
+
+        </span><span style="color:#cd74e8;">if </span><span style="color:#abb2bf;">packet </span><span style="color:#cd74e8;">is not </span><span style="color:#db9d63;">None</span><span style="color:#abb2bf;">:
+            packet_txt </span><span style="color:#adb7c9;">= </span><span style="color:#5ebfcc;">str</span><span style="color:#abb2bf;">(packet, </span><span style="color:#9acc76;">&quot;ascii&quot;</span><span style="color:#abb2bf;">)
+            </span><span style="color:#5ebfcc;">print</span><span style="color:#abb2bf;">(packet_txt)
+
+            </span><span style="color:#cd74e8;">if </span><span style="color:#abb2bf;">packet_txt </span><span style="color:#adb7c9;">== </span><span style="color:#9acc76;">&quot;0&quot;</span><span style="color:#abb2bf;">:
+                </span><span style="color:#eb6772;">command_received</span><span style="color:#abb2bf;">(led)
+                led.value </span><span style="color:#adb7c9;">= </span><span style="color:#db9d63;">True
+                </span><span style="color:#eb6772;">stop</span><span style="color:#abb2bf;">(bot)
+                led.value </span><span style="color:#adb7c9;">= </span><span style="color:#db9d63;">False
+            </span><span style="color:#cd74e8;">elif </span><span style="color:#abb2bf;">packet_txt </span><span style="color:#adb7c9;">== </span><span style="color:#9acc76;">&quot;1&quot;</span><span style="color:#abb2bf;">:
+                </span><span style="color:#eb6772;">command_received</span><span style="color:#abb2bf;">(led)
+                </span><span style="color:#eb6772;">wake_up</span><span style="color:#abb2bf;">(brc)
+                </span><span style="color:#eb6772;">start</span><span style="color:#abb2bf;">(bot)
+                led.value </span><span style="color:#adb7c9;">= </span><span style="color:#db9d63;">True
+            </span><span style="color:#cd74e8;">else</span><span style="color:#abb2bf;">:
+                </span><span style="color:#5ebfcc;">print</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&quot;</span><span style="color:#5ebfcc;">\n</span><span style="color:#9acc76;">Unknown packet: </span><span style="color:#db9d63;">{}</span><span style="color:#5ebfcc;">\n</span><span style="color:#9acc76;">&quot;</span><span style="color:#abb2bf;">.</span><span style="color:#eb6772;">format</span><span style="color:#abb2bf;">(packet_txt))
+    </span><span style="color:#cd74e8;">except</span><span style="color:#abb2bf;">:
+        </span><span style="color:#cd74e8;">pass
+</span></code></pre>
+<p>Additionally from time to time signals can have issues that previously caused
+hanging in the application. Now the logic inside the super loop is wrapped in a
+<code>try/except</code> to prevent corrupt date from completely crashing the application.
+Instead failures are ignored and we keep listening for the next signal. While
+this isn't always a viable solution in the case of signaling the Roomba the
+stakes are low and this is something I'm comfortable with.</p>
+<h2 id="pi-zero">Pi Zero</h2>
+<p>After fixing up the Feather board code I moved onto the Pi applications.
+Previously I had setup a Flask application to act as the SMS webhook for Twilio.
+This worked pretty well and was consistent over time, but there was the
+occasional hang running on the Zero that led me to look into managing the
+Python and Ngrok application with systemd. Converting from <code>crontab</code> was
+fairly easy. I created a few <code>*.service</code> files and placed them in
+<code>/etc/systemd/system</code>.</p>
+<pre style="background-color:#2b303b;">
+<code class="language-bash" data-lang="bash"><span style="color:#eb6772;">[Unit]
+Description</span><span style="color:#adb7c9;">=</span><span style="color:#9acc76;">sms </span><span style="color:#eb6772;">listener
+After</span><span style="color:#adb7c9;">=</span><span style="color:#9acc76;">ngrok.service
+
+</span><span style="color:#eb6772;">[Service]
+Type</span><span style="color:#adb7c9;">=</span><span style="color:#9acc76;">simple
+</span><span style="color:#eb6772;">User</span><span style="color:#adb7c9;">=</span><span style="color:#9acc76;">pi
+</span><span style="color:#eb6772;">WorkingDirectory</span><span style="color:#adb7c9;">=</span><span style="color:#9acc76;">/home/pi
+</span><span style="color:#eb6772;">ExecStart</span><span style="color:#adb7c9;">=</span><span style="color:#9acc76;">/home/pi/.virtualenvs/lora-pi/bin/python </span><span style="color:#eb6772;">/home/pi/projects/roomba_supervisor/sms_listener.py
+Restart</span><span style="color:#adb7c9;">=</span><span style="color:#9acc76;">on-failure
+
+</span><span style="color:#eb6772;">[Install]
+WantedBy</span><span style="color:#adb7c9;">=</span><span style="color:#9acc76;">multi-user.target
+</span></code></pre>
+<p>Once the files were created I ran the following commands:</p>
+<pre style="background-color:#2b303b;">
+<code class="language-bash" data-lang="bash"><span style="color:#eb6772;">systemctl</span><span style="color:#abb2bf;"> enable sms_listener.service
+</span><span style="color:#eb6772;">systemctl</span><span style="color:#abb2bf;"> start sms_listener.service
+</span></code></pre>
+<p>And now all of the required applications (ngrok, sms listener, button listener)
+are managed by systemd. This controls their startup better than the previous
+crontab setup and has the added benefit of restarting the service if it fails
+our.</p>
+<h3 id="wrapping-up">Wrapping up</h3>
+<p>By observing and understanding the ways in which the prototyped system failed
+I was able to identify areas where behavior and functionality could be
+simplified resulting in an overall more reliable system. If you have any other
+tips to share <a href="mailto:n0mn0m@burningdaylight.io">reach out</a> and good luck
+hacking.</p>
+
+          </div>
+        </article>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+
+  
+  <section class="modal" id="search-modal">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+      <div class="field">
+        <p class="control has-icons-right">
+          <input class="input" id="search" placeholder="Search this website." type="search" />
+          <span class="icon is-small is-right">
+            <i class="fas fa-search"></i>
+          </span>
+        </p>
+      </div>
+      <div class="search-results">
+        <div class="search-results__items"></div>
+      </div>
+    </div>
+    <button aria-label="close" class="modal-close is-large"></button>
+  </section>
+  
+
+
+   
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <nav class="level">
+          
+          <div class="level-item has-text-centered">
+            <a
+              class="button is-black is-outlined"
+              href="https:&#x2F;&#x2F;burningdaylight.io&#x2F;posts&#x2F;h3lou-q1-2020&#x2F;"
+            >
+              <span class="icon mr-2">
+                <i class="fas fa-arrow-circle-left"></i>
+              </span>
+              Kicking off Hardware Happy Hour 2020
+            </a>
+          </div>
+           
+          <div class="level-item has-text-centered">
+            <a
+              class="button is-black is-outlined"
+              href="https:&#x2F;&#x2F;burningdaylight.io&#x2F;posts&#x2F;mocking-context&#x2F;"
+            >
+              Providing Context with Mocks<span class="icon ml-2">
+                <i class="fas fa-arrow-circle-right"></i>
+              </span>
+            </a>
+          </div>
+            
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+
+    
+
+  
+  <footer class="py-4 has-background-light">
+    <p class="has-text-centered">
+      Built with
+      <span class="icon is-small">
+        <i class="fas fa-code fa-xs"></i>
+      </span>
+      code and
+      <span class="icon is-small">
+        <i class="fas fa-heart fa-xs"></i>
+      </span>
+      love <br /> Powered By
+      <span class="icon is-small">
+        <i class="fas fa-power-off fa-xs"></i>
+      </span>
+      Zola <br />Posts licensed by <a href="https://creativecommons.org/publicdomain/zero/1.0/">Creative Commons CC0 1.0 </a><i class="fa fa-cc"></i>
+      <br /> Code licensed <a href="https://www.gnu.org/licenses/lgpl-3.0.txt">LGPL</a>
+    </p>
+  </footer>
+  
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sharer.js@latest/sharer.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/galleria.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.xkcd@1/dist/chart.xkcd.min.js"></script>
+  <script src="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/themes/folio/galleria.folio.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/elasticlunr/0.9.6/elasticlunr.min.js"></script>
+  <script src='https:&#x2F;&#x2F;burningdaylight.io&#x2F;search_index.en.js'></script>
+  <script src='https:&#x2F;&#x2F;burningdaylight.io&#x2F;js&#x2F;site.js'></script>
+
+    
+</body>
+
+</html>

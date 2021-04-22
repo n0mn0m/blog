@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <meta content="#ffffff" name="theme-color" />
+  <meta content="#da532c" name="msapplication-TileColor" />
+
+  
+  <link href='&#x2F;icons&#x2F;site.webmanifest' rel="manifest" />
+  
+  
+  
+  <link href='&#x2F;icons&#x2F;favicon-16x16.png' rel="icon" sizes="16x16" type="image/png" />
+  
+  
+  <link href='&#x2F;icons&#x2F;favicon-32x32.png' rel="icon" sizes="32x32" type="image/png" />
+  
+  
+  <link href='&#x2F;icons&#x2F;apple-icon.png' rel="apple-touch-icon" sizes="180x180" />
+  
+
+  <link href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/themes/folio/galleria.folio.min.css"
+    rel="stylesheet" />
+  <link href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css" rel="stylesheet" />
+  <link href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;site.css' rel="stylesheet" />
+
+  
+  
+
+  <title>
+     burningdaylight | A Simple Status Page 
+  </title>
+
+  <script crossorigin="anonymous" src="https://kit.fontawesome.com/201b8d5e05.js"></script>
+
+  
+</head>
+
+<body class="has-background-white">
+  
+  <nav aria-label="section navigation" class="navbar is-light" role="navigation">
+    <div class="container">
+      <div class="navbar-brand">
+        <a class="navbar-item has-text-weight-bold" href="/">burningdaylight</a>
+        <a aria-expanded="false" aria-label="menu" class="navbar-burger burger" data-target="navMenu" role="button">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+      <div class="navbar-menu" id="navMenu">
+        <div class="navbar-end has-text-centered">
+          
+          <a class="navbar-item" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;'>
+            Home
+          </a>
+          
+          <a class="navbar-item" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;posts'>
+            Posts
+          </a>
+          
+          <a class="navbar-item" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;docs'>
+            Docs
+          </a>
+          
+          <a class="navbar-item" href='https:&#x2F;&#x2F;github.com&#x2F;n0mn0m'>
+            Repos
+          </a>
+          
+          <a class="navbar-item" id="nav-search" title="Search" data-target="#search-modal">
+            <span class="icon">
+              <i class="fas fa-search"></i>
+            </span>
+          </a>
+          <a class="navbar-item" id="dark-mode" title="Switch to dark theme">
+            <span class="icon">
+              <i class="fas fa-adjust"></i>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  
+
+  
+  
+
+  
+<section class="section pb-0">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-8 is-offset-2">
+        <article>
+          <h1 class="title">A Simple Status Page</h1>
+          <h2 class="subtitle"></h2>
+          <div class="columns is-multiline is-gapless">
+            <div class="column is-8">
+              
+  <p class="has-text-grey">
+    <span class="icon">
+      <i class="fas fa-user"></i>
+    </span>
+     published on
+    <span class="icon">
+      <i class="far fa-calendar-alt"></i>
+    </span>
+    <time datetime='2020-02-18'>February 18, 2020</time>
+  </p>
+
+            </div>
+            <div class="column is-4 has-text-right-desktop">
+              
+  <p class="has-text-grey">
+    <span class="icon">
+      <i class="far fa-clock"></i>
+    </span>
+    4 min,
+    <span class="icon">
+      <i class="fas fa-pencil-alt"></i>
+    </span>
+    701 words
+  </p>
+
+            </div>
+            <div class="column is-4">
+              
+            </div>
+            <div class="column is-8 has-text-right-desktop">
+               
+  <p>
+    <span class="has-text-black has-text-weight-normal">Tags:</span>
+    
+      <a class="link has-text-weight-light" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;tags&#x2F;cloudflare&#x2F;'>
+        <span class="icon is-small">
+          <i class="fas fa-tag fa-xs"></i>
+        </span>
+        cloudflare
+      </a>
+    
+      <a class="link has-text-weight-light" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;tags&#x2F;systemd&#x2F;'>
+        <span class="icon is-small">
+          <i class="fas fa-tag fa-xs"></i>
+        </span>
+        systemd
+      </a>
+    
+      <a class="link has-text-weight-light" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;tags&#x2F;faas&#x2F;'>
+        <span class="icon is-small">
+          <i class="fas fa-tag fa-xs"></i>
+        </span>
+        faas
+      </a>
+    
+      <a class="link has-text-weight-light" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;tags&#x2F;serverless&#x2F;'>
+        <span class="icon is-small">
+          <i class="fas fa-tag fa-xs"></i>
+        </span>
+        serverless
+      </a>
+    
+      <a class="link has-text-weight-light" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;tags&#x2F;monitoring&#x2F;'>
+        <span class="icon is-small">
+          <i class="fas fa-tag fa-xs"></i>
+        </span>
+        monitoring
+      </a>
+    
+  </p>
+ 
+            </div>
+          </div>
+          <div class="content has-text-justified">
+            <p>I have a bad habit of creating side projects for my side projects.</p>
+<p>A couple months ago I switched from running my blog with Pelican and Gitlab
+Pages to Zola and Cloudflare Workers. I didn't do a write up on it, but if
+you're interested there's a good
+<a href="https://words.steveklabnik.com/porting-steveklabnik-com-to-workers-sites-and-zola">post by Steve Klabnik</a>
+to get you started. It was a surprisingly easy switch, and gaps between
+writing haven't been as difficult with the better tools. After getting that
+setup I read about
+<a href="https://developers.cloudflare.com/workers/reference/storage">Cloudflare Workers KV</a>
+, thought it sounded really neat and started to think about what I might build.</p>
+<p>On another <a href="https://burningdaylight.io/posts/train-all-the-things-planning/">project</a> I need to signal
+between different systems a simple status. Naturally that lead to me building a
+status page. I setup a Cloudflare Worker that receives <code>POST</code> from <code>N</code> systems,
+stores the date of the last <code>POST</code> uses that to provide a status when asked.</p>
+<pre style="background-color:#2b303b;">
+<code class="language-javascript" data-lang="javascript"><span style="color:#cd74e8;">const </span><span style="color:#5cb3fa;">setCache </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">key</span><span style="color:#abb2bf;">, </span><span style="color:#eb6772;">data</span><span style="color:#abb2bf;">) </span><span style="color:#cd74e8;">=&gt; </span><span style="color:#eb6772;">LOCAL_STATUS</span><span style="color:#abb2bf;">.</span><span style="color:#5cb3fa;">put</span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">key</span><span style="color:#abb2bf;">, </span><span style="color:#eb6772;">data</span><span style="color:#abb2bf;">);
+</span><span style="color:#cd74e8;">const </span><span style="color:#5cb3fa;">getCache </span><span style="color:#adb7c9;">= </span><span style="color:#eb6772;">key </span><span style="color:#cd74e8;">=&gt; </span><span style="color:#eb6772;">LOCAL_STATUS</span><span style="color:#abb2bf;">.</span><span style="color:#5ebfcc;">get</span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">key</span><span style="color:#abb2bf;">);
+
+</span><span style="color:#cd74e8;">function </span><span style="color:#5cb3fa;">sleep</span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">ms</span><span style="color:#abb2bf;">) {
+    </span><span style="color:#cd74e8;">return </span><span style="color:#adb7c9;">new </span><span style="color:#abb2bf;">Promise(</span><span style="color:#eb6772;">resolve </span><span style="color:#cd74e8;">=&gt; </span><span style="color:#5ebfcc;">setTimeout</span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">resolve</span><span style="color:#abb2bf;">, </span><span style="color:#eb6772;">ms</span><span style="color:#abb2bf;">));
+}
+
+</span><span style="color:#cd74e8;">function </span><span style="color:#5cb3fa;">dateToStatus</span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">dateTime</span><span style="color:#abb2bf;">) {
+    </span><span style="color:#cd74e8;">var </span><span style="color:#eb6772;">isoDateNow </span><span style="color:#adb7c9;">= </span><span style="color:#f0c678;">Date</span><span style="color:#abb2bf;">.</span><span style="color:#5cb3fa;">now</span><span style="color:#abb2bf;">();
+    </span><span style="color:#cd74e8;">var </span><span style="color:#eb6772;">dateDiff </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">isoDateNow </span><span style="color:#adb7c9;">- </span><span style="color:#eb6772;">dateTime</span><span style="color:#abb2bf;">);
+    </span><span style="color:#cd74e8;">if </span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">dateDiff </span><span style="color:#adb7c9;">&lt; </span><span style="color:#db9d63;">180000</span><span style="color:#abb2bf;">) {
+    </span><span style="color:#cd74e8;">return </span><span style="color:#db9d63;">1
+    </span><span style="color:#abb2bf;">} </span><span style="color:#cd74e8;">else </span><span style="color:#abb2bf;">{
+    </span><span style="color:#cd74e8;">return </span><span style="color:#db9d63;">0
+    </span><span style="color:#abb2bf;">}
+}
+
+</span><span style="color:#cd74e8;">async function </span><span style="color:#5cb3fa;">getStatuses</span><span style="color:#abb2bf;">() {
+    </span><span style="color:#cd74e8;">const </span><span style="color:#eb6772;">cacheKeys </span><span style="color:#adb7c9;">= </span><span style="color:#cd74e8;">await </span><span style="color:#eb6772;">LOCAL_STATUS</span><span style="color:#abb2bf;">.</span><span style="color:#5cb3fa;">list</span><span style="color:#abb2bf;">();
+    </span><span style="color:#cd74e8;">while </span><span style="color:#abb2bf;">(</span><span style="color:#adb7c9;">!</span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">cacheKeys</span><span style="color:#abb2bf;">.</span><span style="color:#eb6772;">list_complete </span><span style="color:#adb7c9;">=== </span><span style="color:#db9d63;">true</span><span style="color:#abb2bf;">)) {
+    </span><span style="color:#5cb3fa;">sleep</span><span style="color:#abb2bf;">(</span><span style="color:#db9d63;">5</span><span style="color:#abb2bf;">)
+    }
+
+    </span><span style="color:#cd74e8;">const </span><span style="color:#eb6772;">numKeys </span><span style="color:#adb7c9;">= </span><span style="color:#eb6772;">cacheKeys</span><span style="color:#abb2bf;">.</span><span style="color:#eb6772;">keys</span><span style="color:#abb2bf;">.length;
+    </span><span style="color:#cd74e8;">var </span><span style="color:#eb6772;">statuses </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">[];
+
+    </span><span style="color:#cd74e8;">for </span><span style="color:#abb2bf;">(</span><span style="color:#cd74e8;">var </span><span style="color:#eb6772;">i </span><span style="color:#adb7c9;">= </span><span style="color:#db9d63;">0</span><span style="color:#abb2bf;">; </span><span style="color:#eb6772;">i </span><span style="color:#adb7c9;">&lt; </span><span style="color:#eb6772;">numKeys</span><span style="color:#abb2bf;">; </span><span style="color:#eb6772;">i</span><span style="color:#adb7c9;">++</span><span style="color:#abb2bf;">) {
+    </span><span style="color:#cd74e8;">var </span><span style="color:#eb6772;">c </span><span style="color:#adb7c9;">= </span><span style="color:#eb6772;">cacheKeys</span><span style="color:#abb2bf;">.</span><span style="color:#eb6772;">keys</span><span style="color:#abb2bf;">[</span><span style="color:#eb6772;">i</span><span style="color:#abb2bf;">];
+    </span><span style="color:#cd74e8;">var </span><span style="color:#eb6772;">epcDate </span><span style="color:#adb7c9;">= </span><span style="color:#cd74e8;">await </span><span style="color:#5cb3fa;">getCache</span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">c</span><span style="color:#abb2bf;">.name);
+    </span><span style="color:#cd74e8;">var </span><span style="color:#eb6772;">data </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">{date: </span><span style="color:#f0c678;">Number</span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">epcDate</span><span style="color:#abb2bf;">), name: </span><span style="color:#eb6772;">c</span><span style="color:#abb2bf;">.name};
+    </span><span style="color:#eb6772;">data</span><span style="color:#abb2bf;">.</span><span style="color:#eb6772;">strDate </span><span style="color:#adb7c9;">= new </span><span style="color:#abb2bf;">Date(</span><span style="color:#eb6772;">data</span><span style="color:#abb2bf;">.</span><span style="color:#eb6772;">date</span><span style="color:#abb2bf;">).</span><span style="color:#5cb3fa;">toISOString</span><span style="color:#abb2bf;">();
+    </span><span style="color:#eb6772;">data</span><span style="color:#abb2bf;">.status </span><span style="color:#adb7c9;">= </span><span style="color:#5cb3fa;">dateToStatus</span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">data</span><span style="color:#abb2bf;">.</span><span style="color:#eb6772;">date</span><span style="color:#abb2bf;">);
+    </span><span style="color:#eb6772;">data</span><span style="color:#abb2bf;">.</span><span style="color:#eb6772;">statusIndicator </span><span style="color:#adb7c9;">= </span><span style="color:#5cb3fa;">getStatusIndicator</span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">data</span><span style="color:#abb2bf;">.status);
+    </span><span style="color:#eb6772;">statuses</span><span style="color:#abb2bf;">.</span><span style="color:#5ebfcc;">push</span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">data</span><span style="color:#abb2bf;">);
+    }
+
+    </span><span style="color:#cd74e8;">const </span><span style="color:#eb6772;">body </span><span style="color:#adb7c9;">= </span><span style="color:#5cb3fa;">html</span><span style="color:#abb2bf;">(JSON.</span><span style="color:#5ebfcc;">stringify</span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">statuses </span><span style="color:#adb7c9;">|| </span><span style="color:#abb2bf;">[]));
+
+    </span><span style="color:#cd74e8;">return </span><span style="color:#adb7c9;">new </span><span style="color:#abb2bf;">Response(</span><span style="color:#eb6772;">body</span><span style="color:#abb2bf;">, {
+    headers: { </span><span style="color:#9acc76;">&#39;Content-Type&#39;</span><span style="color:#abb2bf;">: </span><span style="color:#9acc76;">&#39;text/html&#39; </span><span style="color:#abb2bf;">},
+    });
+}
+
+</span><span style="color:#cd74e8;">async function </span><span style="color:#5cb3fa;">getStatus</span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">cacheKey</span><span style="color:#abb2bf;">) {
+    </span><span style="color:#cd74e8;">var </span><span style="color:#eb6772;">cacheDate </span><span style="color:#adb7c9;">= </span><span style="color:#cd74e8;">await </span><span style="color:#5cb3fa;">getCache</span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">cacheKey</span><span style="color:#abb2bf;">);
+
+    </span><span style="color:#cd74e8;">if </span><span style="color:#abb2bf;">(</span><span style="color:#adb7c9;">!</span><span style="color:#eb6772;">cacheDate</span><span style="color:#abb2bf;">) {
+    </span><span style="color:#cd74e8;">return </span><span style="color:#adb7c9;">new </span><span style="color:#abb2bf;">Response(</span><span style="color:#9acc76;">&#39;invalid status key&#39;</span><span style="color:#abb2bf;">, { status: </span><span style="color:#db9d63;">500 </span><span style="color:#abb2bf;">});
+    } </span><span style="color:#cd74e8;">else </span><span style="color:#abb2bf;">{
+    </span><span style="color:#cd74e8;">var </span><span style="color:#eb6772;">status </span><span style="color:#adb7c9;">= </span><span style="color:#5cb3fa;">dateToStatus</span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">cacheDate</span><span style="color:#abb2bf;">);
+    </span><span style="color:#cd74e8;">return </span><span style="color:#adb7c9;">new </span><span style="color:#abb2bf;">Response(</span><span style="color:#eb6772;">status</span><span style="color:#abb2bf;">, {status: </span><span style="color:#db9d63;">200</span><span style="color:#abb2bf;">});
+    }
+}
+
+</span><span style="color:#cd74e8;">async function </span><span style="color:#5cb3fa;">updateStatus</span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">cacheKey</span><span style="color:#abb2bf;">) {
+    </span><span style="color:#cd74e8;">try </span><span style="color:#abb2bf;">{
+    </span><span style="color:#cd74e8;">var </span><span style="color:#eb6772;">isoDate </span><span style="color:#adb7c9;">= </span><span style="color:#f0c678;">Date</span><span style="color:#abb2bf;">.</span><span style="color:#5cb3fa;">now</span><span style="color:#abb2bf;">();
+    </span><span style="color:#cd74e8;">await </span><span style="color:#5cb3fa;">setCache</span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">cacheKey</span><span style="color:#abb2bf;">, </span><span style="color:#eb6772;">isoDate</span><span style="color:#abb2bf;">);
+    </span><span style="color:#cd74e8;">var </span><span style="color:#eb6772;">strDate </span><span style="color:#adb7c9;">= new </span><span style="color:#abb2bf;">Date(</span><span style="color:#eb6772;">isoDate</span><span style="color:#abb2bf;">).</span><span style="color:#5cb3fa;">toISOString</span><span style="color:#abb2bf;">();
+    </span><span style="color:#cd74e8;">return </span><span style="color:#adb7c9;">new </span><span style="color:#abb2bf;">Response((</span><span style="color:#eb6772;">cacheKey </span><span style="color:#adb7c9;">+ </span><span style="color:#9acc76;">&quot; set at &quot; </span><span style="color:#adb7c9;">+ </span><span style="color:#eb6772;">strDate </span><span style="color:#adb7c9;">+ </span><span style="color:#9acc76;">&quot;</span><span style="color:#5ebfcc;">\n</span><span style="color:#9acc76;">&quot;</span><span style="color:#abb2bf;">), { status: </span><span style="color:#db9d63;">200 </span><span style="color:#abb2bf;">});
+    } </span><span style="color:#cd74e8;">catch </span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">err</span><span style="color:#abb2bf;">) {
+    </span><span style="color:#cd74e8;">return </span><span style="color:#adb7c9;">new </span><span style="color:#abb2bf;">Response(</span><span style="color:#eb6772;">err</span><span style="color:#abb2bf;">, { status: </span><span style="color:#db9d63;">500 </span><span style="color:#abb2bf;">});
+    }
+}
+
+</span><span style="color:#cd74e8;">async function </span><span style="color:#5cb3fa;">handleRequest</span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">request</span><span style="color:#abb2bf;">) {
+    </span><span style="color:#cd74e8;">let </span><span style="color:#eb6772;">statusKey </span><span style="color:#adb7c9;">= new </span><span style="color:#abb2bf;">URL(</span><span style="color:#eb6772;">request</span><span style="color:#abb2bf;">.</span><span style="color:#eb6772;">url</span><span style="color:#abb2bf;">).</span><span style="color:#eb6772;">searchParams</span><span style="color:#abb2bf;">.</span><span style="color:#5ebfcc;">get</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&#39;service&#39;</span><span style="color:#abb2bf;">);
+    </span><span style="color:#cd74e8;">let </span><span style="color:#eb6772;">queryType </span><span style="color:#adb7c9;">= new </span><span style="color:#abb2bf;">URL(</span><span style="color:#eb6772;">request</span><span style="color:#abb2bf;">.</span><span style="color:#eb6772;">url</span><span style="color:#abb2bf;">).</span><span style="color:#eb6772;">searchParams</span><span style="color:#abb2bf;">.</span><span style="color:#5ebfcc;">get</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&#39;query&#39;</span><span style="color:#abb2bf;">);
+
+    </span><span style="color:#cd74e8;">if </span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">request</span><span style="color:#abb2bf;">.method </span><span style="color:#adb7c9;">=== </span><span style="color:#9acc76;">&#39;POST&#39;</span><span style="color:#abb2bf;">) {
+    </span><span style="color:#cd74e8;">return </span><span style="color:#5cb3fa;">updateStatus</span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">statusKey</span><span style="color:#abb2bf;">);
+    } </span><span style="color:#cd74e8;">else if </span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">queryType </span><span style="color:#adb7c9;">=== </span><span style="color:#9acc76;">&#39;simple&#39;</span><span style="color:#abb2bf;">) {
+    </span><span style="color:#cd74e8;">return </span><span style="color:#5cb3fa;">getStatus</span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">statusKey</span><span style="color:#abb2bf;">);
+    } </span><span style="color:#cd74e8;">else </span><span style="color:#abb2bf;">{
+    </span><span style="color:#cd74e8;">return </span><span style="color:#5cb3fa;">getStatuses</span><span style="color:#abb2bf;">();
+    }
+}
+
+</span><span style="color:#5cb3fa;">addEventListener</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&#39;fetch&#39;</span><span style="color:#abb2bf;">, </span><span style="color:#eb6772;">event </span><span style="color:#cd74e8;">=&gt; </span><span style="color:#abb2bf;">{
+    event.</span><span style="color:#5cb3fa;">respondWith</span><span style="color:#abb2bf;">(</span><span style="color:#5cb3fa;">handleRequest</span><span style="color:#abb2bf;">(event.</span><span style="color:#eb6772;">request</span><span style="color:#abb2bf;">))
+})
+</span></code></pre>
+<p>With that anything that can <code>POST</code> can &quot;check in&quot; with the endpoint. You can
+see it working <a href="https://status.burningdaylight.io/">here</a>. I also went ahead
+and wrote a simple <code>systemd</code> service that I can drop on to different machines
+I want to have report in to the endpoint.</p>
+<pre style="background-color:#2b303b;">
+<code class="language-bash" data-lang="bash"><span style="color:#eb6772;">[Unit]
+Description</span><span style="color:#adb7c9;">=</span><span style="color:#9acc76;">Regular </span><span style="color:#eb6772;">check</span><span style="color:#abb2bf;"> in
+</span><span style="color:#eb6772;">Wants</span><span style="color:#adb7c9;">=</span><span style="color:#9acc76;">check-in.timer
+
+</span><span style="color:#eb6772;">[Service]
+Type</span><span style="color:#adb7c9;">=</span><span style="color:#9acc76;">oneshot
+</span><span style="color:#eb6772;">ExecStart</span><span style="color:#adb7c9;">=</span><span style="color:#9acc76;">/usr/bin/curl </span><span style="color:#eb6772;">-X</span><span style="color:#abb2bf;"> POST https://status.burningdaylight.io/</span><span style="color:#adb7c9;">?</span><span style="color:#abb2bf;">service=JETSON
+
+</span><span style="color:#eb6772;">[Install]
+WantedBy</span><span style="color:#adb7c9;">=</span><span style="color:#9acc76;">multi-user.target
+</span></code></pre>
+<p>And a timer for the service.</p>
+<pre style="background-color:#2b303b;">
+<code class="language-bash" data-lang="bash"><span style="color:#eb6772;">[Unit]
+Description</span><span style="color:#adb7c9;">=</span><span style="color:#9acc76;">Run </span><span style="color:#eb6772;">checkin</span><span style="color:#abb2bf;"> every 2 minutes
+</span><span style="color:#eb6772;">Requires</span><span style="color:#adb7c9;">=</span><span style="color:#9acc76;">check-in.service
+
+</span><span style="color:#eb6772;">[Timer]
+Unit</span><span style="color:#adb7c9;">=</span><span style="color:#9acc76;">check-in.service
+</span><span style="color:#eb6772;">OnUnitInactiveSec</span><span style="color:#adb7c9;">=</span><span style="color:#9acc76;">1m
+
+</span><span style="color:#eb6772;">[Install]
+WantedBy</span><span style="color:#adb7c9;">=</span><span style="color:#9acc76;">timers.target
+</span></code></pre>
+<p>This was a fun &quot;Serverless/FaaS&quot; experiment that actually let me know my ISP
+was having an outage one morning before work. I've used other Functions as a
+service on other cloud platforms and while they all provide slightly different
+functionality (For instance Cloudflare being a CDN and the V8 isolate setup)
+Cloudflare Workers has been really easy to work with and a lot of fun to build
+experiments on. They even have a <a href="https://cloudflareworkers.com">web playground</a>
+that you can start with.</p>
+<p>Two things I do wish were easier are interacting with K/V from Rust. This is
+probably partially related to how new I am to Rust, but working with K/V from
+JS is super easy, while this
+<a href="https://www.reddit.com/r/rust/comments/fdmzyh/serverless_rust_i_tried_it_with_cloudflare_workers/">thread</a>
+documents another experience with Workers and Rust in more detail. Another mild
+annoyance is working with different workers from the same machine and how API
+keys are handled. There are some suggestions for this, but non of them feel
+ergonomic at this time. Other than that my experience with Workers and K/V has
+been great and I've already got more ideas for future experiments.</p>
+<p>The code, docs, etc for the project can be found
+<a href="https://github.com/n0mn0m/system-status">here</a>. If you have any questions or
+ideas reach <a href="mailto:n0mn0m@burningdaylight.io">out</a>.</p>
+
+          </div>
+        </article>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+
+  
+  <section class="modal" id="search-modal">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+      <div class="field">
+        <p class="control has-icons-right">
+          <input class="input" id="search" placeholder="Search this website." type="search" />
+          <span class="icon is-small is-right">
+            <i class="fas fa-search"></i>
+          </span>
+        </p>
+      </div>
+      <div class="search-results">
+        <div class="search-results__items"></div>
+      </div>
+    </div>
+    <button aria-label="close" class="modal-close is-large"></button>
+  </section>
+  
+
+
+   
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <nav class="level">
+          
+          <div class="level-item has-text-centered">
+            <a
+              class="button is-black is-outlined"
+              href="https:&#x2F;&#x2F;burningdaylight.io&#x2F;posts&#x2F;train-all-the-things-sighandler&#x2F;"
+            >
+              <span class="icon mr-2">
+                <i class="fas fa-arrow-circle-left"></i>
+              </span>
+              Train All the Things - Signaling
+            </a>
+          </div>
+           
+          <div class="level-item has-text-centered">
+            <a
+              class="button is-black is-outlined"
+              href="https:&#x2F;&#x2F;burningdaylight.io&#x2F;posts&#x2F;train-all-the-things-planning&#x2F;"
+            >
+              Train All the Things - Planning<span class="icon ml-2">
+                <i class="fas fa-arrow-circle-right"></i>
+              </span>
+            </a>
+          </div>
+            
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+
+    
+
+  
+  <footer class="py-4 has-background-light">
+    <p class="has-text-centered">
+      Built with
+      <span class="icon is-small">
+        <i class="fas fa-code fa-xs"></i>
+      </span>
+      code and
+      <span class="icon is-small">
+        <i class="fas fa-heart fa-xs"></i>
+      </span>
+      love <br /> Powered By
+      <span class="icon is-small">
+        <i class="fas fa-power-off fa-xs"></i>
+      </span>
+      Zola <br />Posts licensed by <a href="https://creativecommons.org/publicdomain/zero/1.0/">Creative Commons CC0 1.0 </a><i class="fa fa-cc"></i>
+      <br /> Code licensed <a href="https://www.gnu.org/licenses/lgpl-3.0.txt">LGPL</a>
+    </p>
+  </footer>
+  
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sharer.js@latest/sharer.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/galleria.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.xkcd@1/dist/chart.xkcd.min.js"></script>
+  <script src="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/themes/folio/galleria.folio.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/elasticlunr/0.9.6/elasticlunr.min.js"></script>
+  <script src='https:&#x2F;&#x2F;burningdaylight.io&#x2F;search_index.en.js'></script>
+  <script src='https:&#x2F;&#x2F;burningdaylight.io&#x2F;js&#x2F;site.js'></script>
+
+    
+</body>
+
+</html>

@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <meta content="#ffffff" name="theme-color" />
+  <meta content="#da532c" name="msapplication-TileColor" />
+
+  
+  <link href='&#x2F;icons&#x2F;site.webmanifest' rel="manifest" />
+  
+  
+  
+  <link href='&#x2F;icons&#x2F;favicon-16x16.png' rel="icon" sizes="16x16" type="image/png" />
+  
+  
+  <link href='&#x2F;icons&#x2F;favicon-32x32.png' rel="icon" sizes="32x32" type="image/png" />
+  
+  
+  <link href='&#x2F;icons&#x2F;apple-icon.png' rel="apple-touch-icon" sizes="180x180" />
+  
+
+  <link href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/themes/folio/galleria.folio.min.css"
+    rel="stylesheet" />
+  <link href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css" rel="stylesheet" />
+  <link href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;site.css' rel="stylesheet" />
+
+  
+  
+
+  <title>
+     burningdaylight | Dealing with NULL in PySpark transformations 
+  </title>
+
+  <script crossorigin="anonymous" src="https://kit.fontawesome.com/201b8d5e05.js"></script>
+
+  
+</head>
+
+<body class="has-background-white">
+  
+  <nav aria-label="section navigation" class="navbar is-light" role="navigation">
+    <div class="container">
+      <div class="navbar-brand">
+        <a class="navbar-item has-text-weight-bold" href="/">burningdaylight</a>
+        <a aria-expanded="false" aria-label="menu" class="navbar-burger burger" data-target="navMenu" role="button">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+      <div class="navbar-menu" id="navMenu">
+        <div class="navbar-end has-text-centered">
+          
+          <a class="navbar-item" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;'>
+            Home
+          </a>
+          
+          <a class="navbar-item" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;posts'>
+            Posts
+          </a>
+          
+          <a class="navbar-item" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;docs'>
+            Docs
+          </a>
+          
+          <a class="navbar-item" href='https:&#x2F;&#x2F;github.com&#x2F;n0mn0m'>
+            Repos
+          </a>
+          
+          <a class="navbar-item" id="nav-search" title="Search" data-target="#search-modal">
+            <span class="icon">
+              <i class="fas fa-search"></i>
+            </span>
+          </a>
+          <a class="navbar-item" id="dark-mode" title="Switch to dark theme">
+            <span class="icon">
+              <i class="fas fa-adjust"></i>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+  
+
+  
+  
+
+  
+<section class="section pb-0">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-8 is-offset-2">
+        <article>
+          <h1 class="title">Dealing with NULL in PySpark transformations</h1>
+          <h2 class="subtitle"></h2>
+          <div class="columns is-multiline is-gapless">
+            <div class="column is-8">
+              
+  <p class="has-text-grey">
+    <span class="icon">
+      <i class="fas fa-user"></i>
+    </span>
+     published on
+    <span class="icon">
+      <i class="far fa-calendar-alt"></i>
+    </span>
+    <time datetime='2018-10-27'>October 27, 2018</time>
+  </p>
+
+            </div>
+            <div class="column is-4 has-text-right-desktop">
+              
+  <p class="has-text-grey">
+    <span class="icon">
+      <i class="far fa-clock"></i>
+    </span>
+    8 min,
+    <span class="icon">
+      <i class="fas fa-pencil-alt"></i>
+    </span>
+    1435 words
+  </p>
+
+            </div>
+            <div class="column is-4">
+              
+            </div>
+            <div class="column is-8 has-text-right-desktop">
+               
+  <p>
+    <span class="has-text-black has-text-weight-normal">Tags:</span>
+    
+      <a class="link has-text-weight-light" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;tags&#x2F;python&#x2F;'>
+        <span class="icon is-small">
+          <i class="fas fa-tag fa-xs"></i>
+        </span>
+        python
+      </a>
+    
+      <a class="link has-text-weight-light" href='https:&#x2F;&#x2F;burningdaylight.io&#x2F;tags&#x2F;pyspark&#x2F;'>
+        <span class="icon is-small">
+          <i class="fas fa-tag fa-xs"></i>
+        </span>
+        pyspark
+      </a>
+    
+  </p>
+ 
+            </div>
+          </div>
+          <div class="content has-text-justified">
+            <p>Lately I've been dealing with nested data on a semi regular basis with PySpark.
+One of the scenarios that tends to come up a lot is to apply transformations to
+semi/unstructured data to generate a tabular dataset for consumption by data
+scientist. When processing and transforming data I've previously found it
+beneficial to make use of the RDD data structure so that I have the ability to
+easily apply custom transformations the same way I would if I was interacting
+with normal Python data structures, but with the benefit of Spark and the
+functionality provided by the RDD API.</p>
+<p>With my most recent project though I decided to spend more time working with
+the Spark Dataframe data structure specifically for the potential performance
+gains from Catalyst and Tungeston. Along with this Spark offers a set of
+complex types for Spark Dataframe columns to make interaction with collection
+types a little bit easier.</p>
+<p>Diving in I immediately used the
+<a href="https://github.com/databricks/spark-xml">Databricks XML</a> library to load some
+data into my dataframe which had a similar shape (although different contents)
+to this:</p>
+<pre style="background-color:#2b303b;">
+<code class="language-python" data-lang="python"><span style="color:#cd74e8;">from </span><span style="color:#abb2bf;">pyspark.sql </span><span style="color:#cd74e8;">import </span><span style="color:#abb2bf;">Row
+</span><span style="color:#cd74e8;">from </span><span style="color:#abb2bf;">pyspark.sql.functions </span><span style="color:#cd74e8;">import </span><span style="color:#abb2bf;">explode, first, col, monotonically_increasing_id, when, array, lit
+</span><span style="color:#cd74e8;">from </span><span style="color:#abb2bf;">pyspark.sql.column </span><span style="color:#cd74e8;">import </span><span style="color:#abb2bf;">Column, _to_java_column
+
+df </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">spark.</span><span style="color:#eb6772;">createDataFrame</span><span style="color:#abb2bf;">([
+  </span><span style="color:#eb6772;">Row</span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">dataCells</span><span style="color:#adb7c9;">=</span><span style="color:#abb2bf;">[</span><span style="color:#eb6772;">Row</span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">posx</span><span style="color:#adb7c9;">=</span><span style="color:#db9d63;">0</span><span style="color:#abb2bf;">, </span><span style="color:#eb6772;">posy</span><span style="color:#adb7c9;">=</span><span style="color:#db9d63;">1</span><span style="color:#abb2bf;">, </span><span style="color:#eb6772;">posz</span><span style="color:#adb7c9;">=</span><span style="color:#db9d63;">.5</span><span style="color:#abb2bf;">, </span><span style="color:#eb6772;">value</span><span style="color:#adb7c9;">=</span><span style="color:#db9d63;">1.5</span><span style="color:#abb2bf;">, </span><span style="color:#eb6772;">shape</span><span style="color:#adb7c9;">=</span><span style="color:#abb2bf;">[</span><span style="color:#eb6772;">Row</span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">_type</span><span style="color:#adb7c9;">=</span><span style="color:#9acc76;">&#39;square&#39;</span><span style="color:#abb2bf;">, </span><span style="color:#eb6772;">_len</span><span style="color:#adb7c9;">=</span><span style="color:#db9d63;">1</span><span style="color:#abb2bf;">)]),
+                 </span><span style="color:#eb6772;">Row</span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">posx</span><span style="color:#adb7c9;">=</span><span style="color:#db9d63;">1</span><span style="color:#abb2bf;">, </span><span style="color:#eb6772;">posy</span><span style="color:#adb7c9;">=</span><span style="color:#db9d63;">3</span><span style="color:#abb2bf;">, </span><span style="color:#eb6772;">posz</span><span style="color:#adb7c9;">=</span><span style="color:#db9d63;">.5</span><span style="color:#abb2bf;">, </span><span style="color:#eb6772;">value</span><span style="color:#adb7c9;">=</span><span style="color:#db9d63;">4.5</span><span style="color:#abb2bf;">, </span><span style="color:#eb6772;">shape</span><span style="color:#adb7c9;">=</span><span style="color:#abb2bf;">[]),
+                 </span><span style="color:#eb6772;">Row</span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">posx</span><span style="color:#adb7c9;">=</span><span style="color:#db9d63;">2</span><span style="color:#abb2bf;">, </span><span style="color:#eb6772;">posy</span><span style="color:#adb7c9;">=</span><span style="color:#db9d63;">5</span><span style="color:#abb2bf;">, </span><span style="color:#eb6772;">posz</span><span style="color:#adb7c9;">=</span><span style="color:#db9d63;">.5</span><span style="color:#abb2bf;">, </span><span style="color:#eb6772;">value</span><span style="color:#adb7c9;">=</span><span style="color:#db9d63;">7.5</span><span style="color:#abb2bf;">, </span><span style="color:#eb6772;">shape</span><span style="color:#adb7c9;">=</span><span style="color:#abb2bf;">[</span><span style="color:#eb6772;">Row</span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">_type</span><span style="color:#adb7c9;">=</span><span style="color:#9acc76;">&#39;circle&#39;</span><span style="color:#abb2bf;">, </span><span style="color:#eb6772;">_len</span><span style="color:#adb7c9;">=</span><span style="color:#db9d63;">.5</span><span style="color:#abb2bf;">)])
+    ])
+])
+
+df.</span><span style="color:#eb6772;">printSchema</span><span style="color:#abb2bf;">()
+
+    root
+     </span><span style="color:#adb7c9;">|-- </span><span style="color:#abb2bf;">dataCells: </span><span style="color:#eb6772;">array </span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">nullable </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">true)
+     </span><span style="color:#adb7c9;">|    |-- </span><span style="color:#abb2bf;">element: </span><span style="color:#eb6772;">struct </span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">containsNull </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">true)
+     </span><span style="color:#adb7c9;">|    |    |-- </span><span style="color:#abb2bf;">posx: </span><span style="color:#5ebfcc;">long </span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">nullable </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">true)
+     </span><span style="color:#adb7c9;">|    |    |-- </span><span style="color:#abb2bf;">posy: </span><span style="color:#5ebfcc;">long </span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">nullable </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">true)
+     </span><span style="color:#adb7c9;">|    |    |-- </span><span style="color:#abb2bf;">posz: </span><span style="color:#eb6772;">double </span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">nullable </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">true)
+     </span><span style="color:#adb7c9;">|    |    |-- </span><span style="color:#abb2bf;">shape: </span><span style="color:#eb6772;">array </span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">nullable </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">true)
+     </span><span style="color:#adb7c9;">|    |    |    |-- </span><span style="color:#abb2bf;">element: </span><span style="color:#eb6772;">struct </span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">containsNull </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">true)
+     </span><span style="color:#adb7c9;">|    |    |    |    |-- </span><span style="color:#abb2bf;">_len: </span><span style="color:#5ebfcc;">long </span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">nullable </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">true)
+     </span><span style="color:#adb7c9;">|    |    |    |    |-- </span><span style="color:#abb2bf;">_type: </span><span style="color:#eb6772;">string </span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">nullable </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">true)
+     </span><span style="color:#adb7c9;">|    |    |-- </span><span style="color:#abb2bf;">value: </span><span style="color:#eb6772;">double </span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">nullable </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">true)
+</span></code></pre><pre style="background-color:#2b303b;">
+<code class="language-python" data-lang="python"><span style="color:#abb2bf;">df.</span><span style="color:#eb6772;">show</span><span style="color:#abb2bf;">()
+
+    </span><span style="color:#adb7c9;">+--------------------+
+    |           </span><span style="color:#abb2bf;">dataCells</span><span style="color:#adb7c9;">|
+    +--------------------+
+    |</span><span style="color:#abb2bf;">[[</span><span style="color:#db9d63;">0</span><span style="color:#abb2bf;">, </span><span style="color:#db9d63;">1</span><span style="color:#abb2bf;">, </span><span style="color:#db9d63;">0.5</span><span style="color:#abb2bf;">, [[</span><span style="color:#db9d63;">1</span><span style="color:#abb2bf;">,</span><span style="color:#db9d63;">...</span><span style="color:#adb7c9;">|
+    +--------------------+
+</span></code></pre>
+<p>Perfect. Nothing too crazy, but I wanted to transform the nested array of
+structs into column representing the members of each struct type. So I started
+by looking at the options available to flatten my array column and I came
+across <a href="https://spark.apache.org/docs/latest/api/python/pyspark.sql.html?highlight=date#pyspark.sql.functions.explode"><code>explode</code></a>
+which appeared to do exactly what I needed. Next I needed to take the member
+attributes of the structs and turn those into columns. I wasn't able to find a
+built in function for this, but using the <code>select</code> syntax available on
+dataframes along with the <code>*</code> wildcard available on structs I was able to write
+my own function to do this.</p>
+<pre style="background-color:#2b303b;">
+<code class="language-python" data-lang="python"><span style="color:#cd74e8;">def </span><span style="color:#5cb3fa;">flatten_struct_cols</span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">df</span><span style="color:#abb2bf;">):
+    flat_cols </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">[column[</span><span style="color:#db9d63;">0</span><span style="color:#abb2bf;">] </span><span style="color:#cd74e8;">for </span><span style="color:#abb2bf;">column </span><span style="color:#cd74e8;">in </span><span style="color:#abb2bf;">df.dtypes </span><span style="color:#cd74e8;">if </span><span style="color:#9acc76;">&#39;struct&#39; </span><span style="color:#cd74e8;">not in </span><span style="color:#abb2bf;">column[</span><span style="color:#db9d63;">1</span><span style="color:#abb2bf;">][:</span><span style="color:#db9d63;">6</span><span style="color:#abb2bf;">]]
+    struct_columns </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">[column[</span><span style="color:#db9d63;">0</span><span style="color:#abb2bf;">] </span><span style="color:#cd74e8;">for </span><span style="color:#abb2bf;">column </span><span style="color:#cd74e8;">in </span><span style="color:#abb2bf;">df.dtypes </span><span style="color:#cd74e8;">if </span><span style="color:#9acc76;">&#39;struct&#39; </span><span style="color:#cd74e8;">in </span><span style="color:#abb2bf;">column[</span><span style="color:#db9d63;">1</span><span style="color:#abb2bf;">][:</span><span style="color:#db9d63;">6</span><span style="color:#abb2bf;">]]
+
+    df </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">df.</span><span style="color:#eb6772;">select</span><span style="color:#abb2bf;">(flat_cols </span><span style="color:#adb7c9;">+
+                   </span><span style="color:#abb2bf;">[</span><span style="color:#eb6772;">col</span><span style="color:#abb2bf;">(sc </span><span style="color:#adb7c9;">+ </span><span style="color:#9acc76;">&#39;.&#39; </span><span style="color:#adb7c9;">+ </span><span style="color:#abb2bf;">c).</span><span style="color:#eb6772;">alias</span><span style="color:#abb2bf;">(sc </span><span style="color:#adb7c9;">+ </span><span style="color:#9acc76;">&#39;_&#39; </span><span style="color:#adb7c9;">+ </span><span style="color:#abb2bf;">c)
+                   </span><span style="color:#cd74e8;">for </span><span style="color:#abb2bf;">sc </span><span style="color:#cd74e8;">in </span><span style="color:#abb2bf;">struct_columns
+                   </span><span style="color:#cd74e8;">for </span><span style="color:#abb2bf;">c </span><span style="color:#cd74e8;">in </span><span style="color:#abb2bf;">df.</span><span style="color:#eb6772;">select</span><span style="color:#abb2bf;">(sc </span><span style="color:#adb7c9;">+ </span><span style="color:#9acc76;">&#39;.*&#39;</span><span style="color:#abb2bf;">).columns])
+
+    </span><span style="color:#cd74e8;">return </span><span style="color:#abb2bf;">df
+</span></code></pre>
+<p>And with that out of the way I'm ready to go.</p>
+<pre style="background-color:#2b303b;">
+<code class="language-python" data-lang="python"><span style="color:#abb2bf;">flat_df </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">df.</span><span style="color:#eb6772;">withColumn</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&#39;dataCells&#39;</span><span style="color:#abb2bf;">, </span><span style="color:#eb6772;">explode</span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">col</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&#39;dataCells&#39;</span><span style="color:#abb2bf;">)))
+flat_df </span><span style="color:#adb7c9;">= </span><span style="color:#eb6772;">flatten_struct_cols</span><span style="color:#abb2bf;">(flat_df)
+flat_df.</span><span style="color:#eb6772;">show</span><span style="color:#abb2bf;">(</span><span style="color:#db9d63;">3</span><span style="color:#abb2bf;">)
+
+    </span><span style="color:#adb7c9;">+--------------|--------------|--------------|---------------|---------------+
+    |</span><span style="color:#abb2bf;">dataCells_posx</span><span style="color:#adb7c9;">|</span><span style="color:#abb2bf;">dataCells_posy</span><span style="color:#adb7c9;">|</span><span style="color:#abb2bf;">dataCells_posz</span><span style="color:#adb7c9;">|</span><span style="color:#abb2bf;">dataCells_shape</span><span style="color:#adb7c9;">|</span><span style="color:#abb2bf;">dataCells_value</span><span style="color:#adb7c9;">|
+    +--------------|--------------|--------------|---------------|---------------+
+    |             </span><span style="color:#db9d63;">0</span><span style="color:#adb7c9;">|             </span><span style="color:#db9d63;">1</span><span style="color:#adb7c9;">|           </span><span style="color:#db9d63;">0.5</span><span style="color:#adb7c9;">|  </span><span style="color:#abb2bf;">[[</span><span style="color:#db9d63;">1</span><span style="color:#abb2bf;">, square]]</span><span style="color:#adb7c9;">|            </span><span style="color:#db9d63;">1.5</span><span style="color:#adb7c9;">|
+    |             </span><span style="color:#db9d63;">1</span><span style="color:#adb7c9;">|             </span><span style="color:#db9d63;">3</span><span style="color:#adb7c9;">|           </span><span style="color:#db9d63;">0.5</span><span style="color:#adb7c9;">|             </span><span style="color:#abb2bf;">[]</span><span style="color:#adb7c9;">|            </span><span style="color:#db9d63;">4.5</span><span style="color:#adb7c9;">|
+    |             </span><span style="color:#db9d63;">2</span><span style="color:#adb7c9;">|             </span><span style="color:#db9d63;">5</span><span style="color:#adb7c9;">|           </span><span style="color:#db9d63;">0.5</span><span style="color:#adb7c9;">|   </span><span style="color:#abb2bf;">[[, circle]]</span><span style="color:#adb7c9;">|            </span><span style="color:#db9d63;">7.5</span><span style="color:#adb7c9;">|
+    +--------------|--------------|--------------|---------------|---------------+
+</span></code></pre><pre style="background-color:#2b303b;">
+<code class="language-python" data-lang="python"><span style="color:#abb2bf;">flat_df.</span><span style="color:#eb6772;">printSchema</span><span style="color:#abb2bf;">()
+
+    root
+     </span><span style="color:#adb7c9;">|-- </span><span style="color:#abb2bf;">dataCells_posx: </span><span style="color:#5ebfcc;">long </span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">nullable </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">true)
+     </span><span style="color:#adb7c9;">|-- </span><span style="color:#abb2bf;">dataCells_posy: </span><span style="color:#5ebfcc;">long </span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">nullable </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">true)
+     </span><span style="color:#adb7c9;">|-- </span><span style="color:#abb2bf;">dataCells_posz: </span><span style="color:#eb6772;">double </span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">nullable </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">true)
+     </span><span style="color:#adb7c9;">|-- </span><span style="color:#abb2bf;">dataCells_shape: </span><span style="color:#eb6772;">array </span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">nullable </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">true)
+     </span><span style="color:#adb7c9;">|    |-- </span><span style="color:#abb2bf;">element: </span><span style="color:#eb6772;">struct </span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">containsNull </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">true)
+     </span><span style="color:#adb7c9;">|    |    |-- </span><span style="color:#abb2bf;">_len: </span><span style="color:#5ebfcc;">long </span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">nullable </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">true)
+     </span><span style="color:#adb7c9;">|    |    |-- </span><span style="color:#abb2bf;">_type: </span><span style="color:#eb6772;">string </span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">nullable </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">true)
+     </span><span style="color:#adb7c9;">|-- </span><span style="color:#abb2bf;">dataCells_value: </span><span style="color:#eb6772;">double </span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">nullable </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">true)
+</span></code></pre>
+<p>So far so good. Let's try it again, and if all goes well we can throw this in a
+loop, flatten nested columns and be on our way.</p>
+<pre style="background-color:#2b303b;">
+<code class="language-python" data-lang="python"><span style="color:#abb2bf;">flat_df </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">flat_df.</span><span style="color:#eb6772;">withColumn</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&#39;dataCells_shape&#39;</span><span style="color:#abb2bf;">, </span><span style="color:#eb6772;">explode</span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">col</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&#39;dataCells_shape&#39;</span><span style="color:#abb2bf;">)))
+flat_df </span><span style="color:#adb7c9;">= </span><span style="color:#eb6772;">flatten_struct_cols</span><span style="color:#abb2bf;">(flat_df)
+flat_df.</span><span style="color:#eb6772;">show</span><span style="color:#abb2bf;">(</span><span style="color:#db9d63;">3</span><span style="color:#abb2bf;">)
+
+    </span><span style="color:#adb7c9;">+--------------|--------------|--------------|---------------|--------------------|---------------------+
+    |</span><span style="color:#abb2bf;">dataCells_posx</span><span style="color:#adb7c9;">|</span><span style="color:#abb2bf;">dataCells_posy</span><span style="color:#adb7c9;">|</span><span style="color:#abb2bf;">dataCells_posz</span><span style="color:#adb7c9;">|</span><span style="color:#abb2bf;">dataCells_value</span><span style="color:#adb7c9;">|</span><span style="color:#abb2bf;">dataCells_shape__len</span><span style="color:#adb7c9;">|</span><span style="color:#abb2bf;">dataCells_shape__type</span><span style="color:#adb7c9;">|
+    +--------------|--------------|--------------|---------------|--------------------|---------------------+
+    |             </span><span style="color:#db9d63;">0</span><span style="color:#adb7c9;">|             </span><span style="color:#db9d63;">1</span><span style="color:#adb7c9;">|           </span><span style="color:#db9d63;">0.5</span><span style="color:#adb7c9;">|            </span><span style="color:#db9d63;">1.5</span><span style="color:#adb7c9;">|                   </span><span style="color:#db9d63;">1</span><span style="color:#adb7c9;">|               </span><span style="color:#abb2bf;">square</span><span style="color:#adb7c9;">|
+    |             </span><span style="color:#db9d63;">2</span><span style="color:#adb7c9;">|             </span><span style="color:#db9d63;">5</span><span style="color:#adb7c9;">|           </span><span style="color:#db9d63;">0.5</span><span style="color:#adb7c9;">|            </span><span style="color:#db9d63;">7.5</span><span style="color:#adb7c9;">|                </span><span style="color:#abb2bf;">null</span><span style="color:#adb7c9;">|               </span><span style="color:#abb2bf;">circle</span><span style="color:#adb7c9;">|
+    +--------------|--------------|--------------|---------------|--------------------|---------------------+
+</span></code></pre>
+<p>And now we have a problem. After back tracking I found that <code>explode</code> is
+silently dropping out my row with null in it. Let's check the
+<a href="https://spark.apache.org/docs/2.2.0/api/python/pyspark.sql.html?highlight=date#pyspark.sql.functions.explode">docs</a>.
+Interestingly I didn't see anything about this. So I checked the latest docs
+and just so happened to notice
+<a href="https://spark.apache.org/docs/latest/api/python/pyspark.sql.html?highlight=date#pyspark.sql.functions.explode_outer"><code>explode_outer</code></a>
+listed right below this. It turns out in 2.2.0 a set of <code>_outer</code> functions
+where added that retain <code>null</code> for certain operations such as explode.
+Unfortunately some of these are not available in PySpark until 2.3 and I didn't
+have the option to migrate from 2.2.x to 2.3.x.</p>
+<p><a href="https://stackoverflow.com/questions/52747258/pyspark-2-2-explode-dropping-null-rows-how-to-implement-explode-outer"><code>StackOverflow</code></a>
+to the rescue. After reviewing the PySpark tag I didn't find any solutions with
+accepted answers so I went ahead and wrote my own question. Thanks to that I
+learned a lot about PySpark/JVM interop and about some of the disparities
+between the JVM API and other language APIs.</p>
+<h2 id="otherwise">Otherwise()</h2>
+<p>Based on some responses to my question I found another question that provided a
+scala solution involving <code>.otherwise</code> and casting the nested structure with a
+<code>null</code> literal. <code>None</code> in Python. This seemed like the more direct solution
+without making use of private functionality in the library, so I opted to try
+implementing the scala solution in PySpark first.</p>
+<pre style="background-color:#2b303b;">
+<code class="language-python" data-lang="python"><span style="color:#abb2bf;">flat_df </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">df.</span><span style="color:#eb6772;">withColumn</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&#39;dataCells&#39;</span><span style="color:#abb2bf;">, </span><span style="color:#eb6772;">explode</span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">col</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&#39;dataCells&#39;</span><span style="color:#abb2bf;">)))
+flat_df </span><span style="color:#adb7c9;">= </span><span style="color:#eb6772;">flatten_struct_cols</span><span style="color:#abb2bf;">(flat_df)
+flat_df.</span><span style="color:#eb6772;">withColumn</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&#39;dataCells_shape_test&#39;</span><span style="color:#abb2bf;">, </span><span style="color:#eb6772;">explode</span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">when</span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">col</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&#39;dataCells_shape&#39;</span><span style="color:#abb2bf;">).</span><span style="color:#eb6772;">isNotNull</span><span style="color:#abb2bf;">(), </span><span style="color:#eb6772;">col</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&#39;dataCells_shape&#39;</span><span style="color:#abb2bf;">))
+                                          .otherwise(</span><span style="color:#eb6772;">array</span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">lit</span><span style="color:#abb2bf;">(</span><span style="color:#db9d63;">None</span><span style="color:#abb2bf;">).</span><span style="color:#eb6772;">cast</span><span style="color:#abb2bf;">(flat_df.</span><span style="color:#eb6772;">select</span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">col</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&#39;dataCells_shape&#39;</span><span style="color:#abb2bf;">)
+                                          .getItem(</span><span style="color:#db9d63;">0</span><span style="color:#abb2bf;">))
+                                          .dtypes[</span><span style="color:#db9d63;">0</span><span style="color:#abb2bf;">][</span><span style="color:#db9d63;">1</span><span style="color:#abb2bf;">]))))).</span><span style="color:#eb6772;">show</span><span style="color:#abb2bf;">()
+
+</span><span style="color:#adb7c9;">+--------------|--------------|--------------|---------------|---------------|--------------------+
+|</span><span style="color:#abb2bf;">dataCells_posx</span><span style="color:#adb7c9;">|</span><span style="color:#abb2bf;">dataCells_posy</span><span style="color:#adb7c9;">|</span><span style="color:#abb2bf;">dataCells_posz</span><span style="color:#adb7c9;">|</span><span style="color:#abb2bf;">dataCells_shape</span><span style="color:#adb7c9;">|</span><span style="color:#abb2bf;">dataCells_value</span><span style="color:#adb7c9;">|</span><span style="color:#abb2bf;">dataCells_shape_test</span><span style="color:#adb7c9;">|
++--------------|--------------|--------------|---------------|---------------|--------------------+
+|             </span><span style="color:#db9d63;">0</span><span style="color:#adb7c9;">|             </span><span style="color:#db9d63;">1</span><span style="color:#adb7c9;">|           </span><span style="color:#db9d63;">0.5</span><span style="color:#adb7c9;">|  </span><span style="color:#abb2bf;">[[</span><span style="color:#db9d63;">1</span><span style="color:#abb2bf;">, square]]</span><span style="color:#adb7c9;">|            </span><span style="color:#db9d63;">1.5</span><span style="color:#adb7c9;">|         </span><span style="color:#abb2bf;">[</span><span style="color:#db9d63;">1</span><span style="color:#abb2bf;">, square]</span><span style="color:#adb7c9;">|
+|             </span><span style="color:#db9d63;">2</span><span style="color:#adb7c9;">|             </span><span style="color:#db9d63;">5</span><span style="color:#adb7c9;">|           </span><span style="color:#db9d63;">0.5</span><span style="color:#adb7c9;">|   </span><span style="color:#abb2bf;">[[, circle]]</span><span style="color:#adb7c9;">|            </span><span style="color:#db9d63;">7.5</span><span style="color:#adb7c9;">|          </span><span style="color:#abb2bf;">[, circle]</span><span style="color:#adb7c9;">|
++--------------|--------------|--------------|---------------|---------------|--------------------+
+</span></code></pre>
+<p>But unfortunately it appears that the <code>explode</code> may have a precedence behind
+the scenes that drops the row before <code>otherwise</code> is evaluated. With a quickly
+approaching deadline I unfortunately did not have time to dig deep into why
+this was with other options on the table.</p>
+<h2 id="into-the-jvm">Into the JVM</h2>
+<p>While reviewing suggested solutions I found out that <code>SparkContext</code> has a
+<code>_jvm</code> object that provides access to <code>org.apache.*</code> functionality. Along with
+this I also noticed that Databricks has an entire &quot;private&quot; api used with
+Python and Java. Part of this API is <code>_to_java_column</code> which makes it possible
+to transform a PySpark column to a Java column to match Java method signatures.</p>
+<p>Learning all of this, and knowing that the Java API already had <code>explode_outer</code>
+implemented I reviewed the Java <a href="https://spark.apache.org/docs/2.3.0/api/java/index.html"><code>explode_outer</code></a>
+method to verify the type signature and built my own function in Python to call
+the Java function and return the column with <code>null</code> in place.</p>
+<pre style="background-color:#2b303b;">
+<code class="language-python" data-lang="python"><span style="color:#cd74e8;">def </span><span style="color:#5cb3fa;">explode_outer</span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">col</span><span style="color:#abb2bf;">):
+    </span><span style="font-style:italic;color:#5f697a;">&quot;&quot;&quot;
+    Calling the explode_outer Java function from PySpark
+    &quot;&quot;&quot;
+    </span><span style="color:#abb2bf;">_explode_outer </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">sc._jvm.org.apache.spark.sql.functions.explode_outer
+    </span><span style="color:#cd74e8;">return </span><span style="color:#eb6772;">Column</span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">_explode_outer</span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">_to_java_column</span><span style="color:#abb2bf;">(col)))
+</span></code></pre><pre style="background-color:#2b303b;">
+<code class="language-python" data-lang="python"><span style="color:#abb2bf;">flat_df_with_null </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">df.</span><span style="color:#eb6772;">withColumn</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&#39;dataCells&#39;</span><span style="color:#abb2bf;">, </span><span style="color:#eb6772;">explode</span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">col</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&#39;dataCells&#39;</span><span style="color:#abb2bf;">)))
+flat_df_with_null </span><span style="color:#adb7c9;">= </span><span style="color:#eb6772;">flatten_struct_cols</span><span style="color:#abb2bf;">(flat_df_with_null)
+flat_df_with_null </span><span style="color:#adb7c9;">= </span><span style="color:#abb2bf;">flat_df_with_null.</span><span style="color:#eb6772;">withColumn</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&quot;dataCells_shape&quot;</span><span style="color:#abb2bf;">, </span><span style="color:#eb6772;">explode_outer</span><span style="color:#abb2bf;">(</span><span style="color:#eb6772;">col</span><span style="color:#abb2bf;">(</span><span style="color:#9acc76;">&quot;dataCells_shape&quot;</span><span style="color:#abb2bf;">)))
+flat_df_with_null.</span><span style="color:#eb6772;">show</span><span style="color:#abb2bf;">()
+
+    </span><span style="color:#adb7c9;">+--------------|--------------|--------------|---------------|---------------+
+    |</span><span style="color:#abb2bf;">dataCells_posx</span><span style="color:#adb7c9;">|</span><span style="color:#abb2bf;">dataCells_posy</span><span style="color:#adb7c9;">|</span><span style="color:#abb2bf;">dataCells_posz</span><span style="color:#adb7c9;">|</span><span style="color:#abb2bf;">dataCells_shape</span><span style="color:#adb7c9;">|</span><span style="color:#abb2bf;">dataCells_value</span><span style="color:#adb7c9;">|
+    +--------------|--------------|--------------|---------------|---------------+
+    |             </span><span style="color:#db9d63;">0</span><span style="color:#adb7c9;">|             </span><span style="color:#db9d63;">1</span><span style="color:#adb7c9;">|           </span><span style="color:#db9d63;">0.5</span><span style="color:#adb7c9;">|    </span><span style="color:#abb2bf;">[</span><span style="color:#db9d63;">1</span><span style="color:#abb2bf;">, square]</span><span style="color:#adb7c9;">|            </span><span style="color:#db9d63;">1.5</span><span style="color:#adb7c9;">|
+    |             </span><span style="color:#db9d63;">1</span><span style="color:#adb7c9;">|             </span><span style="color:#db9d63;">3</span><span style="color:#adb7c9;">|           </span><span style="color:#db9d63;">0.5</span><span style="color:#adb7c9;">|           </span><span style="color:#abb2bf;">null</span><span style="color:#adb7c9;">|            </span><span style="color:#db9d63;">4.5</span><span style="color:#adb7c9;">|
+    |             </span><span style="color:#db9d63;">2</span><span style="color:#adb7c9;">|             </span><span style="color:#db9d63;">5</span><span style="color:#adb7c9;">|           </span><span style="color:#db9d63;">0.5</span><span style="color:#adb7c9;">|     </span><span style="color:#abb2bf;">[, circle]</span><span style="color:#adb7c9;">|            </span><span style="color:#db9d63;">7.5</span><span style="color:#adb7c9;">|
+    +--------------|--------------|--------------|---------------|---------------+
+</span></code></pre><pre style="background-color:#2b303b;">
+<code class="language-python" data-lang="python"><span style="color:#abb2bf;">flat_df_with_null </span><span style="color:#adb7c9;">= </span><span style="color:#eb6772;">flatten_struct_cols</span><span style="color:#abb2bf;">(flat_df_with_null)
+flat_df_with_null.</span><span style="color:#eb6772;">show</span><span style="color:#abb2bf;">()
+
+    </span><span style="color:#adb7c9;">+--------------|--------------|--------------|---------------|--------------------|---------------------+
+    |</span><span style="color:#abb2bf;">dataCells_posx</span><span style="color:#adb7c9;">|</span><span style="color:#abb2bf;">dataCells_posy</span><span style="color:#adb7c9;">|</span><span style="color:#abb2bf;">dataCells_posz</span><span style="color:#adb7c9;">|</span><span style="color:#abb2bf;">dataCells_value</span><span style="color:#adb7c9;">|</span><span style="color:#abb2bf;">dataCells_shape__len</span><span style="color:#adb7c9;">|</span><span style="color:#abb2bf;">dataCells_shape__type</span><span style="color:#adb7c9;">|
+    +--------------|--------------|--------------|---------------|--------------------|---------------------+
+    |             </span><span style="color:#db9d63;">0</span><span style="color:#adb7c9;">|             </span><span style="color:#db9d63;">1</span><span style="color:#adb7c9;">|           </span><span style="color:#db9d63;">0.5</span><span style="color:#adb7c9;">|            </span><span style="color:#db9d63;">1.5</span><span style="color:#adb7c9;">|                   </span><span style="color:#db9d63;">1</span><span style="color:#adb7c9;">|               </span><span style="color:#abb2bf;">square</span><span style="color:#adb7c9;">|
+    |             </span><span style="color:#db9d63;">1</span><span style="color:#adb7c9;">|             </span><span style="color:#db9d63;">3</span><span style="color:#adb7c9;">|           </span><span style="color:#db9d63;">0.5</span><span style="color:#adb7c9;">|            </span><span style="color:#db9d63;">4.5</span><span style="color:#adb7c9;">|                </span><span style="color:#abb2bf;">null</span><span style="color:#adb7c9;">|                 </span><span style="color:#abb2bf;">null</span><span style="color:#adb7c9;">|
+    |             </span><span style="color:#db9d63;">2</span><span style="color:#adb7c9;">|             </span><span style="color:#db9d63;">5</span><span style="color:#adb7c9;">|           </span><span style="color:#db9d63;">0.5</span><span style="color:#adb7c9;">|            </span><span style="color:#db9d63;">7.5</span><span style="color:#adb7c9;">|                </span><span style="color:#abb2bf;">null</span><span style="color:#adb7c9;">|               </span><span style="color:#abb2bf;">circle</span><span style="color:#adb7c9;">|
+    +--------------|--------------|--------------|---------------|--------------------|---------------------+
+</span></code></pre>
+<p>And it works! With that I am able to flatten out arbitrarily nested collections
+in PySpark dataframes while retaining nulls when using Spark 2.2.x.</p>
+<h3 id="wrapping-up">Wrapping Up</h3>
+<p>A couple things to note; if you have an array with more than one struct as a
+member this will fail, and if you have a deeply nested structure the growth of
+this transformation is typically not sustainable on a large dataset.</p>
+<p>Finally I have questions that I hope to continue spending time on. For instance
+why are rows with <code>null</code> dropped at all? I wonder if the operation makes a new
+dataframe from the column to apply the operation to and then joins it back on
+an index and along the way that join loses <code>nulls</code>. Why are functions that are
+lossy not identified as such? Is there always a version lag between the JVM api
+and the PySpark api? I'm also curious how Catalyst handles denesting operations
+and adding new columns from the result of exploding arrays or flattening
+structs.</p>
+<p>Finally instead of adding new columns I want to try using the <code>MapType</code> to
+instead create a new column of key, value pairs that allows me to flatten out
+arbitrarily deep collections into a MapType so that I can use the same
+methodology on much deeper structures without adding a lot of columns that are
+mostly null.</p>
+<h3 id="additional-links">Additional Links</h3>
+<ul>
+<li><a href="https://stackoverflow.com/questions/52747258/pyspark-2-2-explode-dropping-null-rows-how-to-implement-explode-outer">Original Question</a></li>
+<li><a href="https://stackoverflow.com/questions/31684842/calling-java-scala-function-from-a-task">PySpark Data Flow</a></li>
+<li><a href="https://stackoverflow.com/questions/39739072/spark-sql-how-to-explode-without-losing-null-values">Calling Java/Scala from PySpark</a></li>
+<li><a href="https://0x0fff.com/spark-architecture/">Spark Architecture</a></li>
+<li><a href="https://cwiki.apache.org/confluence/display/SPARK/PySpark+Internals">PySpark Internals</a></li>
+</ul>
+
+          </div>
+        </article>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+
+  
+  <section class="modal" id="search-modal">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+      <div class="field">
+        <p class="control has-icons-right">
+          <input class="input" id="search" placeholder="Search this website." type="search" />
+          <span class="icon is-small is-right">
+            <i class="fas fa-search"></i>
+          </span>
+        </p>
+      </div>
+      <div class="search-results">
+        <div class="search-results__items"></div>
+      </div>
+    </div>
+    <button aria-label="close" class="modal-close is-large"></button>
+  </section>
+  
+
+
+   
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <nav class="level">
+          
+          <div class="level-item has-text-centered">
+            <a
+              class="button is-black is-outlined"
+              href="https:&#x2F;&#x2F;burningdaylight.io&#x2F;posts&#x2F;docker-airflow&#x2F;"
+            >
+              <span class="icon mr-2">
+                <i class="fas fa-arrow-circle-left"></i>
+              </span>
+              docker-airflow
+            </a>
+          </div>
+           
+          <div class="level-item has-text-centered">
+            <a
+              class="button is-black is-outlined"
+              href="https:&#x2F;&#x2F;burningdaylight.io&#x2F;posts&#x2F;pyspark-intro&#x2F;"
+            >
+              DerbyPy Intro to PySpark<span class="icon ml-2">
+                <i class="fas fa-arrow-circle-right"></i>
+              </span>
+            </a>
+          </div>
+            
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+
+    
+
+  
+  <footer class="py-4 has-background-light">
+    <p class="has-text-centered">
+      Built with
+      <span class="icon is-small">
+        <i class="fas fa-code fa-xs"></i>
+      </span>
+      code and
+      <span class="icon is-small">
+        <i class="fas fa-heart fa-xs"></i>
+      </span>
+      love <br /> Powered By
+      <span class="icon is-small">
+        <i class="fas fa-power-off fa-xs"></i>
+      </span>
+      Zola <br />Posts licensed by <a href="https://creativecommons.org/publicdomain/zero/1.0/">Creative Commons CC0 1.0 </a><i class="fa fa-cc"></i>
+      <br /> Code licensed <a href="https://www.gnu.org/licenses/lgpl-3.0.txt">LGPL</a>
+    </p>
+  </footer>
+  
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sharer.js@latest/sharer.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/galleria.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.xkcd@1/dist/chart.xkcd.min.js"></script>
+  <script src="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.6.1/themes/folio/galleria.folio.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/elasticlunr/0.9.6/elasticlunr.min.js"></script>
+  <script src='https:&#x2F;&#x2F;burningdaylight.io&#x2F;search_index.en.js'></script>
+  <script src='https:&#x2F;&#x2F;burningdaylight.io&#x2F;js&#x2F;site.js'></script>
+
+    
+</body>
+
+</html>
